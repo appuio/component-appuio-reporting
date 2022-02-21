@@ -1,0 +1,5 @@
+= appuio-cloud-reporting
+
+appuio-cloud-reporting is a Commodore component to manage appuio-cloud-reporting.
+
+See the xref:references/parameters.adoc[parameters] reference for further details.

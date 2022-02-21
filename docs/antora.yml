@@ -1,0 +1,6 @@
+name: appuio-cloud-reporting
+title: appuio-cloud-reporting
+version: master
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/partials/nav.adoc

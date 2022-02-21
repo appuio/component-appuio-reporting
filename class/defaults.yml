@@ -1,0 +1,4 @@
+parameters:
+  appuio_cloud_reporting:
+    =_metadata: {}
+    namespace: syn-appuio-cloud-reporting

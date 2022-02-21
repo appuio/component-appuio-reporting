@@ -1,0 +1,11 @@
+parameters:
+  kapitan:
+    compile:
+      - input_paths:
+          - appuio-cloud-reporting/component/app.jsonnet
+        input_type: jsonnet
+        output_path: apps/
+      - input_paths:
+          - appuio-cloud-reporting/component/main.jsonnet
+        input_type: jsonnet
+        output_path: appuio-cloud-reporting/
