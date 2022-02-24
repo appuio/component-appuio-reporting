@@ -117,7 +117,7 @@ local checkMigrationContainer = {
 };
 
 local checkMissingContainer = {
-  name: 'check_missing',
+  name: 'check-missing',
   image: formatImage(params.images.reporting),
   env+: dbEnv,
   args: [ 'check_missing' ],

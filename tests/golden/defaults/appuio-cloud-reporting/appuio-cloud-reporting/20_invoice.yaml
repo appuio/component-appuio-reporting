@@ -118,7 +118,7 @@ spec:
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.4.1
-              name: check_missing
+              name: check-missing
               resources: {}
           restartPolicy: OnFailure
   schedule: 0 10 1 * *
