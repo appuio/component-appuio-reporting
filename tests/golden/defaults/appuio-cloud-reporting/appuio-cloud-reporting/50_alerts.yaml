@@ -1,0 +1,63 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  annotations: {}
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-cloud-reporting
+    app.kubernetes.io/part-of: syn
+    name: appuio-cloud-reporting
+  name: appuio-cloud-reporting
+  namespace: appuio-cloud-reporting
+spec:
+  groups:
+    - name: appuio-cloud-reporting.alerts
+      rules:
+        - alert: APPUiOCloudInvoiceGenerationFailed
+          annotations:
+            description: APPUiO Cloud Invoice generation in Odoo failed.
+            message: APPUiO Cloud Invoice generation in Odoo failed.
+            runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudInvoiceGenerationFailed.html
+            summary: APPUiO Cloud Invoice generation in Odoo failed.
+          expr: 'kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"generate-invoices-.*"}
+            > 0
+
+            '
+          for: 10m
+          labels:
+            severity: warning
+            syn: 'true'
+            syn_component: appuio-cloud-reporting
+        - alert: APPUiOCloudReportingDatabaseBackfillingFailed
+          annotations:
+            description: APPUiO Cloud Reporting backfilling metrics into reporting
+              database failed.
+            message: APPUiO Cloud Reporting backfilling metrics into reporting database
+              failed.
+            runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.html
+            summary: APPUiO Cloud Reporting backfilling metrics into reporting database
+              failed.
+          expr: 'kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"backfill-.*"}
+            > 0
+
+            '
+          for: 10m
+          labels:
+            severity: warning
+            syn: 'true'
+            syn_component: appuio-cloud-reporting
+        - alert: APPUiOCloudReportingMissingData
+          annotations:
+            description: APPUiO Cloud Reporting is missing ERP link `target` data.
+            message: APPUiO Cloud Reporting is missing ERP link `target` data.
+            runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingMissingData.html
+            summary: APPUiO Cloud Reporting is missing ERP link `target` data.
+          expr: 'kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"check-missing-.*"}
+            > 0
+
+            '
+          for: 10m
+          labels:
+            severity: warning
+            syn: 'true'
+            syn_component: appuio-cloud-reporting

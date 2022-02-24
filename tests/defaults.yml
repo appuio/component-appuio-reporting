@@ -1,3 +1,17 @@
-# Overwrite parameters here
+parameters:
+  appuio_cloud_reporting:
 
-# parameters: {...}
+    database:
+      host: db.example.com
+      password: letmein
+
+    prometheus:
+      url: http://metrics
+
+    erp_adapter:
+      url: http://enterprisey-enterprise
+
+    network_policies:
+      target_namespaces:
+        appuio-reporting: true
+        appuio-thanos: true

@@ -1,0 +1,18 @@
+= Alert rule: APPUiOCloudReportingDatabaseBackfillingFailed
+
+include::partial$runbooks/contribution_note.adoc[]
+
+== icon:glasses[] Overview
+
+APPUiO Cloud Reporting failed while trying to generate Invoices.
+Invoices might be incomplete or missing.
+
+Deleting the failed job will clear this alert.
+
+== icon:bug[] Steps for debugging
+
+include::partial$runbooks/common_debugging_steps.adoc[]
++
+* Check if there is missing data, see xref:runbooks/APPUiOCloudReportingMissingData.adoc[APPUiOCloudReportingMissingData].
++
+* Check ERP connectivity and logs.

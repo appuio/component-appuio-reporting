@@ -1,2 +1,7 @@
 * xref:index.adoc[Home]
 * xref:references/parameters.adoc[Parameters]
+
+.Alert runbooks
+* xref:runbooks/APPUiOCloudReportingMissingData.adoc[APPUiOCloudReportingMissingData]
+* xref:runbooks/APPUiOCloudInvoiceGenerationFailed.adoc[APPUiOCloudInvoiceGenerationFailed]
+* xref:runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.adoc[APPUiOCloudReportingDatabaseBackfillingFailed]

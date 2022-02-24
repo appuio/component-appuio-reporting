@@ -1,0 +1,28 @@
+= Alert rule: APPUiOCloudReportingMissingData
+
+include::partial$runbooks/contribution_note.adoc[]
+
+== icon:glasses[] Overview
+
+APPUiO Cloud Reporting is missing data to link either categories, tenants or products to their representation in the ERP.
+The next invoice run is likely to fail.
+
+Deleting the failed job will clear this alert.
+
+== icon:bug[] Steps for debugging
+
+include::partial$runbooks/common_debugging_steps.adoc[]
++
+* Missing fields are reported in the output of the job.
++
+It's possible to re-run the job to get the output:
++
+[source,bash]
+----
+NAMESPACE=appuio-cloud-reporting
+FAILED_JOB=job/XXXXXX-XXXXXX
+
+oc --as=cluster-admin -n "${NAMESPACE}" debug "${FAILED_JOB}" \
+  --keep-init-containers=false -- \
+  appuio-cloud-reporting check_missing
+----

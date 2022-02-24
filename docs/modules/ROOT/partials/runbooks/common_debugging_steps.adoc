@@ -1,0 +1,20 @@
+* Check job logs.
+* Check for missing migrations:
++
+[source,bash]
+----
+NAMESPACE=appuio-cloud-reporting
+FAILED_JOB=job/XXXXXX-XXXXXX
+
+oc --as=cluster-admin -n "${NAMESPACE}" debug "${FAILED_JOB}" \
+  --keep-init-containers=false --image=ghcr.io/appuio/appuio-cloud-reporting:latest -- \
+  appuio-cloud-reporting migrate --show-pending
+
+# If pending migrations are shown
+oc --as=cluster-admin -n "${NAMESPACE}" debug "${FAILED_JOB}" \
+  --keep-init-containers=false --image=ghcr.io/appuio/appuio-cloud-reporting:latest -- \
+  appuio-cloud-reporting migrate
+oc --as=cluster-admin -n "${NAMESPACE}" debug "${FAILED_JOB}" \
+  --keep-init-containers=false --image=ghcr.io/appuio/appuio-cloud-reporting:latest -- \
+  appuio-cloud-reporting migrate --seed
+----

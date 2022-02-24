@@ -1,0 +1,16 @@
+= Alert rule: APPUiOCloudReportingDatabaseBackfillingFailed
+
+include::partial$runbooks/contribution_note.adoc[]
+
+== icon:glasses[] Overview
+
+APPUiO Cloud Reporting failed while trying to backfill Prometheus metering data to the reporting database.
+Totals might be too low in the next invoice run.
+
+Deleting the failed job will clear this alert.
+
+== icon:bug[] Steps for debugging
+
+include::partial$runbooks/common_debugging_steps.adoc[]
++
+* Check Prometheus/Thanos connectivity and logs.

@@ -6,14 +6,181 @@ The parent key for all of the following parameters is `appuio_cloud_reporting`.
 
 [horizontal]
 type:: string
-default:: `syn-appuio-cloud-reporting`
+default:: `appuio-cloud-reporting`
 
 The namespace in which to deploy this component.
+
+
+== `images`
+
+[horizontal]
+type:: dictionary
+default:: https://github.com/appuio/component-appuio-cloud-reporting/blob/master/class/defaults.yml[See `class/defaults.yml].
+
+Dictionary containing the container images used by this component.
+
+
+=== `images.reporting`
+
+[horizontal]
+type:: dictionary
+
+The image used for managing data in the reporting database.
+
+
+=== `images.erp_adapter`
+
+[horizontal]
+type:: dictionary
+
+The image used for creating invoices and syncing target fields.
+
+
+== `schedules`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+backfill: '15 * * * *'
+check_missing: '30 8-14 * * *'
+invoice: '0 10 1 * *'
+----
+
+Dictionary managing the schedules of the periodic jobs.
+
+
+== `database`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+host: null
+port: 5432
+name: appuio-cloud-reporting
+username: appuio-cloud-reporting
+password: null
+parameters: ''
+----
+
+Dictionary managing the connection to the reporting database.
+
+
+== `prometheus.url`
+
+[horizontal]
+type:: string
+default:: `null`
+
+URL used to connect with the Prometheus/Thanos Instance.
+
+
+== `erp_adapter.url`
+
+[horizontal]
+type:: string
+default:: `null`
+
+URL used to connect with the ERP Instance.
+For Odoo the URL must be in the format of `https://user:pass@host[:port]/db-name`.
+
+
+== `backfill.queries`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+appuio_cloud_memory: true
+appuio_cloud_loadbalancer: true
+appuio_cloud_persistent_storage: true
+----
+
+Queries to use when backfilling metrics data.
+`true` enables the query, every other value disables the query.
+Every query is run in its own CronJob.
+
+Check the reporting database for possible queries.
+Currently known queries are `appuio_cloud_memory`, `appuio_cloud_loadbalancer`, and `appuio_cloud_persistent_storage`
+
+
+== `network_policies.target_namespaces`
+
+[horizontal]
+type:: dictionary
+default:: `{}`
+example::
++
+[source,yaml]
+----
+appuio-reporting-database: true
+appuio-thanos: true
+----
+
+Injects a network policy into the target namespace given by the key, allowing communication to the namespace.
+
+[NOTE]
+This is a workaround and the parameter will disappear once we've a more native way to manage network policies with Project Syn.
+
+
+== `monitoring.enabled`
+
+[horizontal]
+type:: boolean
+default:: `true`
+
+The component creates Prometheus and Alertmanager objects if enabled.
+
+
+== `monitoring.alerts`
+
+[horizontal]
+type:: dictionary
+example::
++
+[source,yaml]
+----
+APPUiOCloudReportingDidSomething:
+  enabled: false
+  rule:
+    annotations:
+      description: APPUiOCloudReporting did something.
+      message: APPUiOCloudReporting did something.
+      runbook: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDidSomething.html
+    expr: |
+      appuio_cloud_reporting_doing_something > 1
+    for: 10m
+    labels:
+      severity: warning
+----
+
+Alerts monitoring the cloud reporting cron jobs.
 
 
 == Example
 
 [source,yaml]
 ----
-namespace: example-namespace
+schedules:
+  invoice: '0 12 1 * *'
+
+database:
+  host: reporting-database.appuio.cloud
+  port: 5432
+  name: reporting-database
+  username: reporting-user
+  password: ?{vaultkv:${cluster:tenant}/${cluster:name}/appuio-cloud-reporting/reporting-database-password}
+
+erp_adapter:
+  url: ?{vaultkv:${cluster:tenant}/${cluster:name}/appuio-cloud-reporting/erp-url}
+
+prometheus:
+  url: http://thanos-query.appuio-thanos.svc:9090
 ----

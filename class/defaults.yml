@@ -1,4 +1,86 @@
 parameters:
   appuio_cloud_reporting:
     =_metadata: {}
-    namespace: syn-appuio-cloud-reporting
+    namespace: appuio-cloud-reporting
+
+    images:
+      reporting:
+        registry: ghcr.io
+        repository: appuio/appuio-cloud-reporting
+        tag: v0.4.1
+
+      erp_adapter:
+        registry: ghcr.io
+        repository: vshn/appuio-odoo-adapter
+        tag: v1.0.3
+
+    schedules:
+      backfill: '15 * * * *'
+      check_missing: '30 8-14 * * *'
+      invoice: '0 10 1 * *'
+
+    database:
+      host: null
+      port: 5432
+      name: appuio-cloud-reporting
+      username: appuio-cloud-reporting
+      password: null
+      parameters: ''
+
+    prometheus:
+      url: null
+
+    erp_adapter:
+      url: null
+
+    backfill:
+      queries:
+        appuio_cloud_memory: true
+        appuio_cloud_loadbalancer: true
+        appuio_cloud_persistent_storage: true
+
+    network_policies:
+      target_namespaces: {}
+
+    monitoring:
+      enabled: true
+      alerts:
+        APPUiOCloudReportingMissingData:
+          enabled: true
+          rule:
+            annotations:
+              description: APPUiO Cloud Reporting is missing ERP link `target` data.
+              message: APPUiO Cloud Reporting is missing ERP link `target` data.
+              runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingMissingData.html
+              summary: APPUiO Cloud Reporting is missing ERP link `target` data.
+            expr: |
+              kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"check-missing-.*"} > 0
+            for: 10m
+            labels:
+              severity: warning
+        APPUiOCloudInvoiceGenerationFailed:
+          enabled: true
+          rule:
+            annotations:
+              description: APPUiO Cloud Invoice generation in Odoo failed.
+              message: APPUiO Cloud Invoice generation in Odoo failed.
+              runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudInvoiceGenerationFailed.html
+              summary: APPUiO Cloud Invoice generation in Odoo failed.
+            expr: |
+              kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"generate-invoices-.*"} > 0
+            for: 10m
+            labels:
+              severity: warning
+        APPUiOCloudReportingDatabaseBackfillingFailed:
+          enabled: true
+          rule:
+            annotations:
+              description: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
+              message: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
+              runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.html
+              summary: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
+            expr: |
+              kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"backfill-.*"} > 0
+            for: 10m
+            labels:
+              severity: warning
