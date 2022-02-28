@@ -10,6 +10,7 @@ metadata:
   name: generate-invoices
   namespace: appuio-cloud-reporting
 spec:
+  failedJobsHistoryLimit: 3
   jobTemplate:
     metadata:
       labels:
@@ -122,3 +123,4 @@ spec:
               resources: {}
           restartPolicy: OnFailure
   schedule: 0 10 1 * *
+  successfulJobsHistoryLimit: 3

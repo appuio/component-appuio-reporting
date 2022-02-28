@@ -10,6 +10,7 @@ metadata:
   name: check-missing
   namespace: appuio-cloud-reporting
 spec:
+  failedJobsHistoryLimit: 3
   jobTemplate:
     metadata:
       labels:
@@ -93,3 +94,4 @@ spec:
               name: sync-categories
           restartPolicy: OnFailure
   schedule: 30 8-14 * * *
+  successfulJobsHistoryLimit: 3
