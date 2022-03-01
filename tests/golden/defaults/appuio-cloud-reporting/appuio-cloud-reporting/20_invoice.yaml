@@ -53,7 +53,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: erp-url
-              image: ghcr.io/vshn/appuio-odoo-adapter:v1.0.3
+              image: ghcr.io/vshn/appuio-odoo-adapter:v1.0.4
               name: invoice
               resources: {}
           initContainers:
@@ -99,7 +99,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: erp-url
-              image: ghcr.io/vshn/appuio-odoo-adapter:v1.0.3
+              image: ghcr.io/vshn/appuio-odoo-adapter:v1.0.4
               name: sync-categories
             - args:
                 - check_missing

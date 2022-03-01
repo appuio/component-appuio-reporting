@@ -90,7 +90,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: erp-url
-              image: ghcr.io/vshn/appuio-odoo-adapter:v1.0.3
+              image: ghcr.io/vshn/appuio-odoo-adapter:v1.0.4
               name: sync-categories
           restartPolicy: OnFailure
   schedule: 30 8-14 * * *
