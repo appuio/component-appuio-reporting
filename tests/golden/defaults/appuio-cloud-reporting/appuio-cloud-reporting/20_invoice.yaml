@@ -121,6 +121,6 @@ spec:
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.4.1
               name: check-missing
               resources: {}
-          restartPolicy: OnFailure
+          restartPolicy: Never
   schedule: 0 10 1 * *
   successfulJobsHistoryLimit: 3

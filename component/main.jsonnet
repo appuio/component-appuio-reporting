@@ -163,6 +163,7 @@ local checkCJ = common.CronJob('check-missing', params.schedules.check_missing, 
 });
 
 local invoiceCJ = common.CronJob('generate-invoices', params.schedules.invoice, {
+  restartPolicy: 'Never',
   initContainers: [
     checkMigrationContainer,
     syncCategoriesContainer,
