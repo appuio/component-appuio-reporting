@@ -52,8 +52,8 @@ spec:
             message: APPUiO Cloud Reporting is missing ERP link `target` data.
             runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingMissingData.html
             summary: APPUiO Cloud Reporting is missing ERP link `target` data.
-          expr: 'kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"check-missing-.*"}
-            > 0
+          expr: '(kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"check-missing-.*"}
+            * scalar((days_in_month() - day_of_month()) <bool 7)) > 0
 
             '
           for: 10m
