@@ -9,6 +9,8 @@ The next invoice run is likely to fail.
 
 Deleting the failed job will clear this alert.
 
+TIP: This alert only fires for the last week (7 days) of each month.
+
 == icon:bug[] Steps for debugging
 
 include::partial$runbooks/common_debugging_steps.adoc[]

@@ -54,7 +54,7 @@ parameters:
               runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingMissingData.html
               summary: APPUiO Cloud Reporting is missing ERP link `target` data.
             expr: |
-              kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"check-missing-.*"} > 0
+              (kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"check-missing-.*"} * scalar((days_in_month() - day_of_month()) <bool 7)) > 0
             for: 10m
             labels:
               severity: warning
