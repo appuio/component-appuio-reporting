@@ -7,12 +7,12 @@ parameters:
       reporting:
         registry: ghcr.io
         repository: appuio/appuio-cloud-reporting
-        tag: v0.4.2
+        tag: v0.5.0
 
       erp_adapter:
         registry: ghcr.io
         repository: vshn/appuio-odoo-adapter
-        tag: v1.1.1
+        tag: v1.2.0
 
     schedules:
       backfill: '15 * * * *'
