@@ -150,7 +150,12 @@ local backfillCJ = function(queryName)
         resources: {},
       },
     ],
-  });
+  }) {
+    spec+: {
+      // Keeping infinite jobs is not possible. Keep at least one month worth of jobs.
+      failedJobsHistoryLimit: 24 * 32,
+    },
+  };
 
 local checkCJ = common.CronJob('check-missing', params.schedules.check_missing, {
   initContainers: [
