@@ -17,7 +17,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-      name: backfill-appuio-cloud-loadbalancer
+        cron-job-name: backfill-appuio-cloud-loadbalancer
     spec:
       template:
         metadata:
@@ -100,7 +100,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-      name: backfill-appuio-cloud-memory
+        cron-job-name: backfill-appuio-cloud-memory
     spec:
       template:
         metadata:
@@ -183,7 +183,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-      name: backfill-appuio-cloud-persistent-storage
+        cron-job-name: backfill-appuio-cloud-persistent-storage
     spec:
       template:
         metadata:

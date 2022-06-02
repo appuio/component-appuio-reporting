@@ -17,7 +17,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-      name: generate-invoices
+        cron-job-name: generate-invoices
     spec:
       template:
         metadata:
