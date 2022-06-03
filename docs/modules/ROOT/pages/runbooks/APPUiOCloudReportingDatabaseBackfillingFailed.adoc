@@ -33,9 +33,7 @@ On macOS it expects the `date` command from GNU coreutils to be installed as `gd
 ----
 CRONJOB_NAME=<name of the cronjob that has failing jobs>
 
-query_name=$(kubectl get jobs --selector=cron-job-name=$CRONJOB_NAME -ojson \
-  | jq -r '[.items[] | select((.status.conditions[] | select( .type == "Failed"  ) | length ) >  0)]
-    | [.[].metadata.annotations["query-name"]] | first')
+query_name=$(kubectl get cronjobs $CRONJOB_NAME "-o=jsonpath={.metadata.annotations['query-name']}")
 echo $query_name
 
 failed_timestamps=$(kubectl get jobs --selector=cron-job-name=$CRONJOB_NAME -ojson \
