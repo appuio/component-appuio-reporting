@@ -196,7 +196,15 @@ local invoiceCJ = common.CronJob('generate-invoices', params.schedules.invoice, 
       resources: {},
     },
   ],
-});
+}) {
+  spec+: {
+    jobTemplate+: {
+      spec+: {
+        backoffLimit: 0,
+      },
+    },
+  },
+};
 
 
 // Define outputs below
