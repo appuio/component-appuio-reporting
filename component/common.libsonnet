@@ -21,8 +21,9 @@ local cronJob = function(name, schedule, jobSpec) kube._Object('batch/v1', 'Cron
     failedJobsHistoryLimit: 3,
     jobTemplate: {
       metadata: {
-        name: name,
-        labels+: labels,
+        labels+: labels {
+          'cron-job-name': name,
+        },
       },
       spec: {
         template: {

@@ -1,7 +1,8 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  annotations: {}
+  annotations:
+    query-name: appuio_cloud_loadbalancer
   labels:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
@@ -10,14 +11,16 @@ metadata:
   name: backfill-appuio-cloud-loadbalancer
   namespace: appuio-cloud-reporting
 spec:
-  failedJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 768
   jobTemplate:
     metadata:
+      annotations:
+        query-name: appuio_cloud_loadbalancer
       labels:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-      name: backfill-appuio-cloud-loadbalancer
+        cron-job-name: backfill-appuio-cloud-loadbalancer
     spec:
       template:
         metadata:
@@ -84,7 +87,8 @@ spec:
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  annotations: {}
+  annotations:
+    query-name: appuio_cloud_memory
   labels:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
@@ -93,14 +97,16 @@ metadata:
   name: backfill-appuio-cloud-memory
   namespace: appuio-cloud-reporting
 spec:
-  failedJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 768
   jobTemplate:
     metadata:
+      annotations:
+        query-name: appuio_cloud_memory
       labels:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-      name: backfill-appuio-cloud-memory
+        cron-job-name: backfill-appuio-cloud-memory
     spec:
       template:
         metadata:
@@ -167,7 +173,8 @@ spec:
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  annotations: {}
+  annotations:
+    query-name: appuio_cloud_persistent_storage
   labels:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
@@ -176,14 +183,16 @@ metadata:
   name: backfill-appuio-cloud-persistent-storage
   namespace: appuio-cloud-reporting
 spec:
-  failedJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 768
   jobTemplate:
     metadata:
+      annotations:
+        query-name: appuio_cloud_persistent_storage
       labels:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-      name: backfill-appuio-cloud-persistent-storage
+        cron-job-name: backfill-appuio-cloud-persistent-storage
     spec:
       template:
         metadata:

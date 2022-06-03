@@ -17,7 +17,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-      name: check-missing
+        cron-job-name: check-missing
     spec:
       template:
         metadata:
