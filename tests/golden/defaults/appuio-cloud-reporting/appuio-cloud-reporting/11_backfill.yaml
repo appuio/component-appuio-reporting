@@ -1,7 +1,8 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  annotations: {}
+  annotations:
+    query-name: appuio_cloud_loadbalancer
   labels:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
@@ -13,6 +14,8 @@ spec:
   failedJobsHistoryLimit: 768
   jobTemplate:
     metadata:
+      annotations:
+        query-name: appuio_cloud_loadbalancer
       labels:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
@@ -84,7 +87,8 @@ spec:
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  annotations: {}
+  annotations:
+    query-name: appuio_cloud_memory
   labels:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
@@ -96,6 +100,8 @@ spec:
   failedJobsHistoryLimit: 768
   jobTemplate:
     metadata:
+      annotations:
+        query-name: appuio_cloud_memory
       labels:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
@@ -167,7 +173,8 @@ spec:
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  annotations: {}
+  annotations:
+    query-name: appuio_cloud_persistent_storage
   labels:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
@@ -179,6 +186,8 @@ spec:
   failedJobsHistoryLimit: 768
   jobTemplate:
     metadata:
+      annotations:
+        query-name: appuio_cloud_persistent_storage
       labels:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting

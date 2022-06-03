@@ -151,7 +151,19 @@ local backfillCJ = function(queryName)
       },
     ],
   }) {
+    metadata+: {
+      annotations+: {
+        'query-name': queryName,
+      },
+    },
     spec+: {
+      jobTemplate+: {
+        metadata+: {
+          annotations+: {
+            'query-name': queryName,
+          },
+        },
+      },
       // Keeping infinite jobs is not possible. Keep at least one month worth of jobs.
       failedJobsHistoryLimit: 24 * 32,
     },
