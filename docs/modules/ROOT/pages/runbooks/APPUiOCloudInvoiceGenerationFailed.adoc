@@ -33,7 +33,7 @@ Use the findings from the previous step to remove any obstacles that prevents th
 +
 [source,bash]
 ----
-name="generate-invoices-$($(command -v gdate || command -v date) +%s)"
+name="generate-invoices-manual-$($(command -v gdate || command -v date) +%s)"
 kubectl --as cluster-admin -n appuio-cloud-reporting create job --from=cronjob/generate-invoices "${name}"
 kubectl -n appuio-cloud-reporting logs "job/${name}"
 ----
