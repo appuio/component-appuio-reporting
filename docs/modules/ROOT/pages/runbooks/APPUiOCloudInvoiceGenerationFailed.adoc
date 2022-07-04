@@ -4,7 +4,7 @@ include::partial$runbooks/contribution_note.adoc[]
 
 == icon:glasses[] Overview
 
-APPUiO Cloud Reporting failed while trying to generate Invoices.
+APPUiO Cloud Reporting failed while trying to generate invoices.
 Invoices might be incomplete or missing.
 Remove any obstacles and rerun the job.
 
@@ -27,7 +27,7 @@ kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get j
 
 . Remove any obstacles
 +
-Use the findings from the previous step to remove any obstacles that prevents the job from failing again.
+Use the findings from the previous step to remove any obstacles causing the job to fail again.
 
 . Rerun job
 +
