@@ -5,26 +5,58 @@ include::partial$runbooks/contribution_note.adoc[]
 == icon:glasses[] Overview
 
 APPUiO Cloud Reporting is missing data to link either categories, tenants or products to their representation in the ERP.
-The next invoice run is likely to fail.
-
-Deleting the failed job will clear this alert.
+The next invoice run will fail.
 
 TIP: This alert only fires for the last week (7 days) of each month.
 
 == icon:bug[] Steps for debugging
 
-include::partial$runbooks/common_debugging_steps.adoc[]
-+
-* Missing fields are reported in the output of the job.
-+
-It's possible to re-run the job to get the output:
+[IMPORTANT]
+====
+Inform the product owner of APPUiO Cloud about the situation so they can handle the situation.
+In absence of the product owner, inform Tarazed.
+Use the following instructions to resolve the situation should neighter be available.
+====
+
+1. Identify the missing fields from the pod log
 +
 [source,bash]
 ----
-NAMESPACE=appuio-cloud-reporting
-FAILED_JOB=job/XXXXXX-XXXXXX
-
-oc --as=cluster-admin -n "${NAMESPACE}" debug "${FAILED_JOB}" \
-  --keep-init-containers=false -- \
-  appuio-cloud-reporting check_missing
+kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=check-missing --field-selector status.successful=0 -o name | tail -n1)
 ----
+
+2. Lookup the missing identifiers
++
+Use the content of the field `source` as a starter.
+Use https://portal.appuio.cloud to look up the organization and then use https://control.vshn.net to identify a maching customer.
+Once a matching customer was found, look it up in https://erp.vshn.net.
+Copy the id from the URL.
+
+3. Complete the data
++
+Connect with the billing data base.
++
+[source,bash]
+----
+kubectl -n appuio-reporting port-forward svc/reporting-db 5432 &
+
+DB_USER=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.user}' | base64 --decode)
+export PGPASSWORD=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.password}' | base64 --decode)
+
+psql -U "${DB_USER}" -w -h localhost reporting
+----
++
+Update the records.
++
+[source,sql]
+----
+UPDATE tenants set target = <ID from ERP> where id = <UUID from pod log>
+----
+
+4. Trigger a new check
++
+…
+
+5. Clean up
++
+…
