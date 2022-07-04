@@ -55,8 +55,20 @@ UPDATE tenants set target = <ID from ERP> where id = <UUID from pod log>
 
 4. Trigger a new check
 +
-…
+[source,bash]
+----
+name="check-missing-manual-$($(command -v gdate || command -v date) +%s)"
+kubectl --as cluster-admin -n appuio-cloud-reporting create job --from=cronjob/check-missing "${name}"
+kubectl -n appuio-cloud-reporting logs "job/${name}"
+----
++
+Continue with step 2 should there be more data missing.
 
 5. Clean up
 +
-…
+Remove all failed check-missing jobs to clear the alert.
++
+[source,bash]
+----
+kubectl -n appuio-cloud-reporting delete $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=check-missing --field-selector status.successful=0 -o name)
+----
