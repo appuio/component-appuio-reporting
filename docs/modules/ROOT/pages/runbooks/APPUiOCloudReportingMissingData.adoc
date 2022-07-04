@@ -13,9 +13,10 @@ TIP: This alert only fires for the last week (7 days) of each month.
 
 [IMPORTANT]
 ====
-Inform the product owner of APPUiO Cloud about the situation so they can handle the situation.
+Inform the product owner of APPUiO Cloud.
+The situation will usually be handled by the product owner.
 In absence of the product owner, inform Tarazed.
-Use the following instructions to resolve the situation should neighter be available.
+Use the following instructions to resolve the situation should neither be available.
 ====
 
 1. Identify the missing fields from the pod log
@@ -28,13 +29,13 @@ kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get j
 2. Lookup the missing identifiers
 +
 Use the content of the field `source` as a starter.
-Use https://portal.appuio.cloud to look up the organization and then use https://control.vshn.net to identify a maching customer.
+Use https://portal.appuio.cloud to look up the organization, and then use https://control.vshn.net to identify a matching customer.
 Once a matching customer was found, look it up in https://erp.vshn.net.
-Copy the id from the URL.
+Copy the ID from the URL.
 
 3. Complete the data
 +
-Connect with the billing data base.
+Connect with the billing database.
 +
 [source,bash]
 ----
