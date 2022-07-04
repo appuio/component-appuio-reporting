@@ -18,7 +18,8 @@ Rerunning the job, can leave duplicates which need to be cleaned up.
 
 . Identify source of failure
 * Check for missing data indicated by the alert rule xref:runbooks/APPUiOCloudReportingMissingData.adoc[APPUiOCloudReportingMissingData].
-* Check logs for other issues
+* Check logs for other issues.
+  Look out for connectivity issues (for example between the job and the ERP).
 +
 [source,bash]
 ----
