@@ -9,10 +9,10 @@ Invoices might be incomplete or missing.
 Remove any obstacles and rerun the job.
 
 [IMPORTANT]
----
+====
 The job is not idempotent.
 Rerunning the job, can leave duplicates which need to be cleaned up.
----
+====
 
 == icon:bug[] Steps for debugging
 
@@ -44,18 +44,18 @@ In the ERP, search for the generated invoices.
 Remove all duplicates.
 +
 [NOTE]
-----
+====
 Invoices with status Draft can be removed without issues.
 For other states, check with finance.
 They might redo some modifications.
-----
+====
 +
 [TIP]
-----
+====
 Use the advanced search to search "APPUiO Cloud <month> <year>" in the field `Reference/Description`.
 Then sort by `Customer`.
 This makes spotting duplicates easier.
----
+====
 
 . Clean up
 +
