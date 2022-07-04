@@ -10,7 +10,7 @@ Remove any obstacles and rerun the job.
 
 [IMPORTANT]
 ====
-The job is not idempotent.
+The job isn't idempotent.
 Rerunning the job, can leave duplicates which need to be cleaned up.
 ====
 
