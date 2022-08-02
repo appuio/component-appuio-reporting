@@ -54,6 +54,6 @@ date_bin=date
 if [[ "$OSTYPE" == "darwin"* ]]; then date_bin=gdate; fi
 
 echo $failed_timestamps \
-  | xargs -I @ gdate --date @ +"%Y-%m-%dT%H:00:00Z" \
+  | xargs -I @ $date_bin --date @ +"%Y-%m-%dT%H:00:00Z" \
   | xargs -n1 oc --as=cluster-admin debug job/$job_template -- appuio-cloud-reporting report --query-name=$query_name --begin
 ----
