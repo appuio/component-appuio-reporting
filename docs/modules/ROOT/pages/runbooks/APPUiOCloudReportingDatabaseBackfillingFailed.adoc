@@ -32,11 +32,12 @@ On macOS it expects the `date` command from GNU coreutils to be installed as `gd
 [source,bash]
 ----
 CRONJOB_NAME=<name of the cronjob that has failing jobs>
+NAMESPACE=appuio-cloud-reporting
 
-query_name=$(kubectl get cronjobs $CRONJOB_NAME "-o=jsonpath={.metadata.annotations['query-name']}")
+query_name=$(kubectl -n $NAMESPACE get cronjobs $CRONJOB_NAME "-o=jsonpath={.metadata.annotations['query-name']}")
 echo $query_name
 
-failed_timestamps=$(kubectl get jobs --selector=cron-job-name=$CRONJOB_NAME -ojson \
+failed_timestamps=$(kubectl -n $NAMESPACE get jobs --selector=cron-job-name=$CRONJOB_NAME -ojson \
   | jq -r '[.items[] | select((.status.conditions[] | select( .type == "Failed" ) | length ) >  0)]
             | .[].metadata.creationTimestamp')
 echo $failed_timestamps
@@ -47,7 +48,9 @@ echo $failed_timestamps
 
 [source,bash]
 ----
-job_template=$(kubectl get jobs --selector=cron-job-name=$CRONJOB_NAME -ojson \
+NAMESPACE=appuio-cloud-reporting
+
+job_template=$(kubectl -n $NAMESPACE get jobs --selector=cron-job-name=$CRONJOB_NAME -ojson \
   | jq -r '.items | first | .metadata.name')
 
 date_bin=date
