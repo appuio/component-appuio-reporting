@@ -12,7 +12,7 @@ parameters:
       erp_adapter:
         registry: ghcr.io
         repository: vshn/appuio-odoo-adapter
-        tag: v1.2.1
+        tag: v1.4.0
 
     schedules:
       backfill: '15 * * * *'
