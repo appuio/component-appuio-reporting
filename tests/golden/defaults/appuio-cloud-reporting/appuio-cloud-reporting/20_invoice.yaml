@@ -30,7 +30,7 @@ spec:
           containers:
             - args:
                 - appuio-odoo-adapter invoice --year=$(date -d "now -1 months" -u
-                  +"%Y") --month=$(date -d "now -1 months" -u +"%m")
+                  +"%Y") --month=$(date -d "now -1 months" -u +"%-m")
               command:
                 - sh
                 - -c
