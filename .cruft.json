@@ -1,0 +1,21 @@
+{
+  "template": "https://github.com/projectsyn/commodore-component-template.git",
+  "commit": "e6c4fd69190db1ad12e941d578b9423d0e2f993c",
+  "checkout": "main",
+  "context": {
+    "cookiecutter": {
+      "name": "appuio-cloud-reporting",
+      "slug": "appuio-cloud-reporting",
+      "parameter_key": "appuio_cloud_reporting",
+      "test_cases": "defaults",
+      "add_golden": "y",
+      "add_matrix": "y",
+      "add_go_unit": "n",
+      "github_owner": "appuio",
+      "github_name": "component-appuio-cloud-reporting",
+      "github_url": "https://github.com/appuio/component-appuio-cloud-reporting",
+      "_template": "https://github.com/projectsyn/commodore-component-template.git"
+    }
+  },
+  "directory": null
+}
