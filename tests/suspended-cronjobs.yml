@@ -10,6 +10,7 @@ parameters:
     erp_adapter:
       url: http://enterprisey-enterprise
 
+    development_mode: true
     schedules_suspend:
       check_missing: true
       invoice: true

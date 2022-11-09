@@ -12,7 +12,16 @@ local labels = {
 
 local cronJob = function(name, scheduleName, jobSpec)
   local schedule = params.schedules[scheduleName];
-  local suspend = params.schedules_suspend[scheduleName];
+  local suspend =
+    local s = params.schedules_suspend[scheduleName];
+    if s && !params.development_mode then
+      error (
+        '\n\nSuspending cronjobs not possible unless the component is in development mode.\n'
+        + 'Please note that suspending the cronjobs will partially or completely disable APPUiO Cloud billing.\n'
+        + 'To enable development mode, set parameter `development_mode` to true.\n'
+      )
+    else
+      s;
   kube._Object('batch/v1', 'CronJob', name) {
     metadata+: {
       namespace: params.namespace,
