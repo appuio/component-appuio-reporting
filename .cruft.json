@@ -1,13 +1,13 @@
 {
   "template": "https://github.com/projectsyn/commodore-component-template.git",
-  "commit": "0f8aa8baef803c2f09d710c717f26f7eff145407",
+  "commit": "2f97ae46dfbf7be5817132be4e1b40ecbf98711a",
   "checkout": "main",
   "context": {
     "cookiecutter": {
       "name": "appuio-cloud-reporting",
       "slug": "appuio-cloud-reporting",
       "parameter_key": "appuio_cloud_reporting",
-      "test_cases": "defaults",
+      "test_cases": "defaults suspended-cronjobs",
       "add_lib": "n",
       "add_pp": "n",
       "add_golden": "y",
