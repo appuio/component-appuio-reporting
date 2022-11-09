@@ -125,3 +125,4 @@ spec:
           restartPolicy: Never
   schedule: 0 10 1 * *
   successfulJobsHistoryLimit: 3
+  suspend: false

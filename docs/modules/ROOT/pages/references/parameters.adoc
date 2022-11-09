@@ -49,7 +49,24 @@ check_missing: '30 8-14 * * *'
 invoice: '0 10 1 * *'
 ----
 
-Dictionary managing the schedules of the periodic jobs.
+Dictionary managing the schedules of the periodic jobs (implemented as Kubernetes CronJobs).
+
+== `schedules_suspend`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+backfill: false
+check_missing: false
+invoice: false
+----
+
+This parameter allows users to selectively suspend one or more of the periodic jobs.
+
+A suspended CronJob still exists on the cluster, but no new jobs are created based on the CronJob's schedule.
 
 
 == `database`

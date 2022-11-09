@@ -83,6 +83,7 @@ spec:
           restartPolicy: OnFailure
   schedule: 15 * * * *
   successfulJobsHistoryLimit: 3
+  suspend: false
 ---
 apiVersion: batch/v1
 kind: CronJob
@@ -169,6 +170,7 @@ spec:
           restartPolicy: OnFailure
   schedule: 15 * * * *
   successfulJobsHistoryLimit: 3
+  suspend: false
 ---
 apiVersion: batch/v1
 kind: CronJob
@@ -255,3 +257,4 @@ spec:
           restartPolicy: OnFailure
   schedule: 15 * * * *
   successfulJobsHistoryLimit: 3
+  suspend: false

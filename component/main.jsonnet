@@ -134,7 +134,7 @@ local syncCategoriesContainer = {
 };
 
 local backfillCJ = function(queryName)
-  common.CronJob('backfill-%s' % escape(queryName), params.schedules.backfill, {
+  common.CronJob('backfill-%s' % escape(queryName), 'backfill', {
     initContainers: [
       checkMigrationContainer,
     ],
@@ -169,7 +169,7 @@ local backfillCJ = function(queryName)
     },
   };
 
-local checkCJ = common.CronJob('check-missing', params.schedules.check_missing, {
+local checkCJ = common.CronJob('check-missing', 'check_missing', {
   initContainers: [
     checkMigrationContainer,
     syncCategoriesContainer,
@@ -179,7 +179,7 @@ local checkCJ = common.CronJob('check-missing', params.schedules.check_missing, 
   ],
 });
 
-local invoiceCJ = common.CronJob('generate-invoices', params.schedules.invoice, {
+local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
   restartPolicy: 'Never',
   initContainers: [
     checkMigrationContainer,

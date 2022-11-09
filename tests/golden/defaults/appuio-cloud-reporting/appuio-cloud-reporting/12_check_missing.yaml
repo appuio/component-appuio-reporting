@@ -95,3 +95,4 @@ spec:
           restartPolicy: OnFailure
   schedule: 30 8-14 * * *
   successfulJobsHistoryLimit: 3
+  suspend: false
