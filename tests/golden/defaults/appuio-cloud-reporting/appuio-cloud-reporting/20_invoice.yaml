@@ -124,4 +124,6 @@ spec:
               resources: {}
           restartPolicy: Never
   schedule: 0 10 1 * *
+  startingDeadlineSeconds: 180
   successfulJobsHistoryLimit: 3
+  suspend: false

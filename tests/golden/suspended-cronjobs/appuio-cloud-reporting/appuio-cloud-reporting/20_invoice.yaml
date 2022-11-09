@@ -6,8 +6,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
     app.kubernetes.io/part-of: syn
-    name: check-missing
-  name: check-missing
+    name: generate-invoices
+  name: generate-invoices
   namespace: appuio-cloud-reporting
 spec:
   failedJobsHistoryLimit: 3
@@ -17,8 +17,9 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: check-missing
+        cron-job-name: generate-invoices
     spec:
+      backoffLimit: 0
       template:
         metadata:
           labels:
@@ -28,7 +29,11 @@ spec:
         spec:
           containers:
             - args:
-                - check_missing
+                - appuio-odoo-adapter invoice --year=$(date -d "now -1 months" -u
+                  +"%Y") --month=$(date -d "now -1 months" -u +"%-m")
+              command:
+                - sh
+                - -c
               env:
                 - name: password
                   valueFrom:
@@ -44,8 +49,13 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.7.0
-              name: check-missing
+                - name: OA_ODOO_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: erp-url
+              image: ghcr.io/vshn/appuio-odoo-adapter:v1.5.0
+              name: invoice
               resources: {}
           initContainers:
             - args:
@@ -92,8 +102,28 @@ spec:
                       name: erp-url
               image: ghcr.io/vshn/appuio-odoo-adapter:v1.5.0
               name: sync-categories
-          restartPolicy: OnFailure
-  schedule: 30 8-14 * * *
+            - args:
+                - check_missing
+              env:
+                - name: password
+                  valueFrom:
+                    secretKeyRef:
+                      key: password
+                      name: reporting-db
+                - name: username
+                  valueFrom:
+                    secretKeyRef:
+                      key: username
+                      name: reporting-db
+                - name: ACR_DB_URL
+                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                - name: OA_DB_URL
+                  value: $(ACR_DB_URL)
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.7.0
+              name: check-missing
+              resources: {}
+          restartPolicy: Never
+  schedule: 0 10 1 * *
   startingDeadlineSeconds: 180
   successfulJobsHistoryLimit: 3
-  suspend: false
+  suspend: true

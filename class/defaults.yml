@@ -19,6 +19,12 @@ parameters:
       check_missing: '30 8-14 * * *'
       invoice: '0 10 1 * *'
 
+    development_mode: false
+    schedules_suspend:
+      backfill: false
+      check_missing: false
+      invoice: false
+
     database:
       host: null
       port: 5432

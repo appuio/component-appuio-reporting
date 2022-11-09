@@ -49,8 +49,42 @@ check_missing: '30 8-14 * * *'
 invoice: '0 10 1 * *'
 ----
 
-Dictionary managing the schedules of the periodic jobs.
+Dictionary managing the schedules of the periodic jobs (implemented as Kubernetes CronJobs).
 
+== `development_mode`
+
+[horizontal]
+type:: boolean
+default:: `false`
+
+This parameter allows to enable development mode for the component.
+The component prevents periodic jobs from being disabled, unless development mode is active.
+
+== `schedules_suspend`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+backfill: false
+check_missing: false
+invoice: false
+----
+
+This parameter allows users to selectively suspend one or more of the periodic jobs.
+
+A suspended CronJob still exists on the cluster, but no new jobs are created based on the CronJob's schedule.
+
+[IMPORTANT]
+====
+Never use this parameter to disable CronJobs because they trigger alerts.
+Instead investigate why the alerts are triggered, and resolve the actual cause, such as missing data in the billing database.
+
+By disabling one or more of the periodic jobs, you'll most likely break the usage-based billing for the APPUiO Cloud instance.
+Breaking the usage-based billing will lead to lost income for the APPUiO Cloud instance.
+====
 
 == `database`
 
