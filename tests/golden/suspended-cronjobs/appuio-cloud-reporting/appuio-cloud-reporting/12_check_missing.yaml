@@ -94,5 +94,6 @@ spec:
               name: sync-categories
           restartPolicy: OnFailure
   schedule: 30 8-14 * * *
+  startingDeadlineSeconds: 180
   successfulJobsHistoryLimit: 3
   suspend: true

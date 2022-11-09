@@ -82,6 +82,7 @@ spec:
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
+  startingDeadlineSeconds: 180
   successfulJobsHistoryLimit: 3
   suspend: false
 ---
@@ -169,6 +170,7 @@ spec:
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
+  startingDeadlineSeconds: 180
   successfulJobsHistoryLimit: 3
   suspend: false
 ---
@@ -256,5 +258,6 @@ spec:
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
+  startingDeadlineSeconds: 180
   successfulJobsHistoryLimit: 3
   suspend: false

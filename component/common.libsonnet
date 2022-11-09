@@ -19,6 +19,16 @@ local cronJob = function(name, scheduleName, jobSpec)
       labels+: labels,
     },
     spec: {
+      // set startingDeadlineSeconds to ensure that new jobs will be scheduled
+      // if the cronjob is unsuspended after a long period of being suspended.
+      // This is required because any jobs that would have been scheduled
+      // while the CronJob is suspended count as missed and without
+      // startingDeadlineSeconds set, the CronJob controller will not schedule
+      // new jobs if >100 jobs were missed. See the following upstream
+      // documentation:
+      // * https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/#suspend
+      // * https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-job-limitations
+      startingDeadlineSeconds: 180,
       schedule: schedule,
       successfulJobsHistoryLimit: 3,
       failedJobsHistoryLimit: 3,
