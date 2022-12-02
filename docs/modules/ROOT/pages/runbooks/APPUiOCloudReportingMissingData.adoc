@@ -36,7 +36,10 @@ If the pod has been deleted, you can also use https://logging.apps.cloudscale-lp
 Use the content of the field `source` as a starter.
 Use https://portal.appuio.cloud to look up the organization, and then use https://control.vshn.net to identify a matching customer.
 Once a matching customer was found, look it up in https://erp.vshn.net.
-Copy the ID from the URL.
+Search for the customer's accounting contact.
+It's named `<customer name>, Accounting`.
+Fall back to the main customer record if no dedicated accounting contact could be found.
+The ID you need is the `Odoo Partner ID`.
 
 3. Complete the data
 +
