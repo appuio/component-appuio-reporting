@@ -7,7 +7,7 @@ parameters:
       reporting:
         registry: ghcr.io
         repository: appuio/appuio-cloud-reporting
-        tag: v0.7.0
+        tag: v0.7.1
 
       erp_adapter:
         registry: ghcr.io
