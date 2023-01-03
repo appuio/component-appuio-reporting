@@ -23,7 +23,7 @@ Rerunning the job, can leave duplicates which need to be cleaned up.
 +
 [source,bash]
 ----
-kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=generate-invoices --field-selector status.successful=0 -o name | tail -n1)
+kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=generate-invoices --field-selector status.successful=0 -o name | tail -n1) --all-containers
 ----
 
 . Remove any obstacles
