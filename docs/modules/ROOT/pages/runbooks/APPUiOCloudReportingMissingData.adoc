@@ -23,7 +23,7 @@ Use the following instructions to resolve the situation should neither be availa
 +
 [source,bash]
 ----
-kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=check-missing --field-selector status.successful=0 -o name | tail -n1)
+kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=check-missing --field-selector status.successful=0 -o name | tail -n1) --all-containers
 ----
 +
 [NOTE]
