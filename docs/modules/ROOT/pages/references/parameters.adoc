@@ -135,6 +135,7 @@ default::
 appuio_cloud_memory: true
 appuio_cloud_loadbalancer: true
 appuio_cloud_persistent_storage: true
+appcat_postgresql_vshn_standalone: true
 ----
 
 Queries to use when backfilling metrics data.
@@ -142,7 +143,7 @@ Queries to use when backfilling metrics data.
 Every query is run in its own CronJob.
 
 Check the reporting database for possible queries.
-Currently known queries are `appuio_cloud_memory`, `appuio_cloud_loadbalancer`, and `appuio_cloud_persistent_storage`
+Currently known queries are `appuio_cloud_memory`, `appuio_cloud_loadbalancer`, `appuio_cloud_persistent_storage`, and `appcat_postgresql_vshn_standalone`.
 
 
 == `network_policies.target_namespaces`
