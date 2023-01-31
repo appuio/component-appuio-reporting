@@ -44,7 +44,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.7.1
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
               name: check-missing
               resources: {}
           initContainers:
@@ -66,7 +66,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.7.1
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
               name: check-migration
             - args:
                 - sync
@@ -90,7 +90,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: erp-url
-              image: ghcr.io/vshn/appuio-odoo-adapter:v1.7.0
+              image: ghcr.io/vshn/appuio-odoo-adapter:v1.8.0
               name: sync-categories
           restartPolicy: OnFailure
   schedule: 30 8-14 * * *

@@ -7,12 +7,12 @@ parameters:
       reporting:
         registry: ghcr.io
         repository: appuio/appuio-cloud-reporting
-        tag: v0.7.1
+        tag: v0.8.0
 
       erp_adapter:
         registry: ghcr.io
         repository: vshn/appuio-odoo-adapter
-        tag: v1.7.0
+        tag: v1.8.0
 
     schedules:
       backfill: '15 * * * *'
@@ -44,6 +44,7 @@ parameters:
         appuio_cloud_memory: true
         appuio_cloud_loadbalancer: true
         appuio_cloud_persistent_storage: true
+        appcat_postgresql_vshn_standalone: true
 
     network_policies:
       target_namespaces: {}
