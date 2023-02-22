@@ -104,6 +104,10 @@ local erpEnv = [
       },
     },
   },
+  {
+    name: 'OA_INVOICE_TITLE',
+    value: params.erp_adapter.invoice_title,
+  },
 ];
 
 local checkMigrationContainer = {

@@ -90,6 +90,8 @@ spec:
                     secretKeyRef:
                       key: url
                       name: erp-url
+                - name: OA_INVOICE_TITLE
+                  value: APPUiO Cloud
               image: ghcr.io/vshn/appuio-odoo-adapter:v1.8.0
               name: sync-categories
           restartPolicy: OnFailure

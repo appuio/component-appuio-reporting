@@ -124,6 +124,15 @@ URL used to connect with the ERP Instance.
 For Odoo the URL must be in the format of `https://user:pass@host[:port]/db-name`.
 
 
+== `erp_adapter.invoice_title`
+
+[horizontal]
+type:: string
+default:: `"APPUiO Cloud"`
+
+Invoice title to be used by the ERP adapter when generating invoices.
+
+
 == `backfill.queries`
 
 [horizontal]

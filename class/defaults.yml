@@ -39,6 +39,7 @@ parameters:
 
     erp_adapter:
       url: null
+      invoice_title: APPUiO Cloud
 
     backfill:
       queries:
