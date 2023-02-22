@@ -8,4 +8,4 @@ parameters:
       - input_paths:
           - appuio-cloud-reporting/component/main.jsonnet
         input_type: jsonnet
-        output_path: appuio-cloud-reporting/
+        output_path: ${_instance}/

@@ -6,7 +6,7 @@ The parent key for all of the following parameters is `appuio_cloud_reporting`.
 
 [horizontal]
 type:: string
-default:: `appuio-cloud-reporting`
+default:: `${_instance}`
 
 The namespace in which to deploy this component.
 

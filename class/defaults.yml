@@ -1,7 +1,8 @@
 parameters:
   appuio_cloud_reporting:
-    =_metadata: {}
-    namespace: appuio-cloud-reporting
+    =_metadata:
+      multi_instance: true
+    namespace: ${_instance}
 
     images:
       reporting:
