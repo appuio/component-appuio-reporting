@@ -14,3 +14,4 @@ parameters:
     schedules_suspend:
       check_missing: true
       invoice: true
+      tenantmapping: true

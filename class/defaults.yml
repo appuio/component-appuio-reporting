@@ -16,12 +16,14 @@ parameters:
         tag: v1.9.0
 
     schedules:
+      tenantmapping: '10 * * * *'
       backfill: '15 * * * *'
       check_missing: '30 8-14 * * *'
       invoice: '0 10 1 * *'
 
     development_mode: false
     schedules_suspend:
+      tenantmapping: false
       backfill: false
       check_missing: false
       invoice: false
@@ -48,6 +50,10 @@ parameters:
         appuio_cloud_loadbalancer: true
         appuio_cloud_persistent_storage: true
         appcat_postgresql_vshn_standalone: true
+
+    tenantmapping:
+      dry_run: true
+      metrics_selector: namespace="appuio-control-api-production"
 
     network_policies:
       target_namespaces: {}

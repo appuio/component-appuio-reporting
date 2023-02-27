@@ -217,6 +217,34 @@ APPUiOCloudReportingDidSomething:
 Alerts monitoring the cloud reporting cron jobs.
 
 
+== `tenantmapping`
+
+[horizontal]
+type:: dictionary
+
+Configuration for the tenant mapping job.
+The job is responsible for mapping the tenants source (organization) to the target in the ERP (billing entity).
+
+
+== `tenantmapping.dry_run`
+
+[horizontal]
+type:: boolean
+default:: `true`
+
+Doesn't commit the tenant mapping to the database if set to `true`.
+
+
+== `tenantmapping.metrics_selector`
+
+[horizontal]
+type:: boolean
+default:: `namespace="appuio-control-api-production"`
+
+Further narrows down the metrics to be considered for the tenant mapping.
+Prometheus selector syntax (`test="asd"`) is used.
+
+
 == Example
 
 [source,yaml]

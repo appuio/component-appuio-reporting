@@ -1,0 +1,85 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations: {}
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-cloud-reporting
+    app.kubernetes.io/part-of: syn
+    name: tenant-mapping
+  name: tenant-mapping
+  namespace: appuio-cloud-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-cloud-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: tenant-mapping
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-cloud-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-cloud-reporting tenantmapping --begin=$(date -d "now -3 hours"
+                  -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --dry-run=true
+                  --additional-metric-selector='namespace="appuio-control-api-production"'
+              command:
+                - sh
+                - -c
+              env:
+                - name: password
+                  valueFrom:
+                    secretKeyRef:
+                      key: password
+                      name: reporting-db
+                - name: username
+                  valueFrom:
+                    secretKeyRef:
+                      key: username
+                      name: reporting-db
+                - name: ACR_DB_URL
+                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                - name: OA_DB_URL
+                  value: $(ACR_DB_URL)
+                - name: ACR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              name: mapping
+              resources: {}
+          initContainers:
+            - args:
+                - migrate
+                - --show-pending
+              env:
+                - name: password
+                  valueFrom:
+                    secretKeyRef:
+                      key: password
+                      name: reporting-db
+                - name: username
+                  valueFrom:
+                    secretKeyRef:
+                      key: username
+                      name: reporting-db
+                - name: ACR_DB_URL
+                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                - name: OA_DB_URL
+                  value: $(ACR_DB_URL)
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              name: check-migration
+          restartPolicy: OnFailure
+  schedule: 10 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: false

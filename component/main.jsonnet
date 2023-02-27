@@ -141,6 +141,31 @@ local syncCategoriesContainer = {
   ],
 };
 
+local tenantMappingCJ = common.CronJob('tenant-mapping', 'tenantmapping', {
+  initContainers: [
+    checkMigrationContainer,
+  ],
+  containers: [
+    {
+      name: 'mapping',
+      image: formatImage(params.images.reporting),
+      env+: dbEnv + promEnv,
+      command: [ 'sh', '-c' ],
+      args: [
+        'appuio-cloud-reporting tenantmapping --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)'
+        + (' --dry-run=%s' % std.toString(params.tenantmapping.dry_run))
+        + (" --additional-metric-selector='%s'" % std.toString(params.tenantmapping.metrics_selector)),
+      ],
+      resources: {},
+    },
+  ],
+}) {
+  spec+: {
+    // Keeping infinite jobs is not possible. Keep at least one month worth of jobs.
+    failedJobsHistoryLimit: 24 * 32,
+  },
+};
+
 local backfillCJ = function(queryName)
   common.CronJob('backfill-%s' % escape(queryName), 'backfill', {
     initContainers: [
@@ -228,6 +253,7 @@ local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
   '10_db_secret': dbSecret,
   '10_prom_secret': promURLSecret,
   '10_erp_secret': erpURLSecret,
+  '11_tenant_mapping': tenantMappingCJ,
   '11_backfill': std.filterMap(
     function(k) params.backfill.queries[k] == true,
     function(k) backfillCJ(k),
