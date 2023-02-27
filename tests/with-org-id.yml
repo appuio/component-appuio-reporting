@@ -1,0 +1,18 @@
+parameters:
+  appuio_cloud_reporting:
+
+    database:
+      host: db.example.com
+      password: letmein
+
+    prometheus:
+      url: http://metrics
+      org_id: test-id
+
+    erp_adapter:
+      url: http://enterprisey-enterprise
+
+    network_policies:
+      target_namespaces:
+        appuio-reporting: true
+        appuio-thanos: true

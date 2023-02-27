@@ -114,6 +114,15 @@ default:: `null`
 URL used to connect with the Prometheus/Thanos Instance.
 
 
+== `prometheus.org_id`
+
+[horizontal]
+type:: string
+default:: `null`
+
+If set, this value is sent as the `X-Scope-OrgID` header in all requests to Prometheus.
+
+
 == `erp_adapter.url`
 
 [horizontal]

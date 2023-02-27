@@ -36,6 +36,7 @@ parameters:
 
     prometheus:
       url: null
+      org_id: null
 
     erp_adapter:
       url: null

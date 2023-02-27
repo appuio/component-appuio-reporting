@@ -7,7 +7,7 @@
       "name": "appuio-cloud-reporting",
       "slug": "appuio-cloud-reporting",
       "parameter_key": "appuio_cloud_reporting",
-      "test_cases": "defaults suspended-cronjobs",
+      "test_cases": "defaults suspended-cronjobs with-org-id",
       "add_lib": "n",
       "add_pp": "n",
       "add_golden": "y",
