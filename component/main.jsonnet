@@ -82,7 +82,7 @@ local dbEnv = [
   },
 ];
 
-local promEnv = [
+local promEnv = std.prune([
   {
     name: 'ACR_PROM_URL',
     valueFrom: {
@@ -92,7 +92,11 @@ local promEnv = [
       },
     },
   },
-];
+  if params.prometheus.org_id != null then {
+    name: 'ACR_ORG_ID',
+    value: params.prometheus.org_id,
+  },
+]);
 
 local erpEnv = [
   {
