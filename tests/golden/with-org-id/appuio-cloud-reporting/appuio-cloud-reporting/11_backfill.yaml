@@ -58,7 +58,7 @@ spec:
                       name: prom-url
                 - name: ACR_ORG_ID
                   value: test-id
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.9.0
               name: backfill
               resources: {}
           initContainers:
@@ -80,7 +80,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.9.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
@@ -148,7 +148,7 @@ spec:
                       name: prom-url
                 - name: ACR_ORG_ID
                   value: test-id
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.9.0
               name: backfill
               resources: {}
           initContainers:
@@ -170,7 +170,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.9.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
@@ -238,7 +238,7 @@ spec:
                       name: prom-url
                 - name: ACR_ORG_ID
                   value: test-id
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.9.0
               name: backfill
               resources: {}
           initContainers:
@@ -260,7 +260,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.9.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
@@ -328,7 +328,7 @@ spec:
                       name: prom-url
                 - name: ACR_ORG_ID
                   value: test-id
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.9.0
               name: backfill
               resources: {}
           initContainers:
@@ -350,7 +350,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.8.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.9.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
