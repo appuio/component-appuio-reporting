@@ -1,0 +1,11 @@
+Connect with the billing database.
++
+[source,bash]
+----
+kubectl -n appuio-reporting port-forward svc/reporting-db 5432 &
+
+DB_USER=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.user}' | base64 --decode)
+export PGPASSWORD=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.password}' | base64 --decode)
+
+psql -U "${DB_USER}" -w -h localhost reporting
+----

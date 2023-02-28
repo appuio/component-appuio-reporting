@@ -1,0 +1,9 @@
+[source,bash]
+----
+kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=check-missing --field-selector status.successful=0 -o name | tail -n1) --all-containers
+----
++
+[NOTE]
+====
+If the pod has been deleted, you can also use https://logging.apps.cloudscale-lpg-2.appuio.cloud/app/kibana#/discover?_g=(refreshInterval:(pause:!t,value:0),time:(from:now-24h,mode:quick,to:now))&_a=(columns:!(message),filters:!\(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'41026810-244a-11ed-8f73-7dbcc49044a4',key:kubernetes.namespace_name,negate:!f,params:(query:appuio-cloud-reporting,type:phrase),type:phrase,value:appuio-cloud-reporting),query:(match:(kubernetes.namespace_name:(query:appuio-cloud-reporting,type:phrase)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'41026810-244a-11ed-8f73-7dbcc49044a4',key:kubernetes.container_name,negate:!f,params:(query:check-missing,type:phrase),type:phrase,value:check-missing),query:(match:(kubernetes.container_name:(query:check-missing,type:phrase))))),index:'41026810-244a-11ed-8f73-7dbcc49044a4',interval:auto,query:(language:lucene,query:''),sort:!('@timestamp',desc))[this Kibana URL].
+====

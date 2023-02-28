@@ -4,8 +4,8 @@ include::partial$runbooks/contribution_note.adoc[]
 
 == icon:glasses[] Overview
 
-APPUiO Cloud Reporting is missing data to link either categories, tenants or products to their representation in the ERP.
-The next invoice run will fail.
+APPUiO Cloud Reporting is missing data to link either categories, tenants or products to their representation in the ERP, or there might be inconsistencies in the data that can cause wrong amounts billed in the invoices.
+The next invoice run might fail.
 
 TIP: This alert only fires for the last week (7 days) of each month.
 
@@ -15,21 +15,69 @@ TIP: This alert only fires for the last week (7 days) of each month.
 ====
 Inform the product owner of APPUiO Cloud.
 The situation will usually be handled by the product owner.
-In absence of the product owner, inform Tarazed.
+In absence of the product owner, inform Aldebaran.
 Use the following instructions to resolve the situation should neither be available.
 ====
 
+Identify if data is missing or inconsistent.
+
+There are two possible cases and you might see one or both of them.
+
 1. Identify the missing fields from the pod log
 +
-[source,bash]
-----
-kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=check-missing --field-selector status.successful=0 -o name | tail -n1) --all-containers
-----
+include::partial$runbooks/find_check_logs.adoc[]
+
+2. Look at the last line of the log.
 +
-[NOTE]
-====
-If the pod has been deleted, you can also use https://logging.apps.cloudscale-lpg-2.appuio.cloud/app/kibana#/discover?_g=(refreshInterval:(pause:!t,value:0),time:(from:now-24h,mode:quick,to:now))&_a=(columns:!(message),filters:!\(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'41026810-244a-11ed-8f73-7dbcc49044a4',key:kubernetes.namespace_name,negate:!f,params:(query:appuio-cloud-reporting,type:phrase),type:phrase,value:appuio-cloud-reporting),query:(match:(kubernetes.namespace_name:(query:appuio-cloud-reporting,type:phrase)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:'41026810-244a-11ed-8f73-7dbcc49044a4',key:kubernetes.container_name,negate:!f,params:(query:check-missing,type:phrase),type:phrase,value:check-missing),query:(match:(kubernetes.container_name:(query:check-missing,type:phrase))))),index:'41026810-244a-11ed-8f73-7dbcc49044a4',interval:auto,query:(language:lucene,query:''),sort:!('@timestamp',desc))[this Kibana URL].
-====
+[source]
+----
+5 missing, 7 inconsistent entries found.
+----
+
+3. Continue with the steps for the missing data or the inconsistent data where the count is greater than 0.
+
+=== Inconsistent data
+
+Inconsistent fact entries can be caused by changes to the `during` time ranges of the corresponding dimension after facts were already created.
+The entries should be deleted and re-created.
+
+1. Connect to the database
++
+include::partial$runbooks/connect_to_postgres.adoc[]
+
+2. Delete the inconsistent fact entries
++
+[source,sql]
+----
+begin;
+
+with to_delete as (
+  select facts.id from facts
+    inner join <TABLE> on facts.<FOREIGN KEY> = <TABLE>.id <1>
+    inner join date_times on facts.date_time_id = date_times.id
+    where false = <TABLE>.during @> date_times.timestamp
+)
+delete from facts where id in (select id from to_delete);
+----
+<1> Replace `<TABLE>` with the table name of the dimension as shown in the log.
+Replace `<FOREIGN KEY>` with the foreign key of the dimension.
+It's the dimension name in singular with `_id` appended.
+`queries` becomes `query_id` for example.
+
+3. Commit the changes
++
+[source,sql]
+----
+commit;
+----
+
+4. See xref:runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.adoc[] on how to backfill the database in the time range of the deleted facts.
+
+=== Missing data
+
+1. Identify the missing fields from the pod log
++
+include::partial$runbooks/find_check_logs.adoc[]
 
 2. Lookup the missing identifiers
 +
@@ -45,15 +93,7 @@ The ID you need is the `Odoo Partner ID`.
 +
 Connect with the billing database.
 +
-[source,bash]
-----
-kubectl -n appuio-reporting port-forward svc/reporting-db 5432 &
-
-DB_USER=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.user}' | base64 --decode)
-export PGPASSWORD=$(kubectl -n appuio-reporting get secret/reporting-db-superuser -o jsonpath='{.data.password}' | base64 --decode)
-
-psql -U "${DB_USER}" -w -h localhost reporting
-----
+include::partial$runbooks/connect_to_postgres.adoc[]
 +
 Update the records.
 +
