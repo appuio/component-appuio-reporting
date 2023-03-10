@@ -19,10 +19,8 @@ spec:
             message: APPUiO Cloud Invoice generation in Odoo failed.
             runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudInvoiceGenerationFailed.html
             summary: APPUiO Cloud Invoice generation in Odoo failed.
-          expr: 'kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"generate-invoices-.*"}
-            > 0
-
-            '
+          expr: |
+            kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"generate-invoices-.*"} > 0
           for: 10m
           labels:
             severity: warning
@@ -37,10 +35,8 @@ spec:
             runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.html
             summary: APPUiO Cloud Reporting backfilling metrics into reporting database
               failed.
-          expr: 'kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"backfill-.*"}
-            > 0
-
-            '
+          expr: |
+            kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"backfill-.*"} > 0
           for: 10m
           labels:
             severity: warning
@@ -52,10 +48,8 @@ spec:
             message: APPUiO Cloud Reporting is missing ERP link `target` data.
             runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingMissingData.html
             summary: APPUiO Cloud Reporting is missing ERP link `target` data.
-          expr: '(kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"check-missing-.*"}
-            * scalar((days_in_month() - day_of_month()) <bool 7)) > 0
-
-            '
+          expr: |
+            (kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"check-missing-.*"} * scalar((days_in_month() - day_of_month()) <bool 7)) > 0
           for: 10m
           labels:
             severity: warning

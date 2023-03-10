@@ -56,7 +56,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.10.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.12.0
               name: backfill
               resources: {}
           initContainers:
@@ -78,7 +78,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.10.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.12.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
@@ -144,7 +144,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.10.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.12.0
               name: backfill
               resources: {}
           initContainers:
@@ -166,7 +166,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.10.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.12.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
@@ -232,7 +232,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.10.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.12.0
               name: backfill
               resources: {}
           initContainers:
@@ -254,7 +254,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.10.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.12.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
@@ -320,7 +320,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.10.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.12.0
               name: backfill
               resources: {}
           initContainers:
@@ -342,7 +342,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.10.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.12.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 15 * * * *
