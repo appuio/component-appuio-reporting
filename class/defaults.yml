@@ -101,3 +101,16 @@ parameters:
             for: 10m
             labels:
               severity: warning
+        APPUiOCloudReportingDatabaseTenantMappingFailed:
+          enabled: true
+          rule:
+            annotations:
+              description: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
+              message: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
+              runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDatabaseTenantMappingFailed.html
+              summary: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
+            expr: |
+              kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"tenant-mapping-.*"} > 0
+            for: 10m
+            labels:
+              severity: warning

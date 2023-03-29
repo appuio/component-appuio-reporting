@@ -1,0 +1,17 @@
+= Alert rule: APPUiOCloudReportingDatabaseTenantMappingFailed
+
+include::partial$runbooks/contribution_note.adoc[]
+
+== icon:glasses[] Overview
+
+APPUiO Cloud Reporting failed while trying to add a tenant target mapping from billing metrics to the reporting database.
+This can lead to problems with the invoice generation but shouldn't be time critical.
+
+== icon:bug[] Steps for debugging
+
+include::partial$runbooks/common_debugging_steps.adoc[]
++
+* Check Prometheus/Thanos connectivity and logs.
+
+[IMPORTANT]
+After fixing the underlying issue, the next run of the cronjob should fix the problem.
