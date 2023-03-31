@@ -11,6 +11,13 @@ TIP: This alert only fires for the last week (7 days) of each month.
 
 == icon:bug[] Steps for debugging
 
+[TIP]
+====
+The mapping should be done automatically.
+
+Check xref:runbooks/APPUiOCloudReportingDatabaseTenantMappingFailed.adoc[APPUiOCloudReportingDatabaseTenantMappingFailed] first.
+====
+
 [IMPORTANT]
 ====
 Inform the product owner of APPUiO Cloud.

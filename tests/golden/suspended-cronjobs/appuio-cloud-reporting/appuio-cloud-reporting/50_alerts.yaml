@@ -42,6 +42,22 @@ spec:
             severity: warning
             syn: 'true'
             syn_component: appuio-cloud-reporting
+        - alert: APPUiOCloudReportingDatabaseTenantMappingFailed
+          annotations:
+            description: APPUiO Cloud Reporting appending tenant mapping metrics into
+              reporting database failed.
+            message: APPUiO Cloud Reporting appending tenant mapping metrics into
+              reporting database failed.
+            runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDatabaseTenantMappingFailed.html
+            summary: APPUiO Cloud Reporting appending tenant mapping metrics into
+              reporting database failed.
+          expr: |
+            kube_job_failed{job="kube-state-metrics",namespace="appuio-cloud-reporting",job_name=~"tenant-mapping-.*"} > 0
+          for: 10m
+          labels:
+            severity: warning
+            syn: 'true'
+            syn_component: appuio-cloud-reporting
         - alert: APPUiOCloudReportingMissingData
           annotations:
             description: APPUiO Cloud Reporting is missing ERP link `target` data.
