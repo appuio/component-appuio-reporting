@@ -5,7 +5,7 @@ include::partial$runbooks/contribution_note.adoc[]
 == icon:glasses[] Overview
 
 APPUiO Cloud Reporting failed while trying to add a tenant target mapping from billing metrics to the reporting database.
-This can lead to problems with the invoice generation but shouldn't be time critical.
+This can lead to problems during the monthly invoice generation.
 
 == icon:bug[] Steps for debugging
 
