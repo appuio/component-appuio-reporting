@@ -78,7 +78,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.13.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.15.0
               name: check-migration
             - args:
                 - sync
@@ -123,7 +123,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.13.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.15.0
               name: check-missing
               resources: {}
           restartPolicy: Never
