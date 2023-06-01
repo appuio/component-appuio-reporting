@@ -2,25 +2,25 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   annotations:
-    query-name: appcat_postgresql_vshn_standalone
+    query-name: appcat_postgresql_by_vshn
   labels:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-appcat-postgresql-vshn-standalone
-  name: backfill-appcat-postgresql-vshn-standalone
+    name: backfill-appcat-postgresql-by-vshn
+  name: backfill-appcat-postgresql-by-vshn
   namespace: appuio-cloud-reporting
 spec:
   failedJobsHistoryLimit: 768
   jobTemplate:
     metadata:
       annotations:
-        query-name: appcat_postgresql_vshn_standalone
+        query-name: appcat_postgresql_by_vshn
       labels:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-appcat-postgresql-vshn-standalone
+        cron-job-name: backfill-appcat-postgresql-by-vshn
     spec:
       template:
         metadata:
@@ -32,7 +32,7 @@ spec:
           containers:
             - args:
                 - appuio-cloud-reporting report --begin=$(date -d "now -3 hours" -u
-                  +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=appcat_postgresql_vshn_standalone
+                  +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=appcat_postgresql_by_vshn
               command:
                 - sh
                 - -c
@@ -90,25 +90,25 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   annotations:
-    query-name: appcat_redis_vshn_standalone
+    query-name: appcat_redis_by_vshn
   labels:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-cloud-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-appcat-redis-vshn-standalone
-  name: backfill-appcat-redis-vshn-standalone
+    name: backfill-appcat-redis-by-vshn
+  name: backfill-appcat-redis-by-vshn
   namespace: appuio-cloud-reporting
 spec:
   failedJobsHistoryLimit: 768
   jobTemplate:
     metadata:
       annotations:
-        query-name: appcat_redis_vshn_standalone
+        query-name: appcat_redis_by_vshn
       labels:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-cloud-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-appcat-redis-vshn-standalone
+        cron-job-name: backfill-appcat-redis-by-vshn
     spec:
       template:
         metadata:
@@ -120,7 +120,7 @@ spec:
           containers:
             - args:
                 - appuio-cloud-reporting report --begin=$(date -d "now -3 hours" -u
-                  +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=appcat_redis_vshn_standalone
+                  +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=appcat_redis_by_vshn
               command:
                 - sh
                 - -c
