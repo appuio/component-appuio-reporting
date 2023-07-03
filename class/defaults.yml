@@ -13,7 +13,7 @@ parameters:
       erp_adapter:
         registry: ghcr.io
         repository: vshn/appuio-odoo-adapter
-        tag: v1.11.0
+        tag: v1.12.0
 
     schedules:
       tenantmapping: '10 * * * *'
