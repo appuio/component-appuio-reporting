@@ -54,7 +54,7 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.15.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.16.0
               name: mapping
               resources: {}
           initContainers:
@@ -76,7 +76,7 @@ spec:
                   value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
-              image: ghcr.io/appuio/appuio-cloud-reporting:v0.15.0
+              image: ghcr.io/appuio/appuio-cloud-reporting:v0.16.0
               name: check-migration
           restartPolicy: OnFailure
   schedule: 10 * * * *
