@@ -49,8 +49,7 @@ parameters:
         appuio_cloud_memory: true
         appuio_cloud_loadbalancer: true
         appuio_cloud_persistent_storage: true
-        appcat_postgresql_by_vshn: true
-        appcat_redis_by_vshn: true
+        appcat_services: true
 
     tenantmapping:
       dry_run: true
