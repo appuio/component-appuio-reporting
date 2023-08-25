@@ -28,6 +28,14 @@ parameters:
       check_missing: false
       invoice: false
 
+    database_external_secret:
+      secret_ref: null
+      key_mapping:
+        username: POSTGRESQL_USER
+        password: POSTGRESQL_PASSWORD
+        host: POSTGRESQL_HOST
+        port: POSTGRESQL_PORT
+        name: POSTGRESQL_DB
     database:
       host: null
       port: 5432

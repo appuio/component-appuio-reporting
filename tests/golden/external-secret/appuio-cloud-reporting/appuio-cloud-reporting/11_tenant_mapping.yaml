@@ -38,28 +38,28 @@ spec:
                 - name: password
                   valueFrom:
                     secretKeyRef:
-                      key: password
-                      name: reporting-db
+                      key: POSTGRESQL_PASSWORD
+                      name: reporting-db-prod-cred
                 - name: username
                   valueFrom:
                     secretKeyRef:
-                      key: username
-                      name: reporting-db
+                      key: POSTGRESQL_USER
+                      name: reporting-db-prod-cred
                 - name: dbhost
                   valueFrom:
                     secretKeyRef:
-                      key: host
-                      name: reporting-db
+                      key: POSTGRESQL_HOST
+                      name: reporting-db-prod-cred
                 - name: dbport
                   valueFrom:
                     secretKeyRef:
-                      key: port
-                      name: reporting-db
+                      key: POSTGRESQL_PORT
+                      name: reporting-db-prod-cred
                 - name: dbname
                   valueFrom:
                     secretKeyRef:
-                      key: name
-                      name: reporting-db
+                      key: POSTGRESQL_DB
+                      name: reporting-db-prod-cred
                 - name: ACR_DB_URL
                   value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
@@ -72,6 +72,10 @@ spec:
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
               name: mapping
               resources: {}
+              volumeMounts:
+                - mountPath: /secrets/database
+                  name: dbsecret
+                  readOnly: true
           initContainers:
             - args:
                 - migrate
@@ -80,35 +84,44 @@ spec:
                 - name: password
                   valueFrom:
                     secretKeyRef:
-                      key: password
-                      name: reporting-db
+                      key: POSTGRESQL_PASSWORD
+                      name: reporting-db-prod-cred
                 - name: username
                   valueFrom:
                     secretKeyRef:
-                      key: username
-                      name: reporting-db
+                      key: POSTGRESQL_USER
+                      name: reporting-db-prod-cred
                 - name: dbhost
                   valueFrom:
                     secretKeyRef:
-                      key: host
-                      name: reporting-db
+                      key: POSTGRESQL_HOST
+                      name: reporting-db-prod-cred
                 - name: dbport
                   valueFrom:
                     secretKeyRef:
-                      key: port
-                      name: reporting-db
+                      key: POSTGRESQL_PORT
+                      name: reporting-db-prod-cred
                 - name: dbname
                   valueFrom:
                     secretKeyRef:
-                      key: name
-                      name: reporting-db
+                      key: POSTGRESQL_DB
+                      name: reporting-db-prod-cred
                 - name: ACR_DB_URL
                   value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
               name: check-migration
+              volumeMounts:
+                - mountPath: /secrets/database
+                  name: dbsecret
+                  readOnly: true
           restartPolicy: OnFailure
+          volumes:
+            - name: dbsecret
+              secret:
+                defaultMode: '0600'
+                secretName: reporting-db-prod-cred
   schedule: 10 * * * *
   startingDeadlineSeconds: 180
   successfulJobsHistoryLimit: 3

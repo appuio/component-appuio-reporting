@@ -47,8 +47,23 @@ spec:
                     secretKeyRef:
                       key: username
                       name: reporting-db
+                - name: dbhost
+                  valueFrom:
+                    secretKeyRef:
+                      key: host
+                      name: reporting-db
+                - name: dbport
+                  valueFrom:
+                    secretKeyRef:
+                      key: port
+                      name: reporting-db
+                - name: dbname
+                  valueFrom:
+                    secretKeyRef:
+                      key: name
+                      name: reporting-db
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
                 - name: ACR_PROM_URL
@@ -74,8 +89,23 @@ spec:
                     secretKeyRef:
                       key: username
                       name: reporting-db
+                - name: dbhost
+                  valueFrom:
+                    secretKeyRef:
+                      key: host
+                      name: reporting-db
+                - name: dbport
+                  valueFrom:
+                    secretKeyRef:
+                      key: port
+                      name: reporting-db
+                - name: dbname
+                  valueFrom:
+                    secretKeyRef:
+                      key: name
+                      name: reporting-db
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
@@ -135,8 +165,23 @@ spec:
                     secretKeyRef:
                       key: username
                       name: reporting-db
+                - name: dbhost
+                  valueFrom:
+                    secretKeyRef:
+                      key: host
+                      name: reporting-db
+                - name: dbport
+                  valueFrom:
+                    secretKeyRef:
+                      key: port
+                      name: reporting-db
+                - name: dbname
+                  valueFrom:
+                    secretKeyRef:
+                      key: name
+                      name: reporting-db
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
                 - name: ACR_PROM_URL
@@ -162,8 +207,23 @@ spec:
                     secretKeyRef:
                       key: username
                       name: reporting-db
+                - name: dbhost
+                  valueFrom:
+                    secretKeyRef:
+                      key: host
+                      name: reporting-db
+                - name: dbport
+                  valueFrom:
+                    secretKeyRef:
+                      key: port
+                      name: reporting-db
+                - name: dbname
+                  valueFrom:
+                    secretKeyRef:
+                      key: name
+                      name: reporting-db
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
@@ -223,8 +283,23 @@ spec:
                     secretKeyRef:
                       key: username
                       name: reporting-db
+                - name: dbhost
+                  valueFrom:
+                    secretKeyRef:
+                      key: host
+                      name: reporting-db
+                - name: dbport
+                  valueFrom:
+                    secretKeyRef:
+                      key: port
+                      name: reporting-db
+                - name: dbname
+                  valueFrom:
+                    secretKeyRef:
+                      key: name
+                      name: reporting-db
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
                 - name: ACR_PROM_URL
@@ -250,8 +325,23 @@ spec:
                     secretKeyRef:
                       key: username
                       name: reporting-db
+                - name: dbhost
+                  valueFrom:
+                    secretKeyRef:
+                      key: host
+                      name: reporting-db
+                - name: dbport
+                  valueFrom:
+                    secretKeyRef:
+                      key: port
+                      name: reporting-db
+                - name: dbname
+                  valueFrom:
+                    secretKeyRef:
+                      key: name
+                      name: reporting-db
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
@@ -311,8 +401,23 @@ spec:
                     secretKeyRef:
                       key: username
                       name: reporting-db
+                - name: dbhost
+                  valueFrom:
+                    secretKeyRef:
+                      key: host
+                      name: reporting-db
+                - name: dbport
+                  valueFrom:
+                    secretKeyRef:
+                      key: port
+                      name: reporting-db
+                - name: dbname
+                  valueFrom:
+                    secretKeyRef:
+                      key: name
+                      name: reporting-db
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
                 - name: ACR_PROM_URL
@@ -338,8 +443,23 @@ spec:
                     secretKeyRef:
                       key: username
                       name: reporting-db
+                - name: dbhost
+                  valueFrom:
+                    secretKeyRef:
+                      key: host
+                      name: reporting-db
+                - name: dbport
+                  valueFrom:
+                    secretKeyRef:
+                      key: port
+                      name: reporting-db
+                - name: dbname
+                  valueFrom:
+                    secretKeyRef:
+                      key: name
+                      name: reporting-db
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
                 - name: OA_DB_URL
                   value: $(ACR_DB_URL)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0

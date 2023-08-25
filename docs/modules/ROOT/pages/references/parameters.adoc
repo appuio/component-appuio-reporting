@@ -86,6 +86,34 @@ By disabling one or more of the periodic jobs, you'll most likely break the usag
 Breaking the usage-based billing will lead to lost income for the APPUiO Cloud instance.
 ====
 
+
+== `database_external_secret`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+database_external_secret:
+  secret_ref: null <1>
+  key_mapping:
+    username: POSTGRESQL_USER <2>
+    password: POSTGRESQL_PASSWORD <3>
+    host: POSTGRESQL_HOST <4>
+    port: POSTGRESQL_PORT <5>
+    name: POSTGRESQL_DB <6>
+----
+<1> Name of the referenced secret.
+<2> Key for username used in the referenced secret.
+<3> Key for password used in the referenced secret.
+<4> Key for host used in the referenced secret.
+<5> Key for port used in the referenced secret.
+<6> Key for name used in the referenced secret.
+
+If an external secret for accessing the database is used.
+
+
 == `database`
 
 [horizontal]

@@ -18,8 +18,10 @@ local escape = function(str)
              , str
            ));
 
+local dbSecretUseExternal = if params.database_external_secret.secret_ref == null then false else true;
 local dbSecret = kube.Secret('reporting-db') {
   assert params.database.password != null : 'database.password must be set.',
+  assert params.database.host != null : 'database.host must be set.',
   metadata+: {
     namespace: params.namespace,
     labels+: common.Labels,
@@ -27,6 +29,9 @@ local dbSecret = kube.Secret('reporting-db') {
   stringData: {
     username: params.database.username,
     password: params.database.password,
+    host: params.database.host,
+    port: params.database.port,
+    name: params.database.name,
   },
 };
 
@@ -42,7 +47,7 @@ local promURLSecret = kube.Secret('prom-url') {
 };
 
 local erpURLSecret = kube.Secret('erp-url') {
-  assert params.database.password != null : 'erp_adapter.url must be set.',
+  assert params.erp_adapter.url != null : 'erp_adapter.url must be set.',
   metadata+: {
     namespace: params.namespace,
     labels+: common.Labels,
@@ -56,7 +61,10 @@ local dbEnv = [
   {
     name: 'password',
     valueFrom: {
-      secretKeyRef: {
+      secretKeyRef: if dbSecretUseExternal then {
+        key: params.database_external_secret.key_mapping.password,
+        name: params.database_external_secret.secret_ref,
+      } else {
         key: 'password',
         name: dbSecret.metadata.name,
       },
@@ -65,16 +73,54 @@ local dbEnv = [
   {
     name: 'username',
     valueFrom: {
-      secretKeyRef: {
+      secretKeyRef: if dbSecretUseExternal then {
+        key: params.database_external_secret.key_mapping.username,
+        name: params.database_external_secret.secret_ref,
+      } else {
         key: 'username',
         name: dbSecret.metadata.name,
       },
     },
   },
   {
-    assert params.database.host != null : 'database.host must be set.',
+    name: 'dbhost',
+    valueFrom: {
+      secretKeyRef: if dbSecretUseExternal then {
+        key: params.database_external_secret.key_mapping.host,
+        name: params.database_external_secret.secret_ref,
+      } else {
+        key: 'host',
+        name: dbSecret.metadata.name,
+      },
+    },
+  },
+  {
+    name: 'dbport',
+    valueFrom: {
+      secretKeyRef: if dbSecretUseExternal then {
+        key: params.database_external_secret.key_mapping.port,
+        name: params.database_external_secret.secret_ref,
+      } else {
+        key: 'port',
+        name: dbSecret.metadata.name,
+      },
+    },
+  },
+  {
+    name: 'dbname',
+    valueFrom: {
+      secretKeyRef: if dbSecretUseExternal then {
+        key: params.database_external_secret.key_mapping.name,
+        name: params.database_external_secret.secret_ref,
+      } else {
+        key: 'name',
+        name: dbSecret.metadata.name,
+      },
+    },
+  },
+  {
     name: 'ACR_DB_URL',
-    value: 'postgres://$(username):$(password)@%(host)s:%(port)s/%(name)s?%(parameters)s' % params.database,
+    value: 'postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?%(parameters)s' % params.database,
   },
   {
     name: 'OA_DB_URL',
@@ -122,6 +168,13 @@ local checkMigrationContainer = {
     'migrate',
     '--show-pending',
   ],
+  [if dbSecretUseExternal then 'volumeMounts']: [
+    {
+      name: 'dbsecret',
+      readOnly: true,
+      mountPath: '/secrets/database',
+    },
+  ],
 };
 
 local checkMissingContainer = {
@@ -130,6 +183,13 @@ local checkMissingContainer = {
   env+: dbEnv,
   args: [ 'check_missing' ],
   resources: {},
+  [if dbSecretUseExternal then 'volumeMounts']: [
+    {
+      name: 'dbsecret',
+      readOnly: true,
+      mountPath: '/secrets/database',
+    },
+  ],
 };
 
 local syncCategoriesContainer = {
@@ -138,6 +198,13 @@ local syncCategoriesContainer = {
   env+: dbEnv + erpEnv,
   args: [
     'sync',
+  ],
+  [if dbSecretUseExternal then 'volumeMounts']: [
+    {
+      name: 'dbsecret',
+      readOnly: true,
+      mountPath: '/secrets/database',
+    },
   ],
 };
 
@@ -157,6 +224,22 @@ local tenantMappingCJ = common.CronJob('tenant-mapping', 'tenantmapping', {
         + (" --additional-metric-selector='%s'" % std.toString(params.tenantmapping.metrics_selector)),
       ],
       resources: {},
+      [if dbSecretUseExternal then 'volumeMounts']: [
+        {
+          name: 'dbsecret',
+          readOnly: true,
+          mountPath: '/secrets/database',
+        },
+      ],
+    },
+  ],
+  [if dbSecretUseExternal then 'volumes']: [
+    {
+      name: 'dbsecret',
+      secret: {
+        secretName: params.database_external_secret.secret_ref,
+        defaultMode: '0600',
+      },
     },
   ],
 }) {
@@ -181,6 +264,22 @@ local backfillCJ = function(queryName)
           'appuio-cloud-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=' + queryName,
         ],
         resources: {},
+        [if dbSecretUseExternal then 'volumeMounts']: [
+          {
+            name: 'dbsecret',
+            readOnly: true,
+            mountPath: '/secrets/database',
+          },
+        ],
+      },
+    ],
+    [if dbSecretUseExternal then 'volumes']: [
+      {
+        name: 'dbsecret',
+        secret: {
+          secretName: params.database_external_secret.secret_ref,
+          defaultMode: '0600',
+        },
       },
     ],
   }) {
@@ -210,6 +309,15 @@ local checkCJ = common.CronJob('check-missing', 'check_missing', {
   containers: [
     checkMissingContainer,
   ],
+  [if dbSecretUseExternal then 'volumes']: [
+    {
+      name: 'dbsecret',
+      secret: {
+        secretName: params.database_external_secret.secret_ref,
+        defaultMode: '0600',
+      },
+    },
+  ],
 });
 
 local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
@@ -227,6 +335,22 @@ local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
       command: [ 'sh', '-c' ],
       args: [ 'appuio-odoo-adapter invoice --year=$(date -d "now -1 months" -u +"%Y") --month=$(date -d "now -1 months" -u +"%-m")' ],
       resources: {},
+      [if dbSecretUseExternal then 'volumeMounts']: [
+        {
+          name: 'dbsecret',
+          readOnly: true,
+          mountPath: '/secrets/database',
+        },
+      ],
+    },
+  ],
+  [if dbSecretUseExternal then 'volumes']: [
+    {
+      name: 'dbsecret',
+      secret: {
+        secretName: params.database_external_secret.secret_ref,
+        defaultMode: '0600',
+      },
     },
   ],
 }) {
@@ -250,7 +374,7 @@ local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
     },
   },
   '01_netpol': netPol.Policies,
-  '10_db_secret': dbSecret,
+  [if !dbSecretUseExternal then '10_db_secret']: dbSecret,
   '10_prom_secret': promURLSecret,
   '10_erp_secret': erpURLSecret,
   '11_tenant_mapping': tenantMappingCJ,
