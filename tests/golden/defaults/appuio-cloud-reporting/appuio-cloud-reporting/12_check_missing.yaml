@@ -30,35 +30,37 @@ spec:
             - args:
                 - check_missing
               env:
-                - name: password
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
-                      key: password
+                      key: DB_HOST
                       name: reporting-db
-                - name: username
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
-                      key: username
+                      key: DB_NAME
                       name: reporting-db
-                - name: dbhost
+                - name: DB_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      key: host
+                      key: DB_PASSWORD
                       name: reporting-db
-                - name: dbport
+                - name: DB_PORT
                   valueFrom:
                     secretKeyRef:
-                      key: port
+                      key: DB_PORT
                       name: reporting-db
-                - name: dbname
+                - name: DB_USER
                   valueFrom:
                     secretKeyRef:
-                      key: name
+                      key: DB_USER
                       name: reporting-db
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
               name: check-missing
               resources: {}
@@ -67,69 +69,73 @@ spec:
                 - migrate
                 - --show-pending
               env:
-                - name: password
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
-                      key: password
+                      key: DB_HOST
                       name: reporting-db
-                - name: username
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
-                      key: username
+                      key: DB_NAME
                       name: reporting-db
-                - name: dbhost
+                - name: DB_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      key: host
+                      key: DB_PASSWORD
                       name: reporting-db
-                - name: dbport
+                - name: DB_PORT
                   valueFrom:
                     secretKeyRef:
-                      key: port
+                      key: DB_PORT
                       name: reporting-db
-                - name: dbname
+                - name: DB_USER
                   valueFrom:
                     secretKeyRef:
-                      key: name
+                      key: DB_USER
                       name: reporting-db
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
               name: check-migration
             - args:
                 - sync
               env:
-                - name: password
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
-                      key: password
+                      key: DB_HOST
                       name: reporting-db
-                - name: username
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
-                      key: username
+                      key: DB_NAME
                       name: reporting-db
-                - name: dbhost
+                - name: DB_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      key: host
+                      key: DB_PASSWORD
                       name: reporting-db
-                - name: dbport
+                - name: DB_PORT
                   valueFrom:
                     secretKeyRef:
-                      key: port
+                      key: DB_PORT
                       name: reporting-db
-                - name: dbname
+                - name: DB_USER
                   valueFrom:
                     secretKeyRef:
-                      key: name
+                      key: DB_USER
                       name: reporting-db
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_ODOO_URL
                   valueFrom:
                     secretKeyRef:

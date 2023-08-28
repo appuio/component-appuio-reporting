@@ -18,20 +18,14 @@ local escape = function(str)
              , str
            ));
 
-local dbSecretUseExternal = if params.database_external_secret.secret_ref == null then false else true;
 local dbSecret = kube.Secret('reporting-db') {
-  assert params.database.password != null : 'database.password must be set.',
-  assert params.database.host != null : 'database.host must be set.',
   metadata+: {
     namespace: params.namespace,
     labels+: common.Labels,
   },
   stringData: {
-    username: params.database.username,
-    password: params.database.password,
-    host: params.database.host,
-    port: params.database.port,
-    name: params.database.name,
+    [name]: params.database_secret[name]
+    for name in std.objectFields(params.database_secret)
   },
 };
 
@@ -59,72 +53,34 @@ local erpURLSecret = kube.Secret('erp-url') {
 
 local dbEnv = [
   {
-    name: 'password',
+    name: name,
     valueFrom: {
-      secretKeyRef: if dbSecretUseExternal then {
-        key: params.database_external_secret.key_mapping.password,
-        name: params.database_external_secret.secret_ref,
-      } else {
-        key: 'password',
+      secretKeyRef: {
         name: dbSecret.metadata.name,
+        key: name,
       },
     },
-  },
+  }
+  for name in std.objectFields(params.database_secret)
+] + [
   {
-    name: 'username',
-    valueFrom: {
-      secretKeyRef: if dbSecretUseExternal then {
-        key: params.database_external_secret.key_mapping.username,
-        name: params.database_external_secret.secret_ref,
-      } else {
-        key: 'username',
-        name: dbSecret.metadata.name,
-      },
-    },
-  },
+    name: name,
+    [if std.type(params.database_env[name]) == 'string' then 'value' else 'valueFrom']: params.database_env[name],
+  }
+  for name in std.objectFields(params.database_env)
+] + [
+  assert params.database.url != null : 'database.url must be set.';
   {
-    name: 'dbhost',
-    valueFrom: {
-      secretKeyRef: if dbSecretUseExternal then {
-        key: params.database_external_secret.key_mapping.host,
-        name: params.database_external_secret.secret_ref,
-      } else {
-        key: 'host',
-        name: dbSecret.metadata.name,
-      },
-    },
-  },
-  {
-    name: 'dbport',
-    valueFrom: {
-      secretKeyRef: if dbSecretUseExternal then {
-        key: params.database_external_secret.key_mapping.port,
-        name: params.database_external_secret.secret_ref,
-      } else {
-        key: 'port',
-        name: dbSecret.metadata.name,
-      },
-    },
-  },
-  {
-    name: 'dbname',
-    valueFrom: {
-      secretKeyRef: if dbSecretUseExternal then {
-        key: params.database_external_secret.key_mapping.name,
-        name: params.database_external_secret.secret_ref,
-      } else {
-        key: 'name',
-        name: dbSecret.metadata.name,
-      },
-    },
+    name: 'DB_PARAMS',
+    value: params.database.parameters,
   },
   {
     name: 'ACR_DB_URL',
-    value: 'postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?%(parameters)s' % params.database,
+    value: params.database.url,
   },
   {
     name: 'OA_DB_URL',
-    value: '$(ACR_DB_URL)',
+    value: params.database.url,
   },
 ];
 
@@ -168,12 +124,9 @@ local checkMigrationContainer = {
     'migrate',
     '--show-pending',
   ],
-  [if dbSecretUseExternal then 'volumeMounts']: [
-    {
-      name: 'dbsecret',
-      readOnly: true,
-      mountPath: '/secrets/database',
-    },
+  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+    { name: name } + params.extra_volumes[name].mount_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 };
 
@@ -183,12 +136,9 @@ local checkMissingContainer = {
   env+: dbEnv,
   args: [ 'check_missing' ],
   resources: {},
-  [if dbSecretUseExternal then 'volumeMounts']: [
-    {
-      name: 'dbsecret',
-      readOnly: true,
-      mountPath: '/secrets/database',
-    },
+  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+    { name: name } + params.extra_volumes[name].mount_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 };
 
@@ -199,12 +149,9 @@ local syncCategoriesContainer = {
   args: [
     'sync',
   ],
-  [if dbSecretUseExternal then 'volumeMounts']: [
-    {
-      name: 'dbsecret',
-      readOnly: true,
-      mountPath: '/secrets/database',
-    },
+  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+    { name: name } + params.extra_volumes[name].mount_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 };
 
@@ -224,23 +171,15 @@ local tenantMappingCJ = common.CronJob('tenant-mapping', 'tenantmapping', {
         + (" --additional-metric-selector='%s'" % std.toString(params.tenantmapping.metrics_selector)),
       ],
       resources: {},
-      [if dbSecretUseExternal then 'volumeMounts']: [
-        {
-          name: 'dbsecret',
-          readOnly: true,
-          mountPath: '/secrets/database',
-        },
+      [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+        { name: name } + params.extra_volumes[name].mount_spec
+        for name in std.objectFields(params.extra_volumes)
       ],
     },
   ],
-  [if dbSecretUseExternal then 'volumes']: [
-    {
-      name: 'dbsecret',
-      secret: {
-        secretName: params.database_external_secret.secret_ref,
-        defaultMode: '0600',
-      },
-    },
+  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
+    { name: name } + params.extra_volumes[name].volume_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 }) {
   spec+: {
@@ -264,23 +203,15 @@ local backfillCJ = function(queryName)
           'appuio-cloud-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=' + queryName,
         ],
         resources: {},
-        [if dbSecretUseExternal then 'volumeMounts']: [
-          {
-            name: 'dbsecret',
-            readOnly: true,
-            mountPath: '/secrets/database',
-          },
+        [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+          { name: name } + params.extra_volumes[name].mount_spec
+          for name in std.objectFields(params.extra_volumes)
         ],
       },
     ],
-    [if dbSecretUseExternal then 'volumes']: [
-      {
-        name: 'dbsecret',
-        secret: {
-          secretName: params.database_external_secret.secret_ref,
-          defaultMode: '0600',
-        },
-      },
+    [if std.length(params.extra_volumes) > 0 then 'volumes']: [
+      { name: name } + params.extra_volumes[name].volume_spec
+      for name in std.objectFields(params.extra_volumes)
     ],
   }) {
     metadata+: {
@@ -309,14 +240,9 @@ local checkCJ = common.CronJob('check-missing', 'check_missing', {
   containers: [
     checkMissingContainer,
   ],
-  [if dbSecretUseExternal then 'volumes']: [
-    {
-      name: 'dbsecret',
-      secret: {
-        secretName: params.database_external_secret.secret_ref,
-        defaultMode: '0600',
-      },
-    },
+  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
+    { name: name } + params.extra_volumes[name].volume_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 });
 
@@ -335,23 +261,15 @@ local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
       command: [ 'sh', '-c' ],
       args: [ 'appuio-odoo-adapter invoice --year=$(date -d "now -1 months" -u +"%Y") --month=$(date -d "now -1 months" -u +"%-m")' ],
       resources: {},
-      [if dbSecretUseExternal then 'volumeMounts']: [
-        {
-          name: 'dbsecret',
-          readOnly: true,
-          mountPath: '/secrets/database',
-        },
+      [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+        { name: name } + params.extra_volumes[name].mount_spec
+        for name in std.objectFields(params.extra_volumes)
       ],
     },
   ],
-  [if dbSecretUseExternal then 'volumes']: [
-    {
-      name: 'dbsecret',
-      secret: {
-        secretName: params.database_external_secret.secret_ref,
-        defaultMode: '0600',
-      },
-    },
+  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
+    { name: name } + params.extra_volumes[name].volume_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 }) {
   spec+: {
@@ -374,7 +292,7 @@ local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
     },
   },
   '01_netpol': netPol.Policies,
-  [if !dbSecretUseExternal then '10_db_secret']: dbSecret,
+  [if std.length(params.database_secret) > 0 then '10_db_secret']: dbSecret,
   '10_prom_secret': promURLSecret,
   '10_erp_secret': erpURLSecret,
   '11_tenant_mapping': tenantMappingCJ,

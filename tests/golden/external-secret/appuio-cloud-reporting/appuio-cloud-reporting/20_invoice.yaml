@@ -35,35 +35,37 @@ spec:
                 - sh
                 - -c
               env:
-                - name: password
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_PASSWORD
-                      name: reporting-db-prod-cred
-                - name: username
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_USER
-                      name: reporting-db-prod-cred
-                - name: dbhost
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
                       key: POSTGRESQL_HOST
                       name: reporting-db-prod-cred
-                - name: dbport
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_PORT
-                      name: reporting-db-prod-cred
-                - name: dbname
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
                       key: POSTGRESQL_DB
                       name: reporting-db-prod-cred
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_PASSWORD
+                      name: reporting-db-prod-cred
+                - name: DB_PORT
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_PORT
+                      name: reporting-db-prod-cred
+                - name: DB_USER
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_USER
+                      name: reporting-db-prod-cred
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_ODOO_URL
                   valueFrom:
                     secretKeyRef:
@@ -83,35 +85,37 @@ spec:
                 - migrate
                 - --show-pending
               env:
-                - name: password
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_PASSWORD
-                      name: reporting-db-prod-cred
-                - name: username
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_USER
-                      name: reporting-db-prod-cred
-                - name: dbhost
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
                       key: POSTGRESQL_HOST
                       name: reporting-db-prod-cred
-                - name: dbport
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_PORT
-                      name: reporting-db-prod-cred
-                - name: dbname
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
                       key: POSTGRESQL_DB
                       name: reporting-db-prod-cred
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_PASSWORD
+                      name: reporting-db-prod-cred
+                - name: DB_PORT
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_PORT
+                      name: reporting-db-prod-cred
+                - name: DB_USER
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_USER
+                      name: reporting-db-prod-cred
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
               name: check-migration
               volumeMounts:
@@ -121,35 +125,37 @@ spec:
             - args:
                 - sync
               env:
-                - name: password
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_PASSWORD
-                      name: reporting-db-prod-cred
-                - name: username
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_USER
-                      name: reporting-db-prod-cred
-                - name: dbhost
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
                       key: POSTGRESQL_HOST
                       name: reporting-db-prod-cred
-                - name: dbport
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_PORT
-                      name: reporting-db-prod-cred
-                - name: dbname
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
                       key: POSTGRESQL_DB
                       name: reporting-db-prod-cred
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_PASSWORD
+                      name: reporting-db-prod-cred
+                - name: DB_PORT
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_PORT
+                      name: reporting-db-prod-cred
+                - name: DB_USER
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_USER
+                      name: reporting-db-prod-cred
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_ODOO_URL
                   valueFrom:
                     secretKeyRef:
@@ -166,35 +172,37 @@ spec:
             - args:
                 - check_missing
               env:
-                - name: password
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_PASSWORD
-                      name: reporting-db-prod-cred
-                - name: username
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_USER
-                      name: reporting-db-prod-cred
-                - name: dbhost
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
                       key: POSTGRESQL_HOST
                       name: reporting-db-prod-cred
-                - name: dbport
-                  valueFrom:
-                    secretKeyRef:
-                      key: POSTGRESQL_PORT
-                      name: reporting-db-prod-cred
-                - name: dbname
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
                       key: POSTGRESQL_DB
                       name: reporting-db-prod-cred
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_PASSWORD
+                      name: reporting-db-prod-cred
+                - name: DB_PORT
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_PORT
+                      name: reporting-db-prod-cred
+                - name: DB_USER
+                  valueFrom:
+                    secretKeyRef:
+                      key: POSTGRESQL_USER
+                      name: reporting-db-prod-cred
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@$(dbhost):$(dbport)/$(dbname)?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
               name: check-missing
               resources: {}
@@ -206,7 +214,7 @@ spec:
           volumes:
             - name: dbsecret
               secret:
-                defaultMode: '0600'
+                defaultMode: 384
                 secretName: reporting-db-prod-cred
   schedule: 0 10 1 * *
   startingDeadlineSeconds: 180
