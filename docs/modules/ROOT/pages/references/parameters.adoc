@@ -86,6 +86,7 @@ By disabling one or more of the periodic jobs, you'll most likely break the usag
 Breaking the usage-based billing will lead to lost income for the APPUiO Cloud instance.
 ====
 
+
 == `database`
 
 [horizontal]
@@ -94,15 +95,107 @@ default::
 +
 [source,yaml]
 ----
-host: null
-port: 5432
-name: appuio-cloud-reporting
-username: appuio-cloud-reporting
-password: null
+url: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
 parameters: ''
 ----
 
 Dictionary managing the connection to the reporting database.
+
+
+== `database_secret`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+database_secret: {}
+----
+
+Dictionary containing key value pairs that are stored in a secret and loaded as environment variables.
+
+=== Example
+
+[source,yaml]
+----
+database_secret:
+  DB_USER: appuio-cloud-reporting
+  DB_PASSWORD: letmein
+  DB_HOST: db.example.com
+  DB_PORT: 5432
+  DB_NAME: appuio-cloud-reporting
+----
+
+
+== `database_env`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+database_env: {}
+----
+
+Dictionary containing additional environment variables.
+
+=== Example
+
+[source,yaml]
+----
+database_env:
+  DB_USER:
+    secretKeyRef:
+      name: reporting-db-prod-cred
+      key: POSTGRESQL_USER
+  DB_PASSWORD:
+    secretKeyRef:
+      name: reporting-db-prod-cred
+      key: POSTGRESQL_PASSWORD
+  DB_HOST:
+    secretKeyRef:
+      name: reporting-db-prod-cred
+      key: POSTGRESQL_HOST
+  DB_PORT:
+    secretKeyRef:
+      name: reporting-db-prod-cred
+      key: POSTGRESQL_PORT
+  DB_NAME:
+    secretKeyRef:
+      name: reporting-db-prod-cred
+      key: POSTGRESQL_DB
+----
+
+
+== `extra_volumes`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+extra_volumes: {}
+----
+
+Mount additional volumes to the pods.
+
+=== Example
+
+[source,yaml]
+----
+extra_volumes:
+  dbsecret:
+    mount_spec:
+      readOnly: true
+      mountPath: /secrets/database
+    volume_spec:
+      secret:
+        secretName: reporting-db-prod-cred
+        defaultMode: 0600
+----
 
 
 == `prometheus.url`

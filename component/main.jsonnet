@@ -19,14 +19,13 @@ local escape = function(str)
            ));
 
 local dbSecret = kube.Secret('reporting-db') {
-  assert params.database.password != null : 'database.password must be set.',
   metadata+: {
     namespace: params.namespace,
     labels+: common.Labels,
   },
   stringData: {
-    username: params.database.username,
-    password: params.database.password,
+    [name]: params.database_secret[name]
+    for name in std.objectFields(params.database_secret)
   },
 };
 
@@ -42,7 +41,7 @@ local promURLSecret = kube.Secret('prom-url') {
 };
 
 local erpURLSecret = kube.Secret('erp-url') {
-  assert params.database.password != null : 'erp_adapter.url must be set.',
+  assert params.erp_adapter.url != null : 'erp_adapter.url must be set.',
   metadata+: {
     namespace: params.namespace,
     labels+: common.Labels,
@@ -54,31 +53,34 @@ local erpURLSecret = kube.Secret('erp-url') {
 
 local dbEnv = [
   {
-    name: 'password',
+    name: name,
     valueFrom: {
       secretKeyRef: {
-        key: 'password',
         name: dbSecret.metadata.name,
+        key: name,
       },
     },
+  }
+  for name in std.objectFields(params.database_secret)
+] + [
+  {
+    name: name,
+    [if std.type(params.database_env[name]) == 'string' then 'value' else 'valueFrom']: params.database_env[name],
+  }
+  for name in std.objectFields(params.database_env)
+] + [
+  assert params.database.url != null : 'database.url must be set.';
+  {
+    name: 'DB_PARAMS',
+    value: params.database.parameters,
   },
   {
-    name: 'username',
-    valueFrom: {
-      secretKeyRef: {
-        key: 'username',
-        name: dbSecret.metadata.name,
-      },
-    },
-  },
-  {
-    assert params.database.host != null : 'database.host must be set.',
     name: 'ACR_DB_URL',
-    value: 'postgres://$(username):$(password)@%(host)s:%(port)s/%(name)s?%(parameters)s' % params.database,
+    value: params.database.url,
   },
   {
     name: 'OA_DB_URL',
-    value: '$(ACR_DB_URL)',
+    value: params.database.url,
   },
 ];
 
@@ -122,6 +124,10 @@ local checkMigrationContainer = {
     'migrate',
     '--show-pending',
   ],
+  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+    { name: name } + params.extra_volumes[name].mount_spec
+    for name in std.objectFields(params.extra_volumes)
+  ],
 };
 
 local checkMissingContainer = {
@@ -130,6 +136,10 @@ local checkMissingContainer = {
   env+: dbEnv,
   args: [ 'check_missing' ],
   resources: {},
+  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+    { name: name } + params.extra_volumes[name].mount_spec
+    for name in std.objectFields(params.extra_volumes)
+  ],
 };
 
 local syncCategoriesContainer = {
@@ -138,6 +148,10 @@ local syncCategoriesContainer = {
   env+: dbEnv + erpEnv,
   args: [
     'sync',
+  ],
+  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+    { name: name } + params.extra_volumes[name].mount_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 };
 
@@ -157,7 +171,15 @@ local tenantMappingCJ = common.CronJob('tenant-mapping', 'tenantmapping', {
         + (" --additional-metric-selector='%s'" % std.toString(params.tenantmapping.metrics_selector)),
       ],
       resources: {},
+      [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+        { name: name } + params.extra_volumes[name].mount_spec
+        for name in std.objectFields(params.extra_volumes)
+      ],
     },
+  ],
+  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
+    { name: name } + params.extra_volumes[name].volume_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 }) {
   spec+: {
@@ -181,7 +203,15 @@ local backfillCJ = function(queryName)
           'appuio-cloud-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=' + queryName,
         ],
         resources: {},
+        [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+          { name: name } + params.extra_volumes[name].mount_spec
+          for name in std.objectFields(params.extra_volumes)
+        ],
       },
+    ],
+    [if std.length(params.extra_volumes) > 0 then 'volumes']: [
+      { name: name } + params.extra_volumes[name].volume_spec
+      for name in std.objectFields(params.extra_volumes)
     ],
   }) {
     metadata+: {
@@ -210,6 +240,10 @@ local checkCJ = common.CronJob('check-missing', 'check_missing', {
   containers: [
     checkMissingContainer,
   ],
+  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
+    { name: name } + params.extra_volumes[name].volume_spec
+    for name in std.objectFields(params.extra_volumes)
+  ],
 });
 
 local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
@@ -227,7 +261,15 @@ local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
       command: [ 'sh', '-c' ],
       args: [ 'appuio-odoo-adapter invoice --year=$(date -d "now -1 months" -u +"%Y") --month=$(date -d "now -1 months" -u +"%-m")' ],
       resources: {},
+      [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
+        { name: name } + params.extra_volumes[name].mount_spec
+        for name in std.objectFields(params.extra_volumes)
+      ],
     },
+  ],
+  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
+    { name: name } + params.extra_volumes[name].volume_spec
+    for name in std.objectFields(params.extra_volumes)
   ],
 }) {
   spec+: {
@@ -250,7 +292,7 @@ local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
     },
   },
   '01_netpol': netPol.Policies,
-  '10_db_secret': dbSecret,
+  [if std.length(params.database_secret) > 0 then '10_db_secret']: dbSecret,
   '10_prom_secret': promURLSecret,
   '10_erp_secret': erpURLSecret,
   '11_tenant_mapping': tenantMappingCJ,

@@ -29,12 +29,12 @@ parameters:
       invoice: false
 
     database:
-      host: null
-      port: 5432
-      name: appuio-cloud-reporting
-      username: appuio-cloud-reporting
-      password: null
+      url: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
       parameters: ''
+    database_secret: {}
+    database_env: {}
+
+    extra_volumes: {}
 
     prometheus:
       url: null

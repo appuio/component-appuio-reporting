@@ -35,20 +35,37 @@ spec:
                 - sh
                 - -c
               env:
-                - name: password
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
-                      key: password
+                      key: DB_HOST
                       name: reporting-db
-                - name: username
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
-                      key: username
+                      key: DB_NAME
                       name: reporting-db
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: DB_PASSWORD
+                      name: reporting-db
+                - name: DB_PORT
+                  valueFrom:
+                    secretKeyRef:
+                      key: DB_PORT
+                      name: reporting-db
+                - name: DB_USER
+                  valueFrom:
+                    secretKeyRef:
+                      key: DB_USER
+                      name: reporting-db
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: ACR_PROM_URL
                   valueFrom:
                     secretKeyRef:
@@ -62,20 +79,37 @@ spec:
                 - migrate
                 - --show-pending
               env:
-                - name: password
+                - name: DB_HOST
                   valueFrom:
                     secretKeyRef:
-                      key: password
+                      key: DB_HOST
                       name: reporting-db
-                - name: username
+                - name: DB_NAME
                   valueFrom:
                     secretKeyRef:
-                      key: username
+                      key: DB_NAME
                       name: reporting-db
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: DB_PASSWORD
+                      name: reporting-db
+                - name: DB_PORT
+                  valueFrom:
+                    secretKeyRef:
+                      key: DB_PORT
+                      name: reporting-db
+                - name: DB_USER
+                  valueFrom:
+                    secretKeyRef:
+                      key: DB_USER
+                      name: reporting-db
+                - name: DB_PARAMS
+                  value: ''
                 - name: ACR_DB_URL
-                  value: postgres://$(username):$(password)@db.example.com:5432/appuio-cloud-reporting?
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
                 - name: OA_DB_URL
-                  value: $(ACR_DB_URL)
+                  value: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
               image: ghcr.io/appuio/appuio-cloud-reporting:v0.17.0
               name: check-migration
           restartPolicy: OnFailure
