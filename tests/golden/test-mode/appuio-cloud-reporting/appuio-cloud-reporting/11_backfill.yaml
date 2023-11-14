@@ -32,7 +32,7 @@ spec:
           containers:
             - args:
                 - appuio-cloud-reporting report --begin=$(date -d "now -3 hours" -u
-                  +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+                  +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --debug-override-sales-order-id=OVERRIDE
               command:
                 - sh
                 - -c
@@ -78,4 +78,4 @@ spec:
   schedule: 15 * * * *
   startingDeadlineSeconds: 180
   successfulJobsHistoryLimit: 3
-  suspend: true
+  suspend: false

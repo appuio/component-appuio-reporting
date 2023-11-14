@@ -1,0 +1,99 @@
+parameters:
+  appuio_cloud_reporting:
+
+    database_secret:
+      DB_USER: appuio-cloud-reporting
+      DB_PASSWORD: letmein
+      DB_HOST: db.example.com
+      DB_PORT: 5432
+      DB_NAME: appuio-cloud-reporting
+
+    prometheus:
+      url: http://metrics
+
+    erp_adapter:
+      url: http://enterprisey-enterprise
+
+    network_policies:
+      target_namespaces:
+        appuio-reporting: true
+        appuio-thanos: true
+
+    rules:
+      appuio_managed_vcpu:
+        products:
+          - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-exoscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: exoscale
+          - product_id: 'openshift-worker-vcpu-exoscale-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: exoscale
+        instance_id_pattern: '%(cluster_id)s'
+        item_description_pattern: 'All Compute Resources'
+        item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
+        unit_id: '300'
+        query_pattern: |
+          # Calculates vCPUs for app nodes of a cluster
+          # Max values over one hour.
+          max_over_time(
+            sum by(cluster_id, vshn_service_level, tenant_id, role, cloud_provider, sales_order_id) (
+              node_cpu_info * on (tenant_id, cluster_id, instance) group_left(role)
+                label_join(
+                  kube_node_role{role=~"app|storage"},
+                  "instance",
+                  "",
+                  "node"
+                ) * on(cluster_id) group_left(tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                  max by(cluster_id, tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                    (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
+            )[59m:1m]
+          )
+
+      bappuio_managed_vcpu:
+        products:
+          - product_id: 'bopenshift-worker-vcpu-cloudscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: cloudscale
+          - product_id: 'bopenshift-worker-vcpu-cloudscale-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: cloudscale
+          - product_id: 'bopenshift-worker-vcpu-exoscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: exoscale
+          - product_id: 'bopenshift-worker-vcpu-exoscale-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: exoscale
+        instance_id_pattern: '%(cluster_id)s'
+        item_description_pattern: 'All Compute Resources'
+        item_group_description_pattern: 'APPUiO Managed BOpenShift - Cluster: %(cluster_id)s'
+        unit_id: '300'
+        query_pattern: |
+          # Calculates vCPUs for app nodes of a cluster
+          # Max values over one hour.
+          max_over_time(
+            sum by(cluster_id, vshn_service_level, tenant_id, role, cloud_provider, sales_order_id) (
+              node_cpu_info * on (tenant_id, cluster_id, instance) group_left(role)
+                label_join(
+                  kube_node_role{role=~"app|storage"},
+                  "instance",
+                  "",
+                  "node"
+                ) * on(cluster_id) group_left(tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                  max by(cluster_id, tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                    (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
+            )[59m:1m]
+          )

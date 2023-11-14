@@ -1,18 +1,8 @@
 parameters:
   appuio_cloud_reporting:
 
-    database_secret:
-      DB_USER: appuio-cloud-reporting
-      DB_PASSWORD: letmein
-      DB_HOST: db.example.com
-      DB_PORT: 5432
-      DB_NAME: appuio-cloud-reporting
-
     prometheus:
       url: http://metrics
-
-    erp_adapter:
-      url: http://enterprisey-enterprise
 
     network_policies:
       target_namespaces:
