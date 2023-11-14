@@ -449,7 +449,7 @@ spec:
                 - name: ACR_PRODUCT_ID
                   value: bopenshift-worker-vcpu-cloudscale-besteffort
                 - name: ACR_QUERY
-                  value: |-
+                  value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
                     max_over_time(
@@ -546,7 +546,7 @@ spec:
                 - name: ACR_PRODUCT_ID
                   value: bopenshift-worker-vcpu-cloudscale-guaranteedavailability
                 - name: ACR_QUERY
-                  value: |-
+                  value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
                     max_over_time(
@@ -643,7 +643,7 @@ spec:
                 - name: ACR_PRODUCT_ID
                   value: bopenshift-worker-vcpu-exoscale-besteffort
                 - name: ACR_QUERY
-                  value: |-
+                  value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
                     max_over_time(
@@ -740,7 +740,7 @@ spec:
                 - name: ACR_PRODUCT_ID
                   value: bopenshift-worker-vcpu-exoscale-guaranteedavailability
                 - name: ACR_QUERY
-                  value: |-
+                  value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
                     max_over_time(

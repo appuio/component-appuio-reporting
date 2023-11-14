@@ -70,7 +70,7 @@ local commonEnv = std.prune([
   },
   {
     name: 'ACR_ODOO_URL',
-    value: params.odoo.metered_billing_endpoint
+    value: params.odoo.metered_billing_endpoint,
   },
   {
     name: 'ACR_PROM_URL',
@@ -88,13 +88,13 @@ local commonEnv = std.prune([
 ]);
 
 local override_sales_order_id = if params.override_sales_order_id != null && !params.development_mode then
-      error (
-        '\n\nOverriding sales order ID not possible unless the component is in development mode.\n'
-        + 'Please note that overriding the sales order ID may produce faulty invoices.\n'
-        + 'To enable development mode, set parameter `development_mode` to true.\n'
-      )
-    else
-      params.override_sales_order_id;
+  error (
+    '\n\nOverriding sales order ID not possible unless the component is in development mode.\n'
+    + 'Please note that overriding the sales order ID may produce faulty invoices.\n'
+    + 'To enable development mode, set parameter `development_mode` to true.\n'
+  )
+else
+  params.override_sales_order_id;
 
 local backfillCJ = function(rule, product)
   local query = rule.query_pattern % product.params;
@@ -177,6 +177,6 @@ local backfillCJ = function(rule, product)
   '01_netpol': netPol.Policies,
   '10_prom_secret': promURLSecret,
   '10_odoo_secret': odooSecret,
-  '11_backfill': std.flatMap(function(r) [ backfillCJ(r, p) for p in r.products], std.objectValues(params.rules)),
+  '11_backfill': std.flatMap(function(r) [ backfillCJ(r, p) for p in r.products ], std.objectValues(params.rules)),
   [if params.monitoring.enabled then '50_alerts']: alerts.Alerts,
 }
