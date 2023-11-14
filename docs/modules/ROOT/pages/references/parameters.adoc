@@ -28,13 +28,6 @@ type:: dictionary
 The image used for managing data in the reporting database.
 
 
-=== `images.erp_adapter`
-
-[horizontal]
-type:: dictionary
-
-The image used for creating invoices and syncing target fields.
-
 
 == `schedules`
 
@@ -45,8 +38,6 @@ default::
 [source,yaml]
 ----
 backfill: '15 * * * *'
-check_missing: '30 8-14 * * *'
-invoice: '0 10 1 * *'
 ----
 
 Dictionary managing the schedules of the periodic jobs (implemented as Kubernetes CronJobs).
@@ -58,7 +49,7 @@ type:: boolean
 default:: `false`
 
 This parameter allows to enable development mode for the component.
-The component prevents periodic jobs from being disabled, unless development mode is active.
+The component prevents certain configurations if development is disabled.
 
 == `schedules_suspend`
 
@@ -74,6 +65,7 @@ invoice: false
 ----
 
 This parameter allows users to selectively suspend one or more of the periodic jobs.
+It is only available if `development_mode` is set to `true`.
 
 A suspended CronJob still exists on the cluster, but no new jobs are created based on the CronJob's schedule.
 
@@ -86,88 +78,21 @@ By disabling one or more of the periodic jobs, you'll most likely break the usag
 Breaking the usage-based billing will lead to lost income for the APPUiO Cloud instance.
 ====
 
-
-== `database`
-
-[horizontal]
-type:: dictionary
-default::
-+
-[source,yaml]
-----
-url: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
-parameters: ''
-----
-
-Dictionary managing the connection to the reporting database.
-
-
-== `database_secret`
+== `override_sales_order_id`
 
 [horizontal]
-type:: dictionary
-default::
-+
-[source,yaml]
-----
-database_secret: {}
-----
+type:: string
+default:: `null`
 
-Dictionary containing key value pairs that are stored in a secret and loaded as environment variables.
+If set, this parameter causes all metered billing records sent to Odoo to have the same static `sales_order_id`, which is set to the value of this parameter.
+This is only available if `development_mode` is set to `true`.
 
-=== Example
-
-[source,yaml]
-----
-database_secret:
-  DB_USER: appuio-cloud-reporting
-  DB_PASSWORD: letmein
-  DB_HOST: db.example.com
-  DB_PORT: 5432
-  DB_NAME: appuio-cloud-reporting
-----
-
-
-== `database_env`
-
-[horizontal]
-type:: dictionary
-default::
-+
-[source,yaml]
-----
-database_env: {}
-----
-
-Dictionary containing additional environment variables.
-
-=== Example
-
-[source,yaml]
-----
-database_env:
-  DB_USER:
-    secretKeyRef:
-      name: reporting-db-prod-cred
-      key: POSTGRESQL_USER
-  DB_PASSWORD:
-    secretKeyRef:
-      name: reporting-db-prod-cred
-      key: POSTGRESQL_PASSWORD
-  DB_HOST:
-    secretKeyRef:
-      name: reporting-db-prod-cred
-      key: POSTGRESQL_HOST
-  DB_PORT:
-    secretKeyRef:
-      name: reporting-db-prod-cred
-      key: POSTGRESQL_PORT
-  DB_NAME:
-    secretKeyRef:
-      name: reporting-db-prod-cred
-      key: POSTGRESQL_DB
-----
-
+[IMPORTANT]
+====
+Setting this parameter will very likely result in faulty billing data.
+It should not be set against a productive system.
+Its purpose is to allow testing of the reporting process against a test system, in which the correct sales orders may not exist.
+====
 
 == `extra_volumes`
 
@@ -215,46 +140,72 @@ default:: `null`
 
 If set, this value is sent as the `X-Scope-OrgID` header in all requests to Prometheus.
 
-
-== `erp_adapter.url`
-
+== `odoo.metered_billing_endpoint`
 [horizontal]
 type:: string
 default:: `null`
 
-URL used to connect with the ERP Instance.
-For Odoo the URL must be in the format of `https://user:pass@host[:port]/db-name`.
+URL of the REST API to which to send metered billing records.
 
-
-== `erp_adapter.invoice_title`
-
-[horizontal]
-type:: string
-default:: `"APPUiO Cloud"`
-
-Invoice title to be used by the ERP adapter when generating invoices.
-
-
-== `backfill.queries`
-
+== `odoo.oauth`
 [horizontal]
 type:: dictionary
 default::
 +
 [source,yaml]
 ----
-appuio_cloud_memory: true
-appuio_cloud_loadbalancer: true
-appuio_cloud_persistent_storage: true
-appcat_postgresql_vshn_standalone: true
+token_endpoint: null
+client_id: null
+client_secret: null
 ----
 
-Queries to use when backfilling metrics data.
-`true` enables the query, every other value disables the query.
-Every query is run in its own CronJob.
+Configuration of the OAuth client used to connect to the metered billing REST API.
 
-Check the reporting database for possible queries.
-Currently known queries are `appuio_cloud_memory`, `appuio_cloud_loadbalancer`, `appuio_cloud_persistent_storage`, and `appcat_postgresql_vshn_standalone`.
+== `rules`
+
+[horizontal]
+type:: dictionary
+default:: {}
+example::
++
+[source,yaml]
+----
+rule_appuio_managed_vcpu: <1>
+  products: <2>
+    - product_id: 'openshift-worker-vcpu-cloudscale-besteffort' <3>
+      params: <4>
+        vshn_service_level: best-effort
+        cloud_provider: cloudscale
+    - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
+      params:
+        vshn_service_level: guaranteed-availability
+        cloud_provider: cloudscale
+  instance_id_pattern: '%(cluster_id)s' <5>
+  item_description_pattern: 'All Compute Resources' <6>
+  item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s' <7>
+  unit_id: 'uom_00000' <8>
+  query_pattern: | <9>
+    max_over_time(
+      sum by(cluster_id, vshn_service_level, tenant_id, role, cloud_provider, sales_order_id) (
+        node_cpu_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"}
+      )[59m:1m]
+    )
+----
++
+<1> Multiple rules can be defined in the dictionary, with the rule name serving as key.
+<2> All products whose corresponding queries can be generated from this rule should be listed here.
+<3> Odoo ID of the product for which usage is being queried.
+<4> Dictionary of arbitrary parameters describing the product. These will be applied to the `query_pattern`.
+<5> The labels of the query result are applied to this pattern to generate the instance ID.
+<6> (Optional) The labels of the query result are applied to this pattern to generate the human readable item description.
+<7> (Optional) The labels of the query result are applied to this pattern to generate the human readable item group description.
+<8> Odoo ID of the unit of measurement used.
+<9> The product params are applied to this pattern to generate one query for each product.
+
+Dictionary containing rules by which to generate Prometheus queries.
+A rule corresponds to a single query template, from which queries for multiple products may be generated.
+
+For more information on the individual parameters and how they are used, refer to https://docs.central.vshn.ch/metered-billing-data-flow.html#_example_api_payload[Metered Billing Data Flow].
 
 
 == `network_policies.target_namespaces`
@@ -309,52 +260,3 @@ APPUiOCloudReportingDidSomething:
 
 Alerts monitoring the cloud reporting cron jobs.
 
-
-== `tenantmapping`
-
-[horizontal]
-type:: dictionary
-
-Configuration for the tenant mapping job.
-The job is responsible for mapping the tenants source (organization) to the target in the ERP (billing entity).
-
-
-== `tenantmapping.dry_run`
-
-[horizontal]
-type:: boolean
-default:: `true`
-
-Doesn't commit the tenant mapping to the database if set to `true`.
-
-
-== `tenantmapping.metrics_selector`
-
-[horizontal]
-type:: boolean
-default:: `namespace="appuio-control-api-production"`
-
-Further narrows down the metrics to be considered for the tenant mapping.
-Prometheus selector syntax (`test="asd"`) is used.
-
-
-== Example
-
-[source,yaml]
-----
-schedules:
-  invoice: '0 12 1 * *'
-
-database:
-  host: reporting-database.appuio.cloud
-  port: 5432
-  name: reporting-database
-  username: reporting-user
-  password: ?{vaultkv:${cluster:tenant}/${cluster:name}/appuio-cloud-reporting/reporting-database-password}
-
-erp_adapter:
-  url: ?{vaultkv:${cluster:tenant}/${cluster:name}/appuio-cloud-reporting/erp-url}
-
-prometheus:
-  url: http://thanos-query.appuio-thanos.svc:9090
-----
