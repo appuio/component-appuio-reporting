@@ -1,7 +1,7 @@
-= appuio-cloud-reporting
+= appuio-reporting
 
-appuio-cloud-reporting is a Commodore component to manage appuio-cloud-reporting.
+appuio-reporting is a Commodore component to manage appuio-reporting.
 
-appuio-cloud-reporting supports instantiating the component multiple times (see Project Syn documentation for details).
+appuio-reporting supports instantiating the component multiple times (see Project Syn documentation for details).
 
 See the xref:references/parameters.adoc[parameters] reference for further details.

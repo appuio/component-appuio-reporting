@@ -2,12 +2,12 @@ Connect with the billing database.
 +
 [source,bash]
 ----
-INSTANCE_NS=$(kubectl -n appuio-cloud-reporting get vshnpostgresql cloud-reporting-db-prod -o jsonpath='{.status.instanceNamespace}')
+INSTANCE_NS=$(kubectl -n appuio-reporting get vshnpostgresql cloud-reporting-db-prod -o jsonpath='{.status.instanceNamespace}')
 kubectl -n ${INSTANCE_NS} port-forward svc/primary-service 5432 &
 
-DB_USER=$(kubectl -n appuio-cloud-reporting get secret/reporting-db-prod-cred -o jsonpath='{.data.POSTGRESQL_USER}' | base64 --decode)
-DB_NAME=$(kubectl -n appuio-cloud-reporting get secret/reporting-db-prod-cred -o jsonpath='{.data.POSTGRESQL_DB}' | base64 --decode)
-export PGPASSWORD=$(kubectl -n appuio-cloud-reporting get secret/reporting-db-prod-cred -o jsonpath='{.data.POSTGRESQL_PASSWORD}' | base64 --decode)
+DB_USER=$(kubectl -n appuio-reporting get secret/reporting-db-prod-cred -o jsonpath='{.data.POSTGRESQL_USER}' | base64 --decode)
+DB_NAME=$(kubectl -n appuio-reporting get secret/reporting-db-prod-cred -o jsonpath='{.data.POSTGRESQL_DB}' | base64 --decode)
+export PGPASSWORD=$(kubectl -n appuio-reporting get secret/reporting-db-prod-cred -o jsonpath='{.data.POSTGRESQL_PASSWORD}' | base64 --decode)
 
 psql -U "${DB_USER}" -w -h localhost "${DB_NAME}"
 ----

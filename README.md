@@ -1,13 +1,13 @@
-# Commodore Component: appuio-cloud-reporting
+# Commodore Component: appuio-reporting
 
-This is a [Commodore][commodore] Component for appuio-cloud-reporting.
+This is a [Commodore][commodore] Component for appuio-reporting.
 
 This repository is part of Project Syn.
 For documentation on Project Syn and this component, see https://syn.tools.
 
 ## Documentation
 
-The rendered documentation for this component is available on the [Commodore Components Hub](https://hub.syn.tools/appuio-cloud-reporting).
+The rendered documentation for this component is available on the [Commodore Components Hub](https://hub.syn.tools/appuio-reporting).
 
 Documentation for this component is written using [Asciidoc][asciidoc] and [Antora][antora].
 It is located in the [docs/](docs) folder.

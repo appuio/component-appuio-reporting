@@ -1,6 +1,6 @@
 local kap = import 'lib/kapitan.libjsonnet';
 local inv = kap.inventory();
-local params = inv.parameters.appuio_cloud_reporting;
+local params = inv.parameters.appuio_reporting;
 local argocd = import 'lib/argocd.libjsonnet';
 local instance = inv.parameters._instance;
 

@@ -1,4 +1,4 @@
-// main template for appuio-cloud-reporting
+// main template for appuio-reporting
 local alerts = import 'alerts.libsonnet';
 local common = import 'common.libsonnet';
 local kap = import 'lib/kapitan.libjsonnet';
@@ -6,7 +6,7 @@ local kube = import 'lib/kube.libjsonnet';
 local netPol = import 'networkpolicies.libsonnet';
 local inv = kap.inventory();
 // The hiera parameters for the component
-local params = inv.parameters.appuio_cloud_reporting;
+local params = inv.parameters.appuio_reporting;
 
 local formatImage = function(ref) '%(registry)s/%(repository)s:%(tag)s' % ref;
 
@@ -132,7 +132,7 @@ local backfillCJ = function(rule, product)
         env+: commonEnv + jobEnv,
         command: [ 'sh', '-c' ],
         args: [
-          'appuio-cloud-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)' + (if override_sales_order_id != null then ' --debug-override-sales-order-id=' + override_sales_order_id else ''),
+          'appuio-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)' + (if override_sales_order_id != null then ' --debug-override-sales-order-id=' + override_sales_order_id else ''),
         ],
         resources: {},
         [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [

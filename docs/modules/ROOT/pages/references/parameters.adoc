@@ -1,6 +1,6 @@
 = Parameters
 
-The parent key for all of the following parameters is `appuio_cloud_reporting`.
+The parent key for all of the following parameters is `appuio_reporting`.
 
 == `namespace`
 
@@ -15,7 +15,7 @@ The namespace in which to deploy this component.
 
 [horizontal]
 type:: dictionary
-default:: https://github.com/appuio/component-appuio-cloud-reporting/blob/master/class/defaults.yml[See `class/defaults.yml].
+default:: https://github.com/appuio/component-appuio-reporting/blob/master/class/defaults.yml[See `class/defaults.yml].
 
 Dictionary containing the container images used by this component.
 
@@ -250,13 +250,12 @@ APPUiOCloudReportingDidSomething:
     annotations:
       description: APPUiOCloudReporting did something.
       message: APPUiOCloudReporting did something.
-      runbook: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDidSomething.html
+      runbook: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingDidSomething.html
     expr: |
-      appuio_cloud_reporting_doing_something > 1
+      appuio_reporting_doing_something > 1
     for: 10m
     labels:
       severity: warning
 ----
 
 Alerts monitoring the cloud reporting cron jobs.
-

@@ -5,7 +5,7 @@
 #
 
 # The component name is hard-coded from the template
-COMPONENT_NAME ?= appuio-cloud-reporting
+COMPONENT_NAME ?= appuio-reporting
 
 git_dir         ?= $(shell git rev-parse --git-common-dir)
 compiled_path   ?= compiled/$(COMPONENT_NAME)/$(COMPONENT_NAME)
