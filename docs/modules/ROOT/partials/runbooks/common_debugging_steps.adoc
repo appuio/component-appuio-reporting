@@ -3,18 +3,18 @@
 +
 [source,bash]
 ----
-NAMESPACE=appuio-cloud-reporting
+NAMESPACE=appuio-reporting
 FAILED_JOB=job/XXXXXX-XXXXXX
 
 oc --as=cluster-admin -n "${NAMESPACE}" debug "${FAILED_JOB}" \
-  --keep-init-containers=false --image=ghcr.io/appuio/appuio-cloud-reporting:latest -- \
-  appuio-cloud-reporting migrate --show-pending
+  --keep-init-containers=false --image=ghcr.io/appuio/appuio-reporting:latest -- \
+  appuio-reporting migrate --show-pending
 
 # If pending migrations are shown
 oc --as=cluster-admin -n "${NAMESPACE}" debug "${FAILED_JOB}" \
-  --keep-init-containers=false --image=ghcr.io/appuio/appuio-cloud-reporting:latest -- \
-  appuio-cloud-reporting migrate
+  --keep-init-containers=false --image=ghcr.io/appuio/appuio-reporting:latest -- \
+  appuio-reporting migrate
 oc --as=cluster-admin -n "${NAMESPACE}" debug "${FAILED_JOB}" \
-  --keep-init-containers=false --image=ghcr.io/appuio/appuio-cloud-reporting:latest -- \
-  appuio-cloud-reporting migrate --seed
+  --keep-init-containers=false --image=ghcr.io/appuio/appuio-reporting:latest -- \
+  appuio-reporting migrate --seed
 ----

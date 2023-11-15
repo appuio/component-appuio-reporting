@@ -1,4 +1,4 @@
-// main template for appuio-cloud-reporting
+// main template for appuio-reporting
 local alerts = import 'alerts.libsonnet';
 local common = import 'common.libsonnet';
 local kap = import 'lib/kapitan.libjsonnet';
@@ -6,7 +6,7 @@ local kube = import 'lib/kube.libjsonnet';
 local netPol = import 'networkpolicies.libsonnet';
 local inv = kap.inventory();
 // The hiera parameters for the component
-local params = inv.parameters.appuio_cloud_reporting;
+local params = inv.parameters.appuio_reporting;
 
 local formatImage = function(ref) '%(registry)s/%(repository)s:%(tag)s' % ref;
 
@@ -166,7 +166,7 @@ local tenantMappingCJ = common.CronJob('tenant-mapping', 'tenantmapping', {
       env+: dbEnv + promEnv,
       command: [ 'sh', '-c' ],
       args: [
-        'appuio-cloud-reporting tenantmapping --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)'
+        'appuio-reporting tenantmapping --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)'
         + (' --dry-run=%s' % std.toString(params.tenantmapping.dry_run))
         + (" --additional-metric-selector='%s'" % std.toString(params.tenantmapping.metrics_selector)),
       ],
@@ -200,7 +200,7 @@ local backfillCJ = function(queryName)
         env+: dbEnv + promEnv,
         command: [ 'sh', '-c' ],
         args: [
-          'appuio-cloud-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=' + queryName,
+          'appuio-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=' + queryName,
         ],
         resources: {},
         [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [

@@ -6,8 +6,8 @@
 # `component-` prefix removed.
 #
 
-name: appuio-cloud-reporting
-title: appuio-cloud-reporting
+name: appuio-reporting
+title: appuio-reporting
 version: master
 start_page: ROOT:index.adoc
 nav:

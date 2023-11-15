@@ -1,5 +1,5 @@
 parameters:
-  appuio_cloud_reporting:
+  appuio_reporting:
     =_metadata:
       multi_instance: true
     namespace: ${_instance}
@@ -7,7 +7,7 @@ parameters:
     images:
       reporting:
         registry: ghcr.io
-        repository: appuio/appuio-cloud-reporting
+        repository: appuio/appuio-reporting
         tag: v0.17.0
 
       erp_adapter:
@@ -67,10 +67,10 @@ parameters:
             annotations:
               description: APPUiO Cloud Reporting is missing ERP link `target` data.
               message: APPUiO Cloud Reporting is missing ERP link `target` data.
-              runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingMissingData.html
+              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingMissingData.html
               summary: APPUiO Cloud Reporting is missing ERP link `target` data.
             expr: |
-              (kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"check-missing-.*"} * scalar((days_in_month() - day_of_month()) <bool 7)) > 0
+              (kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"check-missing-.*"} * scalar((days_in_month() - day_of_month()) <bool 7)) > 0
             for: 10m
             labels:
               severity: warning
@@ -80,10 +80,10 @@ parameters:
             annotations:
               description: APPUiO Cloud Invoice generation in Odoo failed.
               message: APPUiO Cloud Invoice generation in Odoo failed.
-              runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudInvoiceGenerationFailed.html
+              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudInvoiceGenerationFailed.html
               summary: APPUiO Cloud Invoice generation in Odoo failed.
             expr: |
-              kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"generate-invoices-.*"} > 0
+              kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"generate-invoices-.*"} > 0
             for: 10m
             labels:
               severity: warning
@@ -93,10 +93,10 @@ parameters:
             annotations:
               description: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
               message: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
-              runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.html
+              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.html
               summary: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
             expr: |
-              kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"backfill-.*"} > 0
+              kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"backfill-.*"} > 0
             for: 10m
             labels:
               severity: warning
@@ -106,10 +106,10 @@ parameters:
             annotations:
               description: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
               message: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
-              runbook_url: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDatabaseTenantMappingFailed.html
+              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingDatabaseTenantMappingFailed.html
               summary: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
             expr: |
-              kube_job_failed{job="kube-state-metrics",namespace="${appuio_cloud_reporting:namespace}",job_name=~"tenant-mapping-.*"} > 0
+              kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"tenant-mapping-.*"} > 0
             for: 10m
             labels:
               severity: warning

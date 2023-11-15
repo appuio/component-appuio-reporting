@@ -23,7 +23,7 @@ Rerunning the job, can leave duplicates which need to be cleaned up.
 +
 [source,bash]
 ----
-kubectl -n appuio-cloud-reporting logs $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=generate-invoices --field-selector status.successful=0 -o name | tail -n1) --all-containers
+kubectl -n appuio-reporting logs $(kubectl -n appuio-reporting get job -l cron-job-name=generate-invoices --field-selector status.successful=0 -o name | tail -n1) --all-containers
 ----
 
 . Remove any obstacles
@@ -35,8 +35,8 @@ Use the findings from the previous step to remove any obstacles causing the job 
 [source,bash]
 ----
 name="generate-invoices-manual-$($(command -v gdate || command -v date) +%s)"
-kubectl --as cluster-admin -n appuio-cloud-reporting create job --from=cronjob/generate-invoices "${name}"
-kubectl -n appuio-cloud-reporting logs "job/${name}"
+kubectl --as cluster-admin -n appuio-reporting create job --from=cronjob/generate-invoices "${name}"
+kubectl -n appuio-reporting logs "job/${name}"
 ----
 
 . Check ERP for duplicates
@@ -64,5 +64,5 @@ Remove all failed check-missing jobs to clear the alert.
 +
 [source,bash]
 ----
-kubectl -n appuio-cloud-reporting delete $(kubectl -n appuio-cloud-reporting get job -l cron-job-name=generate-invoices --field-selector status.successful=0 -o name)
+kubectl -n appuio-reporting delete $(kubectl -n appuio-reporting get job -l cron-job-name=generate-invoices --field-selector status.successful=0 -o name)
 ----

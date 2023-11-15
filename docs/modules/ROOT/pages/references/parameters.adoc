@@ -1,6 +1,6 @@
 = Parameters
 
-The parent key for all of the following parameters is `appuio_cloud_reporting`.
+The parent key for all of the following parameters is `appuio_reporting`.
 
 == `namespace`
 
@@ -15,7 +15,7 @@ The namespace in which to deploy this component.
 
 [horizontal]
 type:: dictionary
-default:: https://github.com/appuio/component-appuio-cloud-reporting/blob/master/class/defaults.yml[See `class/defaults.yml].
+default:: https://github.com/appuio/component-appuio-reporting/blob/master/class/defaults.yml[See `class/defaults.yml].
 
 Dictionary containing the container images used by this component.
 
@@ -120,11 +120,11 @@ Dictionary containing key value pairs that are stored in a secret and loaded as 
 [source,yaml]
 ----
 database_secret:
-  DB_USER: appuio-cloud-reporting
+  DB_USER: appuio-reporting
   DB_PASSWORD: letmein
   DB_HOST: db.example.com
   DB_PORT: 5432
-  DB_NAME: appuio-cloud-reporting
+  DB_NAME: appuio-reporting
 ----
 
 
@@ -299,9 +299,9 @@ APPUiOCloudReportingDidSomething:
     annotations:
       description: APPUiOCloudReporting did something.
       message: APPUiOCloudReporting did something.
-      runbook: https://hub.syn.tools/appuio-cloud-reporting/runbooks/APPUiOCloudReportingDidSomething.html
+      runbook: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingDidSomething.html
     expr: |
-      appuio_cloud_reporting_doing_something > 1
+      appuio_reporting_doing_something > 1
     for: 10m
     labels:
       severity: warning
@@ -350,10 +350,10 @@ database:
   port: 5432
   name: reporting-database
   username: reporting-user
-  password: ?{vaultkv:${cluster:tenant}/${cluster:name}/appuio-cloud-reporting/reporting-database-password}
+  password: ?{vaultkv:${cluster:tenant}/${cluster:name}/appuio-reporting/reporting-database-password}
 
 erp_adapter:
-  url: ?{vaultkv:${cluster:tenant}/${cluster:name}/appuio-cloud-reporting/erp-url}
+  url: ?{vaultkv:${cluster:tenant}/${cluster:name}/appuio-reporting/erp-url}
 
 prometheus:
   url: http://thanos-query.appuio-thanos.svc:9090

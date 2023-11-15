@@ -1,10 +1,10 @@
-// main template for appuio-cloud-reporting
+// main template for appuio-reporting
 local common = import 'common.libsonnet';
 local kap = import 'lib/kapitan.libjsonnet';
 local kube = import 'lib/kube.libjsonnet';
 local inv = kap.inventory();
 // The hiera parameters for the component
-local params = inv.parameters.appuio_cloud_reporting;
+local params = inv.parameters.appuio_reporting;
 
 local netPol = function(targetNS)
   kube.NetworkPolicy('allow-from-%s' % params.namespace) {
