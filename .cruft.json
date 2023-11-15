@@ -4,9 +4,9 @@
   "checkout": "main",
   "context": {
     "cookiecutter": {
-      "name": "appuio-cloud-reporting",
-      "slug": "appuio-cloud-reporting",
-      "parameter_key": "appuio_cloud_reporting",
+      "name": "appuio-reporting",
+      "slug": "appuio-reporting",
+      "parameter_key": "appuio_reporting",
       "test_cases": "defaults suspended-cronjobs with-org-id external-secret with-rules test-mode",
       "add_lib": "n",
       "add_pp": "n",
@@ -16,8 +16,8 @@
       "copyright_holder": "VSHN AG <info@vshn.ch>",
       "copyright_year": "2021",
       "github_owner": "appuio",
-      "github_name": "component-appuio-cloud-reporting",
-      "github_url": "https://github.com/appuio/component-appuio-cloud-reporting",
+      "github_name": "component-appuio-reporting",
+      "github_url": "https://github.com/appuio/component-appuio-reporting",
       "_template": "https://github.com/projectsyn/commodore-component-template.git"
     }
   },

@@ -74,8 +74,8 @@ A suspended CronJob still exists on the cluster, but no new jobs are created bas
 Never use this parameter to disable CronJobs because they trigger alerts.
 Instead investigate why the alerts are triggered, and resolve the actual cause, such as missing data in the billing database.
 
-By disabling one or more of the periodic jobs, you'll most likely break the usage-based billing for the APPUiO Cloud instance.
-Breaking the usage-based billing will lead to lost income for the APPUiO Cloud instance.
+By disabling one or more of the periodic jobs, you'll most likely break the usage-based billing for the APPUiO instance.
+Breaking the usage-based billing will lead to lost income for the APPUiO instance.
 ====
 
 == `override_sales_order_id`
@@ -244,13 +244,13 @@ example::
 +
 [source,yaml]
 ----
-APPUiOCloudReportingDidSomething:
+APPUiOReportingDidSomething:
   enabled: false
   rule:
     annotations:
-      description: APPUiOCloudReporting did something.
-      message: APPUiOCloudReporting did something.
-      runbook: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingDidSomething.html
+      description: APPUiOReporting did something.
+      message: APPUiOReporting did something.
+      runbook: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOReportingDidSomething.html
     expr: |
       appuio_reporting_doing_something > 1
     for: 10m
@@ -258,4 +258,4 @@ APPUiOCloudReportingDidSomething:
       severity: warning
 ----
 
-Alerts monitoring the cloud reporting cron jobs.
+Alerts monitoring the reporting cron jobs.

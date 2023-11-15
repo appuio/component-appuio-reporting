@@ -1,0 +1,62 @@
+= Alert rule: APPUiOReportingDatabaseBackfillingFailed
+
+include::partial$runbooks/contribution_note.adoc[]
+
+== icon:glasses[] Overview
+
+APPUiO Reporting failed while trying to backfill Prometheus metering data to the reporting database.
+This might leave gaps in the reported data and totals will be too low in the next invoice run.
+
+Deleting the failed job will clear this alert.
+
+== icon:bug[] Steps for debugging
+
+include::partial$runbooks/common_debugging_steps.adoc[]
++
+* Check Prometheus/Thanos connectivity and logs.
+
+[IMPORTANT]
+After fixing the underlying issue, you need to backfill all gaps in the reporting database.
+
+== icon:terminal[] Backfill gaps in reporting database
+
+[NOTE]
+====
+This runbook expects `jq` to be installed.
+
+On macOS it expects the `date` command from GNU coreutils to be installed as `gdate` (`brew install coreutils`).
+====
+
+. Find failed jobs
+
+[source,bash]
+----
+CRONJOB_NAME=<name of the cronjob that has failing jobs>
+NAMESPACE=appuio-reporting
+
+query_name=$(kubectl -n $NAMESPACE get cronjobs $CRONJOB_NAME "-o=jsonpath={.metadata.annotations['query-name']}")
+echo $query_name
+
+failed_timestamps=$(kubectl -n $NAMESPACE get jobs --selector=cron-job-name=$CRONJOB_NAME -ojson \
+  | jq -r '[.items[] | select((.status.conditions[] | select( .type == "Failed" ) | length ) >  0)]
+            | .[].metadata.creationTimestamp')
+echo $failed_timestamps
+----
+
+. Review query name and failed timestamps
+. Re-run the queries to backfill the gaps
+
+[source,bash]
+----
+NAMESPACE=appuio-reporting
+
+job_template=$(kubectl -n $NAMESPACE get jobs --selector=cron-job-name=$CRONJOB_NAME -ojson \
+  | jq -r '.items | first | .metadata.name')
+
+date_bin=date
+if [[ "$OSTYPE" == "darwin"* ]]; then date_bin=gdate; fi
+
+echo $failed_timestamps \
+  | xargs -I @ $date_bin --date @ +"%Y-%m-%dT%H:00:00Z" \
+  | xargs -n1 oc -n $NAMESPACE --as=cluster-admin debug job/$job_template -- appuio-reporting report --query-name=$query_name --begin
+----

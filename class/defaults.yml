@@ -40,14 +40,14 @@ parameters:
     monitoring:
       enabled: true
       alerts:
-        APPUiOCloudReportingDatabaseBackfillingFailed:
+        APPUiOReportingDatabaseBackfillingFailed:
           enabled: true
           rule:
             annotations:
-              description: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
-              message: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
-              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.html
-              summary: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
+              description: APPUiO Reporting backfilling metrics into reporting database failed.
+              message: APPUiO Reporting backfilling metrics into reporting database failed.
+              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOReportingDatabaseBackfillingFailed.html
+              summary: APPUiO Reporting backfilling metrics into reporting database failed.
             expr: |
               kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"backfill-.*"} > 0
             for: 10m

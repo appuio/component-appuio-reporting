@@ -1,0 +1,81 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: openshift-worker-vcpu-cloudscale-besteffort
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: backfill-openshift-worker-vcpu-cloudscale-besteffort
+  name: backfill-openshift-worker-vcpu-cloudscale-besteffort
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: openshift-worker-vcpu-cloudscale-besteffort
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-besteffort
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z")
+                  --repeat-until=$(date -u -Iseconds) --debug-override-sales-order-id=OVERRIDE
+              command:
+                - sh
+                - -c
+              env:
+                - name: ACR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_url
+                      name: odoo-credentials
+                - name: ACR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: ACR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: ACR_ODOO_URL
+                - name: ACR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: ACR_PRODUCT_ID
+                  value: openshift-worker-vcpu-cloudscale-besteffort
+                - name: ACR_QUERY
+                  value: query
+                - name: ACR_INSTANCE_PATTERN
+                  value: '%(cluster_id)s'
+                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
+                  value: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
+                - name: ACR_ITEM_DESCRIPTION_PATTERN
+                  value: All Compute Resources
+                - name: ACR_UNIT_ID
+                  value: '300'
+              image: ghcr.io/appuio/appuio-reporting:v0.17.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: false
