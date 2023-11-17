@@ -32,7 +32,7 @@ parameters:
               vshn_service_level: guaranteed-availability
               cloud_provider: exoscale
         instance_id_pattern: '%(cluster_id)s'
-        item_description_pattern: 'All Compute Resources'
+        item_description_jsonnet: 'local labels = std.extVar("labels"); if std.objectHas(labels, "foo") then "foo-cluster" else "All Compute Resources"'
         item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
         unit_id: '300'
         query_pattern: |
@@ -71,8 +71,6 @@ parameters:
               vshn_service_level: guaranteed-availability
               cloud_provider: exoscale
         instance_id_pattern: '%(cluster_id)s'
-        item_description_pattern: 'All Compute Resources'
-        item_group_description_pattern: 'APPUiO Managed BOpenShift - Cluster: %(cluster_id)s'
         unit_id: '300'
         query_pattern: |
           # Calculates vCPUs for app nodes of a cluster

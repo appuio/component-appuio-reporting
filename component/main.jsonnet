@@ -98,29 +98,45 @@ else
 
 local backfillCJ = function(rule, product)
   local query = rule.query_pattern % product.params;
+
+  local itemDescJsonnet = if std.objectHas(rule, 'item_description_jsonnet') then
+    rule.item_description_jsonnet
+  else if std.objectHas(rule, 'item_description_pattern') then
+    'local labels = std.extVar("labels"); "%s" %% labels' % rule.item_description_pattern;
+
+  local itemGroupDescJsonnet = if std.objectHas(rule, 'item_group_description_jsonnet') then
+    rule.item_group_description_jsonnet
+  else if std.objectHas(rule, 'item_group_description_pattern') then
+    'local labels = std.extVar("labels"); "%s" %% labels' % rule.item_group_description_pattern;
+
+  local instanceJsonnet = if std.objectHas(rule, 'instance_id_jsonnet') then
+    rule.instance_id_jsonnet
+  else
+    'local labels = std.extVar("labels"); "%s" %% labels' % rule.instance_id_pattern;
+
   local jobEnv = std.prune([
     {
-      name: 'ACR_PRODUCT_ID',
+      name: 'AR_PRODUCT_ID',
       value: product.product_id,
     },
     {
-      name: 'ACR_QUERY',
+      name: 'AR_QUERY',
       value: query,
     },
     {
-      name: 'ACR_INSTANCE_PATTERN',
-      value: rule.instance_id_pattern,
+      name: 'AR_INSTANCE_JSONNET',
+      value: instanceJsonnet,
     },
-    if rule.item_group_description_pattern != null then {
-      name: 'ACR_ITEM_GROUP_DESCRIPTION_PATTERN',
-      value: rule.item_group_description_pattern,
+    if itemGroupDescJsonnet != null then {
+      name: 'AR_ITEM_GROUP_DESCRIPTION_JSONNET',
+      value: itemGroupDescJsonnet,
     },
-    if rule.item_description_pattern != null then {
-      name: 'ACR_ITEM_DESCRIPTION_PATTERN',
-      value: rule.item_description_pattern,
+    if itemDescJsonnet != null then {
+      name: 'AR_ITEM_DESCRIPTION_JSONNET',
+      value: itemDescJsonnet,
     },
     {
-      name: 'ACR_UNIT_ID',
+      name: 'AR_UNIT_ID',
       value: rule.unit_id,
     },
   ]);

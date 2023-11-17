@@ -58,17 +58,19 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: openshift-worker-vcpu-cloudscale-besteffort
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: query
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
+                    - Cluster: %(cluster_id)s" % labels'
+                - name: AR_ITEM_DESCRIPTION_JSONNET
+                  value: local labels = std.extVar("labels"); "All Compute Resources"
+                    % labels
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill

@@ -58,9 +58,9 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: openshift-worker-vcpu-cloudscale-besteffort
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
@@ -77,13 +77,15 @@ spec:
                               (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="best-effort"})
                       )[59m:1m]
                     )
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
+                    - Cluster: %(cluster_id)s" % labels'
+                - name: AR_ITEM_DESCRIPTION_JSONNET
+                  value: local labels = std.extVar("labels"); if std.objectHas(labels,
+                    "foo") then "foo-cluster" else "All Compute Resources"
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill
@@ -155,9 +157,9 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: openshift-worker-vcpu-cloudscale-guaranteedavailability
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
@@ -174,13 +176,15 @@ spec:
                               (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="guaranteed-availability"})
                       )[59m:1m]
                     )
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
+                    - Cluster: %(cluster_id)s" % labels'
+                - name: AR_ITEM_DESCRIPTION_JSONNET
+                  value: local labels = std.extVar("labels"); if std.objectHas(labels,
+                    "foo") then "foo-cluster" else "All Compute Resources"
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill
@@ -252,9 +256,9 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: openshift-worker-vcpu-exoscale-besteffort
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
@@ -271,13 +275,15 @@ spec:
                               (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="best-effort"})
                       )[59m:1m]
                     )
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
+                    - Cluster: %(cluster_id)s" % labels'
+                - name: AR_ITEM_DESCRIPTION_JSONNET
+                  value: local labels = std.extVar("labels"); if std.objectHas(labels,
+                    "foo") then "foo-cluster" else "All Compute Resources"
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill
@@ -349,9 +355,9 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: openshift-worker-vcpu-exoscale-guaranteedavailability
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
@@ -368,13 +374,15 @@ spec:
                               (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="guaranteed-availability"})
                       )[59m:1m]
                     )
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
+                    - Cluster: %(cluster_id)s" % labels'
+                - name: AR_ITEM_DESCRIPTION_JSONNET
+                  value: local labels = std.extVar("labels"); if std.objectHas(labels,
+                    "foo") then "foo-cluster" else "All Compute Resources"
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill
@@ -446,9 +454,9 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: bopenshift-worker-vcpu-cloudscale-besteffort
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
@@ -465,13 +473,9 @@ spec:
                               (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="best-effort"})
                       )[59m:1m]
                     )
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed BOpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill
@@ -543,9 +547,9 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: bopenshift-worker-vcpu-cloudscale-guaranteedavailability
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
@@ -562,13 +566,9 @@ spec:
                               (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="guaranteed-availability"})
                       )[59m:1m]
                     )
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed BOpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill
@@ -640,9 +640,9 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: bopenshift-worker-vcpu-exoscale-besteffort
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
@@ -659,13 +659,9 @@ spec:
                               (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="best-effort"})
                       )[59m:1m]
                     )
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed BOpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill
@@ -737,9 +733,9 @@ spec:
                     secretKeyRef:
                       key: url
                       name: prom-url
-                - name: ACR_PRODUCT_ID
+                - name: AR_PRODUCT_ID
                   value: bopenshift-worker-vcpu-exoscale-guaranteedavailability
-                - name: ACR_QUERY
+                - name: AR_QUERY
                   value: |
                     # Calculates vCPUs for app nodes of a cluster
                     # Max values over one hour.
@@ -756,13 +752,9 @@ spec:
                               (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="guaranteed-availability"})
                       )[59m:1m]
                     )
-                - name: ACR_INSTANCE_PATTERN
-                  value: '%(cluster_id)s'
-                - name: ACR_ITEM_GROUP_DESCRIPTION_PATTERN
-                  value: 'APPUiO Managed BOpenShift - Cluster: %(cluster_id)s'
-                - name: ACR_ITEM_DESCRIPTION_PATTERN
-                  value: All Compute Resources
-                - name: ACR_UNIT_ID
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_UNIT_ID
                   value: '300'
               image: ghcr.io/appuio/appuio-reporting:v0.17.0
               name: backfill
