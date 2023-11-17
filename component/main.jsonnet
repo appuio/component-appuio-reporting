@@ -140,7 +140,7 @@ local backfillCJ = function(rule, product, index)
       value: rule.unit_id,
     },
   ]);
-  common.CronJob('backfill-%(product)s-%(index)d' % { product: escape(product.product_id), index: index }, 'backfill', {
+  common.CronJob('%(product)s-%(index)d' % { product: escape(product.product_id), index: index }, 'backfill', {
     containers: [
       {
         name: 'backfill',
