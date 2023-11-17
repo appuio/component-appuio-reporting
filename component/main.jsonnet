@@ -46,7 +46,7 @@ local commonEnv = std.prune([
     valueFrom: {
       secretKeyRef: {
         name: odooSecret.metadata.name,
-        key: 'token_url',
+        key: 'token_endpoint',
       },
     },
   },
