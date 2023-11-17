@@ -42,7 +42,7 @@ local promURLSecret = kube.Secret('prom-url') {
 
 local commonEnv = std.prune([
   {
-    name: 'ACR_ODOO_OAUTH_TOKEN_URL',
+    name: 'AR_ODOO_OAUTH_TOKEN_URL',
     valueFrom: {
       secretKeyRef: {
         name: odooSecret.metadata.name,
@@ -51,7 +51,7 @@ local commonEnv = std.prune([
     },
   },
   {
-    name: 'ACR_ODOO_OAUTH_CLIENT_ID',
+    name: 'AR_ODOO_OAUTH_CLIENT_ID',
     valueFrom: {
       secretKeyRef: {
         name: odooSecret.metadata.name,
@@ -60,7 +60,7 @@ local commonEnv = std.prune([
     },
   },
   {
-    name: 'ACR_ODOO_OAUTH_CLIENT_SECRET',
+    name: 'AR_ODOO_OAUTH_CLIENT_SECRET',
     valueFrom: {
       secretKeyRef: {
         name: odooSecret.metadata.name,
@@ -69,11 +69,11 @@ local commonEnv = std.prune([
     },
   },
   {
-    name: 'ACR_ODOO_URL',
+    name: 'AR_ODOO_URL',
     value: params.odoo.metered_billing_endpoint,
   },
   {
-    name: 'ACR_PROM_URL',
+    name: 'AR_PROM_URL',
     valueFrom: {
       secretKeyRef: {
         key: 'url',
@@ -82,7 +82,7 @@ local commonEnv = std.prune([
     },
   },
   if params.prometheus.org_id != null then {
-    name: 'ACR_ORG_ID',
+    name: 'AR_ORG_ID',
     value: params.prometheus.org_id,
   },
 ]);
@@ -148,7 +148,7 @@ local backfillCJ = function(rule, product)
         env+: commonEnv + jobEnv,
         command: [ 'sh', '-c' ],
         args: [
-          'appuio-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)' + (if override_sales_order_id != null then ' --debug-override-sales-order-id=' + override_sales_order_id else ''),
+          'appuio-reporting report --timerange 1h --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)' + (if override_sales_order_id != null then ' --debug-override-sales-order-id=' + override_sales_order_id else ''),
         ],
         resources: {},
         [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
