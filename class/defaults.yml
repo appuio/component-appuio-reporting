@@ -34,15 +34,85 @@ parameters:
 
     rules:
       legacy_appuio_managed_clusters:
-        enabled: false
+        enabled: true
         products:
-          - product_id: 'TODO'
+          # Old pricing model
+          - product_id: 'openshift-clusters-cloudscale-zero'
             params:
               vshn_service_level: zero
               cloud_provider: cloudscale
+          - product_id: 'openshift-clusters-cloudscale-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: cloudscale
+          - product_id: 'openshift-clusters-cloudscale-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: cloudscale
+          - product_id: 'openshift-clusters-cloudscale-premium'
+            params:
+              vshn_service_level: premium
+              cloud_provider: cloudscale
+          - product_id: 'openshift-clusters-exoscale-zero'
+            params:
+              vshn_service_level: zero
+              cloud_provider: exoscale
+          - product_id: 'openshift-clusters-exoscale-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: exoscale
+          - product_id: 'openshift-clusters-exoscale-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: exoscale
+          - product_id: 'openshift-clusters-exoscale-premium'
+            params:
+              vshn_service_level: premium
+              cloud_provider: exoscale
+          - product_id: 'openshift-clusters-vsphere-zero'
+            params:
+              vshn_service_level: zero
+              cloud_provider: vsphere
+          - product_id: 'openshift-clusters-vsphere-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: vsphere
+          - product_id: 'openshift-clusters-vsphere-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: vsphere
+          - product_id: 'openshift-clusters-vsphere-premium'
+            params:
+              vshn_service_level: premium
+              cloud_provider: vsphere
+          - product_id: 'openshift-clusters-openstack-zero'
+            params:
+              vshn_service_level: zero
+              cloud_provider: openstack
+          - product_id: 'openshift-clusters-openstack-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: openstack
+          - product_id: 'openshift-clusters-openstack-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: openstack
+          - product_id: 'openshift-clusters-openstack-premium'
+            params:
+              vshn_service_level: premium
+              cloud_provider: openstack
+          # Special cases
+          - product_id: 'openshift-clusters-vsphere-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: xelon
+          - product_id: 'openshift-clusters-vsphere-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: none
         instance_id_pattern: '%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
-        unit_id: 'TODO' #Cluster-Hour
+        unit_id: 'uom_uom_53_4a7e8f3e' #Cluster-Hour
         query_pattern: |
           # Calculates number of clusters per cluster. Always returns 1.
           # Max values over one hour.
@@ -54,10 +124,121 @@ parameters:
       appuio_managed_vcpu:
         enabled: true
         products:
+          # New pricing model
           - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
             params:
               vshn_service_level: best-effort
               cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-exoscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: exoscale
+          - product_id: 'openshift-worker-vcpu-exoscale-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: exoscale
+          - product_id: 'openshift-worker-vcpu-vsphere-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: vsphere
+          - product_id: 'openshift-worker-vcpu-vsphere-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: vsphere
+          - product_id: 'openshift-worker-vcpu-openstack-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: openstack
+          - product_id: 'openshift-worker-vcpu-openstack-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: openstack
+          - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
+            params:
+              vshn_service_level: guaranteed-availability
+              cloud_provider: cloudscale
+          # Old pricing model
+          - product_id: 'openshift-worker-vcpu-cloudscale-zero'
+            params:
+              vshn_service_level: zero
+              cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-cloudscale-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-cloudscale-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-cloudscale-premium'
+            params:
+              vshn_service_level: premium
+              cloud_provider: cloudscale
+          - product_id: 'openshift-worker-vcpu-exoscale-zero'
+            params:
+              vshn_service_level: zero
+              cloud_provider: exoscale
+          - product_id: 'openshift-worker-vcpu-exoscale-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: exoscale
+          - product_id: 'openshift-worker-vcpu-exoscale-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: exoscale
+          - product_id: 'openshift-worker-vcpu-exoscale-premium'
+            params:
+              vshn_service_level: premium
+              cloud_provider: exoscale
+          - product_id: 'openshift-worker-vcpu-vsphere-zero'
+            params:
+              vshn_service_level: zero
+              cloud_provider: vsphere
+          - product_id: 'openshift-worker-vcpu-vsphere-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: vsphere
+          - product_id: 'openshift-worker-vcpu-vsphere-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: vsphere
+          - product_id: 'openshift-worker-vcpu-vsphere-premium'
+            params:
+              vshn_service_level: premium
+              cloud_provider: vsphere
+          - product_id: 'openshift-worker-vcpu-openstack-zero'
+            params:
+              vshn_service_level: zero
+              cloud_provider: openstack
+          - product_id: 'openshift-worker-vcpu-openstack-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: openstack
+          - product_id: 'openshift-worker-vcpu-openstack-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: openstack
+          - product_id: 'openshift-worker-vcpu-openstack-premium'
+            params:
+              vshn_service_level: premium
+              cloud_provider: openstack
+          # Special cases
+          - product_id: 'openshift-worker-vcpu-vsphere-standard'
+            params:
+              vshn_service_level: standard
+              cloud_provider: xelon
+          - product_id: 'openshift-worker-vcpu-vsphere-professional'
+            params:
+              vshn_service_level: professional
+              cloud_provider: none
         instance_id_pattern: '%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
         unit_id: 'uom_uom_49_440b0fa7' #vCPU-Hour

@@ -96,7 +96,7 @@ local override_sales_order_id = if params.override_sales_order_id != null && !pa
 else
   params.override_sales_order_id;
 
-local backfillCJ = function(rule, product)
+local backfillCJ = function(rule, product, index)
   local query = rule.query_pattern % product.params;
 
   local itemDescJsonnet = if std.objectHas(rule, 'item_description_jsonnet') then
@@ -140,7 +140,7 @@ local backfillCJ = function(rule, product)
       value: rule.unit_id,
     },
   ]);
-  common.CronJob('backfill-%s' % escape(product.product_id), 'backfill', {
+  common.CronJob('backfill-%(product)s-%(index)d' % { product: escape(product.product_id), index: index }, 'backfill', {
     containers: [
       {
         name: 'backfill',
@@ -193,6 +193,6 @@ local backfillCJ = function(rule, product)
   '01_netpol': netPol.Policies,
   '10_prom_secret': promURLSecret,
   '10_odoo_secret': odooSecret,
-  '11_backfill': std.flatMap(function(r) [ backfillCJ(r, p) for p in r.products ], std.filter(function(r) r.enabled, std.objectValues(params.rules))),
+  '11_backfill': std.flatMap(function(r) [ backfillCJ(r, r.products[i], i) for i in std.range(0, std.length(r.products) - 1) ], std.filter(function(r) r.enabled, std.objectValues(params.rules))),
   [if params.monitoring.enabled then '50_alerts']: alerts.Alerts,
 }
