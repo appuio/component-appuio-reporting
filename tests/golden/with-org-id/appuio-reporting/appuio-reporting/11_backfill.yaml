@@ -40,7 +40,7 @@ spec:
                 - name: ACR_ODOO_OAUTH_TOKEN_URL
                   valueFrom:
                     secretKeyRef:
-                      key: token_url
+                      key: token_endpoint
                       name: odoo-credentials
                 - name: ACR_ODOO_OAUTH_CLIENT_ID
                   valueFrom:
@@ -126,7 +126,7 @@ spec:
                 - name: ACR_ODOO_OAUTH_TOKEN_URL
                   valueFrom:
                     secretKeyRef:
-                      key: token_url
+                      key: token_endpoint
                       name: odoo-credentials
                 - name: ACR_ODOO_OAUTH_CLIENT_ID
                   valueFrom:
