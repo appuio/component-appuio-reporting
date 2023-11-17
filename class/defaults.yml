@@ -8,7 +8,7 @@ parameters:
       reporting:
         registry: ghcr.io
         repository: appuio/appuio-reporting
-        tag: v0.17.0
+        tag: v0.1.0
 
     schedules:
       backfill: '15 * * * *'
