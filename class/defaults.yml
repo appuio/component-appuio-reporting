@@ -33,6 +33,24 @@ parameters:
         client_secret: null
 
     rules:
+      legacy_appuio_managed_clusters:
+        enabled: false
+        products:
+          - product_id: 'TODO'
+            params:
+              vshn_service_level: zero
+              cloud_provider: cloudscale
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
+        unit_id: 'TODO' #Cluster-Hour
+        query_pattern: |
+          # Calculates number of clusters per cluster. Always returns 1.
+          # Max values over one hour.
+          max_over_time(
+            max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+              (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
+            )[59m:1m]
+          )
       appuio_managed_vcpu:
         enabled: true
         products:
