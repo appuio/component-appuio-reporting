@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-bopenshift-worker-vcpu-cloudscale-besteffort-0
+        cron-job-name: backfill-bopenshift-worker-vcpu-clou-08bb5ca9fc64503
     spec:
       template:
         metadata:
@@ -113,7 +113,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-bopenshift-worker-vcpu-cloudscale-guaranteedavailability-1
+        cron-job-name: backfill-bopenshift-worker-vcpu-clou-4a36331d6ef38fa
     spec:
       template:
         metadata:
@@ -206,7 +206,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-bopenshift-worker-vcpu-exoscale-besteffort-2
+        cron-job-name: backfill-bopenshift-worker-vcpu-exos-fe12205d3b9fe90
     spec:
       template:
         metadata:
@@ -299,7 +299,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-bopenshift-worker-vcpu-exoscale-guaranteedavailability-3
+        cron-job-name: backfill-bopenshift-worker-vcpu-exos-e8d28e0acacedbc
     spec:
       template:
         metadata:
@@ -568,7 +568,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-cloudscale-professional-2
+        cron-job-name: backfill-openshift-clusters-cloudsca-70c94d3ffc775fa
     spec:
       template:
         metadata:
@@ -1624,7 +1624,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-openstack-professional-14
+        cron-job-name: backfill-openshift-clusters-openstac-544fd0a9a0c5c37
     spec:
       template:
         metadata:

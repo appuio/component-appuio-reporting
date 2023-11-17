@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-besteffort-0
+        cron-job-name: backfill-openshift-worker-vcpu-cloud-477542e75b85b34
     spec:
       template:
         metadata:
@@ -116,7 +116,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-guaranteedavailability-1
+        cron-job-name: backfill-openshift-worker-vcpu-cloud-78499261c2ff690
     spec:
       template:
         metadata:
@@ -212,7 +212,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exoscale-besteffort-2
+        cron-job-name: backfill-openshift-worker-vcpu-exosc-58b0ba49b85fbcf
     spec:
       template:
         metadata:
@@ -308,7 +308,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exoscale-guaranteedavailability-3
+        cron-job-name: backfill-openshift-worker-vcpu-exosc-8ca863e1ff7cd0f
     spec:
       template:
         metadata:
@@ -500,7 +500,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphere-guaranteedavailability-5
+        cron-job-name: backfill-openshift-worker-vcpu-vsphe-f32cdfd3e1f3f48
     spec:
       template:
         metadata:
@@ -596,7 +596,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-openstack-besteffort-6
+        cron-job-name: backfill-openshift-worker-vcpu-opens-7b9bd3ec6248b5c
     spec:
       template:
         metadata:
@@ -692,7 +692,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-openstack-guaranteedavailability-7
+        cron-job-name: backfill-openshift-worker-vcpu-opens-2cec53f1b9f0da8
     spec:
       template:
         metadata:
@@ -788,7 +788,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-besteffort-8
+        cron-job-name: backfill-openshift-worker-vcpu-cloud-421862f6ba3feb8
     spec:
       template:
         metadata:
@@ -884,7 +884,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-guaranteedavailability-9
+        cron-job-name: backfill-openshift-worker-vcpu-cloud-e95034d3314f736
     spec:
       template:
         metadata:
@@ -1076,7 +1076,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-standard-11
+        cron-job-name: backfill-openshift-worker-vcpu-cloud-5060c137326b083
     spec:
       template:
         metadata:
@@ -1172,7 +1172,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-professional-12
+        cron-job-name: backfill-openshift-worker-vcpu-cloud-06e228651408ec3
     spec:
       template:
         metadata:
@@ -1268,7 +1268,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-premium-13
+        cron-job-name: backfill-openshift-worker-vcpu-cloud-26f258d4eb7720f
     spec:
       template:
         metadata:
@@ -1556,7 +1556,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exoscale-professional-16
+        cron-job-name: backfill-openshift-worker-vcpu-exosc-d900bc8088c9a78
     spec:
       template:
         metadata:
@@ -1940,7 +1940,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphere-professional-20
+        cron-job-name: backfill-openshift-worker-vcpu-vsphe-ac0f59adb5fd7ed
     spec:
       template:
         metadata:
@@ -2228,7 +2228,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-openstack-standard-23
+        cron-job-name: backfill-openshift-worker-vcpu-opens-1cb6258b6920cd4
     spec:
       template:
         metadata:
@@ -2324,7 +2324,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-openstack-professional-24
+        cron-job-name: backfill-openshift-worker-vcpu-opens-c3097c7ce0cb7f1
     spec:
       template:
         metadata:
@@ -2612,7 +2612,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphere-professional-27
+        cron-job-name: backfill-openshift-worker-vcpu-vsphe-cf02626b8c0313a
     spec:
       template:
         metadata:
@@ -2884,7 +2884,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-cloudscale-professional-2
+        cron-job-name: backfill-openshift-clusters-cloudsca-70c94d3ffc775fa
     spec:
       template:
         metadata:
@@ -3940,7 +3940,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-openstack-professional-14
+        cron-job-name: backfill-openshift-clusters-openstac-544fd0a9a0c5c37
     spec:
       template:
         metadata:
