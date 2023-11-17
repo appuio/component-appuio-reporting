@@ -10,29 +10,14 @@ parameters:
         repository: appuio/appuio-reporting
         tag: v0.17.0
 
-      erp_adapter:
-        registry: ghcr.io
-        repository: vshn/appuio-odoo-adapter
-        tag: v1.13.0
-
     schedules:
-      tenantmapping: '10 * * * *'
       backfill: '15 * * * *'
-      check_missing: '30 8-14 * * *'
-      invoice: '0 10 1 * *'
+
+    schedules_suspend:
+      backfill: false
 
     development_mode: false
-    schedules_suspend:
-      tenantmapping: false
-      backfill: false
-      check_missing: false
-      invoice: false
-
-    database:
-      url: postgres://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?$(DB_PARAMS)
-      parameters: ''
-    database_secret: {}
-    database_env: {}
+    override_sales_order_id: null
 
     extra_volumes: {}
 
@@ -40,20 +25,58 @@ parameters:
       url: null
       org_id: null
 
-    erp_adapter:
-      url: null
-      invoice_title: APPUiO Cloud
+    odoo:
+      metered_billing_endpoint: null
+      oauth:
+        token_endpoint: null
+        client_id: null
+        client_secret: null
 
-    backfill:
-      queries:
-        appuio_cloud_memory: true
-        appuio_cloud_loadbalancer: true
-        appuio_cloud_persistent_storage: true
-        appcat_services: true
-
-    tenantmapping:
-      dry_run: true
-      metrics_selector: namespace="appuio-control-api-production"
+    rules:
+      legacy_appuio_managed_clusters:
+        enabled: false
+        products:
+          - product_id: 'TODO'
+            params:
+              vshn_service_level: zero
+              cloud_provider: cloudscale
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
+        unit_id: 'TODO' #Cluster-Hour
+        query_pattern: |
+          # Calculates number of clusters per cluster. Always returns 1.
+          # Max values over one hour.
+          max_over_time(
+            max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+              (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
+            )[59m:1m]
+          )
+      appuio_managed_vcpu:
+        enabled: true
+        products:
+          - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: cloudscale
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
+        unit_id: 'uom_uom_49_440b0fa7' #vCPU-Hour
+        query_pattern: |
+          # Calculates vCPUs for app nodes of a cluster
+          # Max values over one hour.
+          max_over_time(
+            sum by(cluster_id, vshn_service_level, tenant_id, role, cloud_provider, sales_order_id) (
+              node_cpu_info * on (tenant_id, cluster_id, instance) group_left(role)
+                label_join(
+                  kube_node_role{role=~"app|storage"},
+                  "instance",
+                  "",
+                  "node"
+                ) * on(cluster_id) group_left(tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                  max by(cluster_id, tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                    (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
+            )[59m:1m]
+          )
 
     network_policies:
       target_namespaces: {}
@@ -61,55 +84,16 @@ parameters:
     monitoring:
       enabled: true
       alerts:
-        APPUiOCloudReportingMissingData:
+        APPUiOReportingDatabaseBackfillingFailed:
           enabled: true
           rule:
             annotations:
-              description: APPUiO Cloud Reporting is missing ERP link `target` data.
-              message: APPUiO Cloud Reporting is missing ERP link `target` data.
-              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingMissingData.html
-              summary: APPUiO Cloud Reporting is missing ERP link `target` data.
-            expr: |
-              (kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"check-missing-.*"} * scalar((days_in_month() - day_of_month()) <bool 7)) > 0
-            for: 10m
-            labels:
-              severity: warning
-        APPUiOCloudInvoiceGenerationFailed:
-          enabled: true
-          rule:
-            annotations:
-              description: APPUiO Cloud Invoice generation in Odoo failed.
-              message: APPUiO Cloud Invoice generation in Odoo failed.
-              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudInvoiceGenerationFailed.html
-              summary: APPUiO Cloud Invoice generation in Odoo failed.
-            expr: |
-              kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"generate-invoices-.*"} > 0
-            for: 10m
-            labels:
-              severity: warning
-        APPUiOCloudReportingDatabaseBackfillingFailed:
-          enabled: true
-          rule:
-            annotations:
-              description: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
-              message: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
-              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.html
-              summary: APPUiO Cloud Reporting backfilling metrics into reporting database failed.
+              description: APPUiO Reporting backfilling metrics into reporting database failed.
+              message: APPUiO Reporting backfilling metrics into reporting database failed.
+              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOReportingDatabaseBackfillingFailed.html
+              summary: APPUiO Reporting backfilling metrics into reporting database failed.
             expr: |
               kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"backfill-.*"} > 0
-            for: 10m
-            labels:
-              severity: warning
-        APPUiOCloudReportingDatabaseTenantMappingFailed:
-          enabled: true
-          rule:
-            annotations:
-              description: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
-              message: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
-              runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOCloudReportingDatabaseTenantMappingFailed.html
-              summary: APPUiO Cloud Reporting appending tenant mapping metrics into reporting database failed.
-            expr: |
-              kube_job_failed{job="kube-state-metrics",namespace="${appuio_reporting:namespace}",job_name=~"tenant-mapping-.*"} > 0
             for: 10m
             labels:
               severity: warning

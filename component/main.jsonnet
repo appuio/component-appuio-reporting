@@ -18,14 +18,14 @@ local escape = function(str)
              , str
            ));
 
-local dbSecret = kube.Secret('reporting-db') {
+local odooSecret = kube.Secret('odoo-credentials') {
   metadata+: {
     namespace: params.namespace,
     labels+: common.Labels,
   },
   stringData: {
-    [name]: params.database_secret[name]
-    for name in std.objectFields(params.database_secret)
+    [name]: params.odoo.oauth[name]
+    for name in std.objectFields(params.odoo.oauth)
   },
 };
 
@@ -40,51 +40,38 @@ local promURLSecret = kube.Secret('prom-url') {
   },
 };
 
-local erpURLSecret = kube.Secret('erp-url') {
-  assert params.erp_adapter.url != null : 'erp_adapter.url must be set.',
-  metadata+: {
-    namespace: params.namespace,
-    labels+: common.Labels,
-  },
-  stringData: {
-    url: params.erp_adapter.url,
-  },
-};
-
-local dbEnv = [
+local commonEnv = std.prune([
   {
-    name: name,
+    name: 'ACR_ODOO_OAUTH_TOKEN_URL',
     valueFrom: {
       secretKeyRef: {
-        name: dbSecret.metadata.name,
-        key: name,
+        name: odooSecret.metadata.name,
+        key: 'token_url',
       },
     },
-  }
-  for name in std.objectFields(params.database_secret)
-] + [
-  {
-    name: name,
-    [if std.type(params.database_env[name]) == 'string' then 'value' else 'valueFrom']: params.database_env[name],
-  }
-  for name in std.objectFields(params.database_env)
-] + [
-  assert params.database.url != null : 'database.url must be set.';
-  {
-    name: 'DB_PARAMS',
-    value: params.database.parameters,
   },
   {
-    name: 'ACR_DB_URL',
-    value: params.database.url,
+    name: 'ACR_ODOO_OAUTH_CLIENT_ID',
+    valueFrom: {
+      secretKeyRef: {
+        name: odooSecret.metadata.name,
+        key: 'client_id',
+      },
+    },
   },
   {
-    name: 'OA_DB_URL',
-    value: params.database.url,
+    name: 'ACR_ODOO_OAUTH_CLIENT_SECRET',
+    valueFrom: {
+      secretKeyRef: {
+        name: odooSecret.metadata.name,
+        key: 'client_secret',
+      },
+    },
   },
-];
-
-local promEnv = std.prune([
+  {
+    name: 'ACR_ODOO_URL',
+    value: params.odoo.metered_billing_endpoint,
+  },
   {
     name: 'ACR_PROM_URL',
     valueFrom: {
@@ -100,107 +87,68 @@ local promEnv = std.prune([
   },
 ]);
 
-local erpEnv = [
-  {
-    name: 'OA_ODOO_URL',
-    valueFrom: {
-      secretKeyRef: {
-        key: 'url',
-        name: erpURLSecret.metadata.name,
-      },
-    },
-  },
-  {
-    name: 'OA_INVOICE_TITLE',
-    value: params.erp_adapter.invoice_title,
-  },
-];
+local override_sales_order_id = if params.override_sales_order_id != null && !params.development_mode then
+  error (
+    '\n\nOverriding sales order ID not possible unless the component is in development mode.\n'
+    + 'Please note that overriding the sales order ID may produce faulty invoices.\n'
+    + 'To enable development mode, set parameter `development_mode` to true.\n'
+  )
+else
+  params.override_sales_order_id;
 
-local checkMigrationContainer = {
-  name: 'check-migration',
-  image: formatImage(params.images.reporting),
-  env+: dbEnv,
-  args: [
-    'migrate',
-    '--show-pending',
-  ],
-  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
-    { name: name } + params.extra_volumes[name].mount_spec
-    for name in std.objectFields(params.extra_volumes)
-  ],
-};
+local backfillCJ = function(rule, product)
+  local query = rule.query_pattern % product.params;
 
-local checkMissingContainer = {
-  name: 'check-missing',
-  image: formatImage(params.images.reporting),
-  env+: dbEnv,
-  args: [ 'check_missing' ],
-  resources: {},
-  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
-    { name: name } + params.extra_volumes[name].mount_spec
-    for name in std.objectFields(params.extra_volumes)
-  ],
-};
+  local itemDescJsonnet = if std.objectHas(rule, 'item_description_jsonnet') then
+    rule.item_description_jsonnet
+  else if std.objectHas(rule, 'item_description_pattern') then
+    'local labels = std.extVar("labels"); "%s" %% labels' % rule.item_description_pattern;
 
-local syncCategoriesContainer = {
-  name: 'sync-categories',
-  image: formatImage(params.images.erp_adapter),
-  env+: dbEnv + erpEnv,
-  args: [
-    'sync',
-  ],
-  [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
-    { name: name } + params.extra_volumes[name].mount_spec
-    for name in std.objectFields(params.extra_volumes)
-  ],
-};
+  local itemGroupDescJsonnet = if std.objectHas(rule, 'item_group_description_jsonnet') then
+    rule.item_group_description_jsonnet
+  else if std.objectHas(rule, 'item_group_description_pattern') then
+    'local labels = std.extVar("labels"); "%s" %% labels' % rule.item_group_description_pattern;
 
-local tenantMappingCJ = common.CronJob('tenant-mapping', 'tenantmapping', {
-  initContainers: [
-    checkMigrationContainer,
-  ],
-  containers: [
+  local instanceJsonnet = if std.objectHas(rule, 'instance_id_jsonnet') then
+    rule.instance_id_jsonnet
+  else
+    'local labels = std.extVar("labels"); "%s" %% labels' % rule.instance_id_pattern;
+
+  local jobEnv = std.prune([
     {
-      name: 'mapping',
-      image: formatImage(params.images.reporting),
-      env+: dbEnv + promEnv,
-      command: [ 'sh', '-c' ],
-      args: [
-        'appuio-reporting tenantmapping --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)'
-        + (' --dry-run=%s' % std.toString(params.tenantmapping.dry_run))
-        + (" --additional-metric-selector='%s'" % std.toString(params.tenantmapping.metrics_selector)),
-      ],
-      resources: {},
-      [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
-        { name: name } + params.extra_volumes[name].mount_spec
-        for name in std.objectFields(params.extra_volumes)
-      ],
+      name: 'AR_PRODUCT_ID',
+      value: product.product_id,
     },
-  ],
-  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
-    { name: name } + params.extra_volumes[name].volume_spec
-    for name in std.objectFields(params.extra_volumes)
-  ],
-}) {
-  spec+: {
-    // Keeping infinite jobs is not possible. Keep at least one month worth of jobs.
-    failedJobsHistoryLimit: 24 * 32,
-  },
-};
-
-local backfillCJ = function(queryName)
-  common.CronJob('backfill-%s' % escape(queryName), 'backfill', {
-    initContainers: [
-      checkMigrationContainer,
-    ],
+    {
+      name: 'AR_QUERY',
+      value: query,
+    },
+    {
+      name: 'AR_INSTANCE_JSONNET',
+      value: instanceJsonnet,
+    },
+    if itemGroupDescJsonnet != null then {
+      name: 'AR_ITEM_GROUP_DESCRIPTION_JSONNET',
+      value: itemGroupDescJsonnet,
+    },
+    if itemDescJsonnet != null then {
+      name: 'AR_ITEM_DESCRIPTION_JSONNET',
+      value: itemDescJsonnet,
+    },
+    {
+      name: 'AR_UNIT_ID',
+      value: rule.unit_id,
+    },
+  ]);
+  common.CronJob('backfill-%s' % escape(product.product_id), 'backfill', {
     containers: [
       {
         name: 'backfill',
         image: formatImage(params.images.reporting),
-        env+: dbEnv + promEnv,
+        env+: commonEnv + jobEnv,
         command: [ 'sh', '-c' ],
         args: [
-          'appuio-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds) --query-name=' + queryName,
+          'appuio-reporting report --begin=$(date -d "now -3 hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)' + (if override_sales_order_id != null then ' --debug-override-sales-order-id=' + override_sales_order_id else ''),
         ],
         resources: {},
         [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
@@ -216,14 +164,14 @@ local backfillCJ = function(queryName)
   }) {
     metadata+: {
       annotations+: {
-        'query-name': queryName,
+        'product-id': product.product_id,
       },
     },
     spec+: {
       jobTemplate+: {
         metadata+: {
           annotations+: {
-            'query-name': queryName,
+            'product-id': product.product_id,
           },
         },
       },
@@ -231,55 +179,6 @@ local backfillCJ = function(queryName)
       failedJobsHistoryLimit: 24 * 32,
     },
   };
-
-local checkCJ = common.CronJob('check-missing', 'check_missing', {
-  initContainers: [
-    checkMigrationContainer,
-    syncCategoriesContainer,
-  ],
-  containers: [
-    checkMissingContainer,
-  ],
-  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
-    { name: name } + params.extra_volumes[name].volume_spec
-    for name in std.objectFields(params.extra_volumes)
-  ],
-});
-
-local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
-  restartPolicy: 'Never',
-  initContainers: [
-    checkMigrationContainer,
-    syncCategoriesContainer,
-    checkMissingContainer,
-  ],
-  containers: [
-    {
-      name: 'invoice',
-      image: formatImage(params.images.erp_adapter),
-      env+: dbEnv + erpEnv,
-      command: [ 'sh', '-c' ],
-      args: [ 'appuio-odoo-adapter invoice --year=$(date -d "now -1 months" -u +"%Y") --month=$(date -d "now -1 months" -u +"%-m")' ],
-      resources: {},
-      [if std.length(params.extra_volumes) > 0 then 'volumeMounts']: [
-        { name: name } + params.extra_volumes[name].mount_spec
-        for name in std.objectFields(params.extra_volumes)
-      ],
-    },
-  ],
-  [if std.length(params.extra_volumes) > 0 then 'volumes']: [
-    { name: name } + params.extra_volumes[name].volume_spec
-    for name in std.objectFields(params.extra_volumes)
-  ],
-}) {
-  spec+: {
-    jobTemplate+: {
-      spec+: {
-        backoffLimit: 0,
-      },
-    },
-  },
-};
 
 
 // Define outputs below
@@ -292,16 +191,8 @@ local invoiceCJ = common.CronJob('generate-invoices', 'invoice', {
     },
   },
   '01_netpol': netPol.Policies,
-  [if std.length(params.database_secret) > 0 then '10_db_secret']: dbSecret,
   '10_prom_secret': promURLSecret,
-  '10_erp_secret': erpURLSecret,
-  '11_tenant_mapping': tenantMappingCJ,
-  '11_backfill': std.filterMap(
-    function(k) params.backfill.queries[k] == true,
-    function(k) backfillCJ(k),
-    std.objectFields(params.backfill.queries)
-  ),
-  '12_check_missing': checkCJ,
-  '20_invoice': invoiceCJ,
+  '10_odoo_secret': odooSecret,
+  '11_backfill': std.flatMap(function(r) [ backfillCJ(r, p) for p in r.products ], std.filter(function(r) r.enabled, std.objectValues(params.rules))),
   [if params.monitoring.enabled then '50_alerts']: alerts.Alerts,
 }

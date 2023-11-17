@@ -19,3 +19,16 @@ parameters:
       target_namespaces:
         appuio-reporting: true
         appuio-thanos: true
+
+    rules:
+      appuio_managed_vcpu:
+        products:
+          - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: cloudscale
+        instance_id_pattern: '%(cluster_id)s'
+        item_description_pattern: 'All Compute Resources'
+        item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
+        unit_id: '300'
+        query_pattern: query

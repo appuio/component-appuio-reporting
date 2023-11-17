@@ -1,0 +1,31 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  annotations: {}
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: appuio-reporting
+  name: appuio-reporting
+  namespace: appuio-reporting
+spec:
+  groups:
+    - name: appuio-reporting.alerts
+      rules:
+        - alert: APPUiOReportingDatabaseBackfillingFailed
+          annotations:
+            description: APPUiO Reporting backfilling metrics into reporting database
+              failed.
+            message: APPUiO Reporting backfilling metrics into reporting database
+              failed.
+            runbook_url: https://hub.syn.tools/appuio-reporting/runbooks/APPUiOReportingDatabaseBackfillingFailed.html
+            summary: APPUiO Reporting backfilling metrics into reporting database
+              failed.
+          expr: |
+            kube_job_failed{job="kube-state-metrics",namespace="appuio-reporting",job_name=~"backfill-.*"} > 0
+          for: 10m
+          labels:
+            severity: warning
+            syn: 'true'
+            syn_component: appuio-reporting

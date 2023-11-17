@@ -2,7 +2,4 @@
 * xref:references/parameters.adoc[Parameters]
 
 .Alert runbooks
-* xref:runbooks/APPUiOCloudReportingMissingData.adoc[APPUiOCloudReportingMissingData]
-* xref:runbooks/APPUiOCloudInvoiceGenerationFailed.adoc[APPUiOCloudInvoiceGenerationFailed]
-* xref:runbooks/APPUiOCloudReportingDatabaseBackfillingFailed.adoc[APPUiOCloudReportingDatabaseBackfillingFailed]
-* xref:runbooks/APPUiOCloudReportingDatabaseTenantMappingFailed.adoc[APPUiOCloudReportingDatabaseTenantMappingFailed]
+* xref:runbooks/APPUiOReportingDatabaseBackfillingFailed.adoc[APPUiOReportingDatabaseBackfillingFailed]

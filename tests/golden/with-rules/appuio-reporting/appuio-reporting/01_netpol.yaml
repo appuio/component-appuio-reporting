@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations: {}
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: allow-from-appuio-reporting
+  name: allow-from-appuio-reporting
+  namespace: appuio-reporting
+spec:
+  egress: []
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: appuio-reporting
+  podSelector: {}
+  policyTypes:
+    - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations: {}
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: allow-from-appuio-reporting
+  name: allow-from-appuio-reporting
+  namespace: appuio-thanos
+spec:
+  egress: []
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: appuio-reporting
+  podSelector: {}
+  policyTypes:
+    - Ingress

@@ -1,23 +1,11 @@
 parameters:
   appuio_reporting:
 
-    extra_volumes:
-      dbsecret:
-        mount_spec:
-          readOnly: true
-          mountPath: /secrets/database
-        volume_spec:
-          secret:
-            secretName: reporting-db-prod-cred
-            defaultMode: 384 # 0600
-
     prometheus:
       url: http://metrics
 
-    network_policies:
-      target_namespaces:
-        appuio-reporting: true
-        appuio-thanos: true
+    development_mode: true
+    override_sales_order_id: "OVERRIDE"
 
     rules:
       appuio_managed_vcpu:

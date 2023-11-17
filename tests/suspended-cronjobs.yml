@@ -1,21 +1,22 @@
 parameters:
   appuio_reporting:
 
-    database_secret:
-      DB_USER: appuio-reporting
-      DB_PASSWORD: letmein
-      DB_HOST: db.example.com
-      DB_PORT: 5432
-      DB_NAME: appuio-reporting
-
     prometheus:
       url: http://metrics
 
-    erp_adapter:
-      url: http://enterprisey-enterprise
-
-    development_mode: true
     schedules_suspend:
-      check_missing: true
-      invoice: true
-      tenantmapping: true
+      backfill: true
+    development_mode: true
+
+    rules:
+      appuio_managed_vcpu:
+        products:
+          - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: cloudscale
+        instance_id_pattern: '%(cluster_id)s'
+        item_description_pattern: 'All Compute Resources'
+        item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
+        unit_id: '300'
+        query_pattern: query
