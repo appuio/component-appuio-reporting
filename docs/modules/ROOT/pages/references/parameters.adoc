@@ -166,7 +166,7 @@ Configuration of the OAuth client used to connect to the metered billing REST AP
 [horizontal]
 type:: dictionary
 default:: https://github.com/appuio/component-appuio-reporting/blob/master/class/defaults.yml[See `class/defaults.yml`].
-example:: 
+example::
 +
 [source,yaml]
 ----

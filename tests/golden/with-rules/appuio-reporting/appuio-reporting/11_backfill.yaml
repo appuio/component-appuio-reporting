@@ -81,7 +81,7 @@ spec:
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.17.0
+              image: ghcr.io/appuio/appuio-reporting:v0.1.0
               name: backfill
               resources: {}
           initContainers: []
@@ -174,7 +174,7 @@ spec:
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.17.0
+              image: ghcr.io/appuio/appuio-reporting:v0.1.0
               name: backfill
               resources: {}
           initContainers: []
@@ -267,7 +267,7 @@ spec:
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.17.0
+              image: ghcr.io/appuio/appuio-reporting:v0.1.0
               name: backfill
               resources: {}
           initContainers: []
@@ -360,7 +360,7 @@ spec:
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.17.0
+              image: ghcr.io/appuio/appuio-reporting:v0.1.0
               name: backfill
               resources: {}
           initContainers: []
