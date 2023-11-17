@@ -7,8 +7,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-cloud-477542e75b85b34
-  name: backfill-openshift-worker-vcpu-cloud-477542e75b85b34
+    name: openshift-worker-vcpu-cloudscale-besteffort-0
+  name: openshift-worker-vcpu-cloudscale-besteffort-0
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -20,7 +20,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloud-477542e75b85b34
+        cron-job-name: openshift-worker-vcpu-cloudscale-besteffort-0
     spec:
       template:
         metadata:
@@ -103,8 +103,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-cloud-78499261c2ff690
-  name: backfill-openshift-worker-vcpu-cloud-78499261c2ff690
+    name: openshift-worker-vcpu-cloudscale-gua-93468ed8b2029fe
+  name: openshift-worker-vcpu-cloudscale-gua-93468ed8b2029fe
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -116,7 +116,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloud-78499261c2ff690
+        cron-job-name: openshift-worker-vcpu-cloudscale-guaranteedavailability-1
     spec:
       template:
         metadata:
@@ -199,8 +199,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-exosc-58b0ba49b85fbcf
-  name: backfill-openshift-worker-vcpu-exosc-58b0ba49b85fbcf
+    name: openshift-worker-vcpu-exoscale-besteffort-2
+  name: openshift-worker-vcpu-exoscale-besteffort-2
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -212,7 +212,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exosc-58b0ba49b85fbcf
+        cron-job-name: openshift-worker-vcpu-exoscale-besteffort-2
     spec:
       template:
         metadata:
@@ -295,8 +295,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-exosc-8ca863e1ff7cd0f
-  name: backfill-openshift-worker-vcpu-exosc-8ca863e1ff7cd0f
+    name: openshift-worker-vcpu-exoscale-guara-c7fabf75f900683
+  name: openshift-worker-vcpu-exoscale-guara-c7fabf75f900683
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -308,7 +308,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exosc-8ca863e1ff7cd0f
+        cron-job-name: openshift-worker-vcpu-exoscale-guaranteedavailability-3
     spec:
       template:
         metadata:
@@ -391,8 +391,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-vsphere-besteffort-4
-  name: backfill-openshift-worker-vcpu-vsphere-besteffort-4
+    name: openshift-worker-vcpu-vsphere-besteffort-4
+  name: openshift-worker-vcpu-vsphere-besteffort-4
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -404,7 +404,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphere-besteffort-4
+        cron-job-name: openshift-worker-vcpu-vsphere-besteffort-4
     spec:
       template:
         metadata:
@@ -487,8 +487,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-vsphe-f32cdfd3e1f3f48
-  name: backfill-openshift-worker-vcpu-vsphe-f32cdfd3e1f3f48
+    name: openshift-worker-vcpu-vsphere-guaran-2b28379ea85e0d3
+  name: openshift-worker-vcpu-vsphere-guaran-2b28379ea85e0d3
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -500,7 +500,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphe-f32cdfd3e1f3f48
+        cron-job-name: openshift-worker-vcpu-vsphere-guaranteedavailability-5
     spec:
       template:
         metadata:
@@ -583,8 +583,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-opens-7b9bd3ec6248b5c
-  name: backfill-openshift-worker-vcpu-opens-7b9bd3ec6248b5c
+    name: openshift-worker-vcpu-openstack-besteffort-6
+  name: openshift-worker-vcpu-openstack-besteffort-6
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -596,7 +596,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-opens-7b9bd3ec6248b5c
+        cron-job-name: openshift-worker-vcpu-openstack-besteffort-6
     spec:
       template:
         metadata:
@@ -679,8 +679,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-opens-2cec53f1b9f0da8
-  name: backfill-openshift-worker-vcpu-opens-2cec53f1b9f0da8
+    name: openshift-worker-vcpu-openstack-guar-437fd9b37153898
+  name: openshift-worker-vcpu-openstack-guar-437fd9b37153898
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -692,7 +692,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-opens-2cec53f1b9f0da8
+        cron-job-name: openshift-worker-vcpu-openstack-guaranteedavailability-7
     spec:
       template:
         metadata:
@@ -775,8 +775,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-cloud-421862f6ba3feb8
-  name: backfill-openshift-worker-vcpu-cloud-421862f6ba3feb8
+    name: openshift-worker-vcpu-cloudscale-besteffort-8
+  name: openshift-worker-vcpu-cloudscale-besteffort-8
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -788,7 +788,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloud-421862f6ba3feb8
+        cron-job-name: openshift-worker-vcpu-cloudscale-besteffort-8
     spec:
       template:
         metadata:
@@ -871,8 +871,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-cloud-e95034d3314f736
-  name: backfill-openshift-worker-vcpu-cloud-e95034d3314f736
+    name: openshift-worker-vcpu-cloudscale-gua-9c5f21dd467a005
+  name: openshift-worker-vcpu-cloudscale-gua-9c5f21dd467a005
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -884,7 +884,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloud-e95034d3314f736
+        cron-job-name: openshift-worker-vcpu-cloudscale-guaranteedavailability-9
     spec:
       template:
         metadata:
@@ -967,8 +967,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-cloudscale-zero-10
-  name: backfill-openshift-worker-vcpu-cloudscale-zero-10
+    name: openshift-worker-vcpu-cloudscale-zero-10
+  name: openshift-worker-vcpu-cloudscale-zero-10
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -980,7 +980,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloudscale-zero-10
+        cron-job-name: openshift-worker-vcpu-cloudscale-zero-10
     spec:
       template:
         metadata:
@@ -1063,8 +1063,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-cloud-5060c137326b083
-  name: backfill-openshift-worker-vcpu-cloud-5060c137326b083
+    name: openshift-worker-vcpu-cloudscale-standard-11
+  name: openshift-worker-vcpu-cloudscale-standard-11
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1076,7 +1076,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloud-5060c137326b083
+        cron-job-name: openshift-worker-vcpu-cloudscale-standard-11
     spec:
       template:
         metadata:
@@ -1159,8 +1159,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-cloud-06e228651408ec3
-  name: backfill-openshift-worker-vcpu-cloud-06e228651408ec3
+    name: openshift-worker-vcpu-cloudscale-professional-12
+  name: openshift-worker-vcpu-cloudscale-professional-12
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1172,7 +1172,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloud-06e228651408ec3
+        cron-job-name: openshift-worker-vcpu-cloudscale-professional-12
     spec:
       template:
         metadata:
@@ -1255,8 +1255,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-cloud-26f258d4eb7720f
-  name: backfill-openshift-worker-vcpu-cloud-26f258d4eb7720f
+    name: openshift-worker-vcpu-cloudscale-premium-13
+  name: openshift-worker-vcpu-cloudscale-premium-13
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1268,7 +1268,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-cloud-26f258d4eb7720f
+        cron-job-name: openshift-worker-vcpu-cloudscale-premium-13
     spec:
       template:
         metadata:
@@ -1351,8 +1351,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-exoscale-zero-14
-  name: backfill-openshift-worker-vcpu-exoscale-zero-14
+    name: openshift-worker-vcpu-exoscale-zero-14
+  name: openshift-worker-vcpu-exoscale-zero-14
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1364,7 +1364,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exoscale-zero-14
+        cron-job-name: openshift-worker-vcpu-exoscale-zero-14
     spec:
       template:
         metadata:
@@ -1447,8 +1447,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-exoscale-standard-15
-  name: backfill-openshift-worker-vcpu-exoscale-standard-15
+    name: openshift-worker-vcpu-exoscale-standard-15
+  name: openshift-worker-vcpu-exoscale-standard-15
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1460,7 +1460,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exoscale-standard-15
+        cron-job-name: openshift-worker-vcpu-exoscale-standard-15
     spec:
       template:
         metadata:
@@ -1543,8 +1543,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-exosc-d900bc8088c9a78
-  name: backfill-openshift-worker-vcpu-exosc-d900bc8088c9a78
+    name: openshift-worker-vcpu-exoscale-professional-16
+  name: openshift-worker-vcpu-exoscale-professional-16
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1556,7 +1556,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exosc-d900bc8088c9a78
+        cron-job-name: openshift-worker-vcpu-exoscale-professional-16
     spec:
       template:
         metadata:
@@ -1639,8 +1639,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-exoscale-premium-17
-  name: backfill-openshift-worker-vcpu-exoscale-premium-17
+    name: openshift-worker-vcpu-exoscale-premium-17
+  name: openshift-worker-vcpu-exoscale-premium-17
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1652,7 +1652,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-exoscale-premium-17
+        cron-job-name: openshift-worker-vcpu-exoscale-premium-17
     spec:
       template:
         metadata:
@@ -1735,8 +1735,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-vsphere-zero-18
-  name: backfill-openshift-worker-vcpu-vsphere-zero-18
+    name: openshift-worker-vcpu-vsphere-zero-18
+  name: openshift-worker-vcpu-vsphere-zero-18
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1748,7 +1748,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphere-zero-18
+        cron-job-name: openshift-worker-vcpu-vsphere-zero-18
     spec:
       template:
         metadata:
@@ -1831,8 +1831,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-vsphere-standard-19
-  name: backfill-openshift-worker-vcpu-vsphere-standard-19
+    name: openshift-worker-vcpu-vsphere-standard-19
+  name: openshift-worker-vcpu-vsphere-standard-19
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1844,7 +1844,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphere-standard-19
+        cron-job-name: openshift-worker-vcpu-vsphere-standard-19
     spec:
       template:
         metadata:
@@ -1927,8 +1927,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-vsphe-ac0f59adb5fd7ed
-  name: backfill-openshift-worker-vcpu-vsphe-ac0f59adb5fd7ed
+    name: openshift-worker-vcpu-vsphere-professional-20
+  name: openshift-worker-vcpu-vsphere-professional-20
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1940,7 +1940,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphe-ac0f59adb5fd7ed
+        cron-job-name: openshift-worker-vcpu-vsphere-professional-20
     spec:
       template:
         metadata:
@@ -2023,8 +2023,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-vsphere-premium-21
-  name: backfill-openshift-worker-vcpu-vsphere-premium-21
+    name: openshift-worker-vcpu-vsphere-premium-21
+  name: openshift-worker-vcpu-vsphere-premium-21
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2036,7 +2036,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphere-premium-21
+        cron-job-name: openshift-worker-vcpu-vsphere-premium-21
     spec:
       template:
         metadata:
@@ -2119,8 +2119,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-openstack-zero-22
-  name: backfill-openshift-worker-vcpu-openstack-zero-22
+    name: openshift-worker-vcpu-openstack-zero-22
+  name: openshift-worker-vcpu-openstack-zero-22
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2132,7 +2132,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-openstack-zero-22
+        cron-job-name: openshift-worker-vcpu-openstack-zero-22
     spec:
       template:
         metadata:
@@ -2215,8 +2215,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-opens-1cb6258b6920cd4
-  name: backfill-openshift-worker-vcpu-opens-1cb6258b6920cd4
+    name: openshift-worker-vcpu-openstack-standard-23
+  name: openshift-worker-vcpu-openstack-standard-23
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2228,7 +2228,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-opens-1cb6258b6920cd4
+        cron-job-name: openshift-worker-vcpu-openstack-standard-23
     spec:
       template:
         metadata:
@@ -2311,8 +2311,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-opens-c3097c7ce0cb7f1
-  name: backfill-openshift-worker-vcpu-opens-c3097c7ce0cb7f1
+    name: openshift-worker-vcpu-openstack-professional-24
+  name: openshift-worker-vcpu-openstack-professional-24
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2324,7 +2324,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-opens-c3097c7ce0cb7f1
+        cron-job-name: openshift-worker-vcpu-openstack-professional-24
     spec:
       template:
         metadata:
@@ -2407,8 +2407,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-openstack-premium-25
-  name: backfill-openshift-worker-vcpu-openstack-premium-25
+    name: openshift-worker-vcpu-openstack-premium-25
+  name: openshift-worker-vcpu-openstack-premium-25
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2420,7 +2420,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-openstack-premium-25
+        cron-job-name: openshift-worker-vcpu-openstack-premium-25
     spec:
       template:
         metadata:
@@ -2503,8 +2503,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-vsphere-standard-26
-  name: backfill-openshift-worker-vcpu-vsphere-standard-26
+    name: openshift-worker-vcpu-vsphere-standard-26
+  name: openshift-worker-vcpu-vsphere-standard-26
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2516,7 +2516,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphere-standard-26
+        cron-job-name: openshift-worker-vcpu-vsphere-standard-26
     spec:
       template:
         metadata:
@@ -2599,8 +2599,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-worker-vcpu-vsphe-cf02626b8c0313a
-  name: backfill-openshift-worker-vcpu-vsphe-cf02626b8c0313a
+    name: openshift-worker-vcpu-vsphere-professional-27
+  name: openshift-worker-vcpu-vsphere-professional-27
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2612,7 +2612,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-worker-vcpu-vsphe-cf02626b8c0313a
+        cron-job-name: openshift-worker-vcpu-vsphere-professional-27
     spec:
       template:
         metadata:
@@ -2695,8 +2695,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-cloudscale-zero-0
-  name: backfill-openshift-clusters-cloudscale-zero-0
+    name: openshift-clusters-cloudscale-zero-0
+  name: openshift-clusters-cloudscale-zero-0
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2708,7 +2708,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-cloudscale-zero-0
+        cron-job-name: openshift-clusters-cloudscale-zero-0
     spec:
       template:
         metadata:
@@ -2783,8 +2783,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-cloudscale-standard-1
-  name: backfill-openshift-clusters-cloudscale-standard-1
+    name: openshift-clusters-cloudscale-standard-1
+  name: openshift-clusters-cloudscale-standard-1
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2796,7 +2796,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-cloudscale-standard-1
+        cron-job-name: openshift-clusters-cloudscale-standard-1
     spec:
       template:
         metadata:
@@ -2871,8 +2871,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-cloudsca-70c94d3ffc775fa
-  name: backfill-openshift-clusters-cloudsca-70c94d3ffc775fa
+    name: openshift-clusters-cloudscale-professional-2
+  name: openshift-clusters-cloudscale-professional-2
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2884,7 +2884,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-cloudsca-70c94d3ffc775fa
+        cron-job-name: openshift-clusters-cloudscale-professional-2
     spec:
       template:
         metadata:
@@ -2959,8 +2959,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-cloudscale-premium-3
-  name: backfill-openshift-clusters-cloudscale-premium-3
+    name: openshift-clusters-cloudscale-premium-3
+  name: openshift-clusters-cloudscale-premium-3
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -2972,7 +2972,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-cloudscale-premium-3
+        cron-job-name: openshift-clusters-cloudscale-premium-3
     spec:
       template:
         metadata:
@@ -3047,8 +3047,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-exoscale-zero-4
-  name: backfill-openshift-clusters-exoscale-zero-4
+    name: openshift-clusters-exoscale-zero-4
+  name: openshift-clusters-exoscale-zero-4
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3060,7 +3060,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-exoscale-zero-4
+        cron-job-name: openshift-clusters-exoscale-zero-4
     spec:
       template:
         metadata:
@@ -3135,8 +3135,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-exoscale-standard-5
-  name: backfill-openshift-clusters-exoscale-standard-5
+    name: openshift-clusters-exoscale-standard-5
+  name: openshift-clusters-exoscale-standard-5
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3148,7 +3148,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-exoscale-standard-5
+        cron-job-name: openshift-clusters-exoscale-standard-5
     spec:
       template:
         metadata:
@@ -3223,8 +3223,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-exoscale-professional-6
-  name: backfill-openshift-clusters-exoscale-professional-6
+    name: openshift-clusters-exoscale-professional-6
+  name: openshift-clusters-exoscale-professional-6
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3236,7 +3236,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-exoscale-professional-6
+        cron-job-name: openshift-clusters-exoscale-professional-6
     spec:
       template:
         metadata:
@@ -3311,8 +3311,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-exoscale-premium-7
-  name: backfill-openshift-clusters-exoscale-premium-7
+    name: openshift-clusters-exoscale-premium-7
+  name: openshift-clusters-exoscale-premium-7
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3324,7 +3324,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-exoscale-premium-7
+        cron-job-name: openshift-clusters-exoscale-premium-7
     spec:
       template:
         metadata:
@@ -3399,8 +3399,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-vsphere-zero-8
-  name: backfill-openshift-clusters-vsphere-zero-8
+    name: openshift-clusters-vsphere-zero-8
+  name: openshift-clusters-vsphere-zero-8
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3412,7 +3412,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-vsphere-zero-8
+        cron-job-name: openshift-clusters-vsphere-zero-8
     spec:
       template:
         metadata:
@@ -3487,8 +3487,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-vsphere-standard-9
-  name: backfill-openshift-clusters-vsphere-standard-9
+    name: openshift-clusters-vsphere-standard-9
+  name: openshift-clusters-vsphere-standard-9
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3500,7 +3500,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-vsphere-standard-9
+        cron-job-name: openshift-clusters-vsphere-standard-9
     spec:
       template:
         metadata:
@@ -3575,8 +3575,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-vsphere-professional-10
-  name: backfill-openshift-clusters-vsphere-professional-10
+    name: openshift-clusters-vsphere-professional-10
+  name: openshift-clusters-vsphere-professional-10
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3588,7 +3588,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-vsphere-professional-10
+        cron-job-name: openshift-clusters-vsphere-professional-10
     spec:
       template:
         metadata:
@@ -3663,8 +3663,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-vsphere-premium-11
-  name: backfill-openshift-clusters-vsphere-premium-11
+    name: openshift-clusters-vsphere-premium-11
+  name: openshift-clusters-vsphere-premium-11
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3676,7 +3676,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-vsphere-premium-11
+        cron-job-name: openshift-clusters-vsphere-premium-11
     spec:
       template:
         metadata:
@@ -3751,8 +3751,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-openstack-zero-12
-  name: backfill-openshift-clusters-openstack-zero-12
+    name: openshift-clusters-openstack-zero-12
+  name: openshift-clusters-openstack-zero-12
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3764,7 +3764,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-openstack-zero-12
+        cron-job-name: openshift-clusters-openstack-zero-12
     spec:
       template:
         metadata:
@@ -3839,8 +3839,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-openstack-standard-13
-  name: backfill-openshift-clusters-openstack-standard-13
+    name: openshift-clusters-openstack-standard-13
+  name: openshift-clusters-openstack-standard-13
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3852,7 +3852,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-openstack-standard-13
+        cron-job-name: openshift-clusters-openstack-standard-13
     spec:
       template:
         metadata:
@@ -3927,8 +3927,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-openstac-544fd0a9a0c5c37
-  name: backfill-openshift-clusters-openstac-544fd0a9a0c5c37
+    name: openshift-clusters-openstack-professional-14
+  name: openshift-clusters-openstack-professional-14
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -3940,7 +3940,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-openstac-544fd0a9a0c5c37
+        cron-job-name: openshift-clusters-openstack-professional-14
     spec:
       template:
         metadata:
@@ -4015,8 +4015,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-openstack-premium-15
-  name: backfill-openshift-clusters-openstack-premium-15
+    name: openshift-clusters-openstack-premium-15
+  name: openshift-clusters-openstack-premium-15
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -4028,7 +4028,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-openstack-premium-15
+        cron-job-name: openshift-clusters-openstack-premium-15
     spec:
       template:
         metadata:
@@ -4103,8 +4103,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-vsphere-standard-16
-  name: backfill-openshift-clusters-vsphere-standard-16
+    name: openshift-clusters-vsphere-standard-16
+  name: openshift-clusters-vsphere-standard-16
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -4116,7 +4116,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-vsphere-standard-16
+        cron-job-name: openshift-clusters-vsphere-standard-16
     spec:
       template:
         metadata:
@@ -4191,8 +4191,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-vsphere-professional-17
-  name: backfill-openshift-clusters-vsphere-professional-17
+    name: openshift-clusters-vsphere-professional-17
+  name: openshift-clusters-vsphere-professional-17
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -4204,7 +4204,7 @@ spec:
         app.kubernetes.io/managed-by: commodore
         app.kubernetes.io/name: appuio-reporting
         app.kubernetes.io/part-of: syn
-        cron-job-name: backfill-openshift-clusters-vsphere-professional-17
+        cron-job-name: openshift-clusters-vsphere-professional-17
     spec:
       template:
         metadata:

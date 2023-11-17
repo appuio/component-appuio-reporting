@@ -48,7 +48,7 @@ local cronJob = function(name, scheduleName, jobSpec)
       jobTemplate: {
         metadata: {
           labels+: labels {
-            'cron-job-name': truncatedName,
+            'cron-job-name': name,
           },
         },
         spec: {
