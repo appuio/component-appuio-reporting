@@ -32,7 +32,33 @@ parameters:
         client_id: null
         client_secret: null
 
-    rules: {}
+    rules:
+      appuio_managed_vcpu:
+        enabled: true
+        products:
+          - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
+            params:
+              vshn_service_level: best-effort
+              cloud_provider: cloudscale
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
+        unit_id: 'uom_uom_49_440b0fa7' #vCPU-Hour
+        query_pattern: |
+          # Calculates vCPUs for app nodes of a cluster
+          # Max values over one hour.
+          max_over_time(
+            sum by(cluster_id, vshn_service_level, tenant_id, role, cloud_provider, sales_order_id) (
+              node_cpu_info * on (tenant_id, cluster_id, instance) group_left(role)
+                label_join(
+                  kube_node_role{role=~"app|storage"},
+                  "instance",
+                  "",
+                  "node"
+                ) * on(cluster_id) group_left(tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                  max by(cluster_id, tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                    (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
+            )[59m:1m]
+          )
 
     network_policies:
       target_namespaces: {}

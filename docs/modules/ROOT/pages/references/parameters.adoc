@@ -15,7 +15,7 @@ The namespace in which to deploy this component.
 
 [horizontal]
 type:: dictionary
-default:: https://github.com/appuio/component-appuio-reporting/blob/master/class/defaults.yml[See `class/defaults.yml].
+default:: https://github.com/appuio/component-appuio-reporting/blob/master/class/defaults.yml[See `class/defaults.yml`].
 
 Dictionary containing the container images used by this component.
 
@@ -165,12 +165,13 @@ Configuration of the OAuth client used to connect to the metered billing REST AP
 
 [horizontal]
 type:: dictionary
-default:: {}
-example::
+default:: https://github.com/appuio/component-appuio-reporting/blob/master/class/defaults.yml[See `class/defaults.yml`].
+example:: 
 +
 [source,yaml]
 ----
 rule_appuio_managed_vcpu: <1>
+  enabled: true
   products: <2>
     - product_id: 'openshift-worker-vcpu-cloudscale-besteffort' <3>
       params: <4>
@@ -206,6 +207,16 @@ Dictionary containing rules by which to generate Prometheus queries.
 A rule corresponds to a single query template, from which queries for multiple products may be generated.
 
 For more information on the individual parameters and how they are used, refer to https://docs.central.vshn.ch/metered-billing-data-flow.html#_example_api_payload[Metered Billing Data Flow].
+
+In place of `instance_id_pattern`, `item_description_pattern` and `item_group_description_pattern`, it is also possible to specify `instance_id_jsonnet`, `item_description_jsonnet` or `item_group_description_jsonnet`, respectively.
+These parameters contain a jsonnet snippet which should evaluate to a string containing the parameter in question.
+The jsonnet is evaluated with an external variable named `labels` containing all query result labels as a dictionary.
+It can be accessed in the snippet e.g. with `local labels = std.extVar("labels");`.
+
+The jsonnet parameter takes precedence over the pattern parameter if both are specified.
+
+Note that there is no jsonnet variant for the `query_pattern` parameter.
+
 
 
 == `network_policies.target_namespaces`

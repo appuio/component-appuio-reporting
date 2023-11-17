@@ -193,6 +193,6 @@ local backfillCJ = function(rule, product)
   '01_netpol': netPol.Policies,
   '10_prom_secret': promURLSecret,
   '10_odoo_secret': odooSecret,
-  '11_backfill': std.flatMap(function(r) [ backfillCJ(r, p) for p in r.products ], std.objectValues(params.rules)),
+  '11_backfill': std.flatMap(function(r) [ backfillCJ(r, p) for p in r.products ], std.filter(function(r) r.enabled, std.objectValues(params.rules))),
   [if params.monitoring.enabled then '50_alerts']: alerts.Alerts,
 }
