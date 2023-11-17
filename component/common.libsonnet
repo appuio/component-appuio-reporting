@@ -11,6 +11,10 @@ local labels = {
 };
 
 local cronJob = function(name, scheduleName, jobSpec)
+  local truncatedName = if std.length(name) < 52 then
+    name
+  else
+    '%s-%s' % [ std.substr(name, 0, 36), std.substr(std.md5(name), 0, 15) ];
   local schedule = params.schedules[scheduleName];
   local suspend =
     local s = params.schedules_suspend[scheduleName];
@@ -22,7 +26,7 @@ local cronJob = function(name, scheduleName, jobSpec)
       )
     else
       s;
-  kube._Object('batch/v1', 'CronJob', name) {
+  kube._Object('batch/v1', 'CronJob', truncatedName) {
     metadata+: {
       namespace: params.namespace,
       labels+: labels,

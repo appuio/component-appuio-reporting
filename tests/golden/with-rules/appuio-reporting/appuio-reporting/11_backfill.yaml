@@ -7,8 +7,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-bopenshift-worker-vcpu-cloudscale-besteffort-0
-  name: backfill-bopenshift-worker-vcpu-cloudscale-besteffort-0
+    name: backfill-bopenshift-worker-vcpu-clou-08bb5ca9fc64503
+  name: backfill-bopenshift-worker-vcpu-clou-08bb5ca9fc64503
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -100,8 +100,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-bopenshift-worker-vcpu-cloudscale-guaranteedavailability-1
-  name: backfill-bopenshift-worker-vcpu-cloudscale-guaranteedavailability-1
+    name: backfill-bopenshift-worker-vcpu-clou-4a36331d6ef38fa
+  name: backfill-bopenshift-worker-vcpu-clou-4a36331d6ef38fa
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -193,8 +193,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-bopenshift-worker-vcpu-exoscale-besteffort-2
-  name: backfill-bopenshift-worker-vcpu-exoscale-besteffort-2
+    name: backfill-bopenshift-worker-vcpu-exos-fe12205d3b9fe90
+  name: backfill-bopenshift-worker-vcpu-exos-fe12205d3b9fe90
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -286,8 +286,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-bopenshift-worker-vcpu-exoscale-guaranteedavailability-3
-  name: backfill-bopenshift-worker-vcpu-exoscale-guaranteedavailability-3
+    name: backfill-bopenshift-worker-vcpu-exos-e8d28e0acacedbc
+  name: backfill-bopenshift-worker-vcpu-exos-e8d28e0acacedbc
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -555,8 +555,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-cloudscale-professional-2
-  name: backfill-openshift-clusters-cloudscale-professional-2
+    name: backfill-openshift-clusters-cloudsca-70c94d3ffc775fa
+  name: backfill-openshift-clusters-cloudsca-70c94d3ffc775fa
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
@@ -1611,8 +1611,8 @@ metadata:
     app.kubernetes.io/managed-by: commodore
     app.kubernetes.io/name: appuio-reporting
     app.kubernetes.io/part-of: syn
-    name: backfill-openshift-clusters-openstack-professional-14
-  name: backfill-openshift-clusters-openstack-professional-14
+    name: backfill-openshift-clusters-openstac-544fd0a9a0c5c37
+  name: backfill-openshift-clusters-openstac-544fd0a9a0c5c37
   namespace: appuio-reporting
 spec:
   failedJobsHistoryLimit: 768
