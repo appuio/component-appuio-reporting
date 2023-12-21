@@ -73,7 +73,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -158,7 +158,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -243,7 +243,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -328,7 +328,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -413,7 +413,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -498,7 +498,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -583,7 +583,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -668,7 +668,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -753,7 +753,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -838,7 +838,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -923,7 +923,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1008,7 +1008,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1093,7 +1093,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1178,7 +1178,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1263,7 +1263,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1348,7 +1348,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1433,7 +1433,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1518,7 +1518,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1603,7 +1603,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1688,7 +1688,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1773,7 +1773,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1858,7 +1858,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -1943,7 +1943,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2028,7 +2028,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2113,7 +2113,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2198,7 +2198,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2283,7 +2283,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2368,7 +2368,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2453,7 +2453,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2531,7 +2531,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="zero"})
                       )[59m:1m]
                     )
@@ -2542,7 +2542,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2620,7 +2620,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="standard"})
                       )[59m:1m]
                     )
@@ -2631,7 +2631,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2709,7 +2709,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="professional"})
                       )[59m:1m]
                     )
@@ -2720,7 +2720,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2798,7 +2798,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="premium"})
                       )[59m:1m]
                     )
@@ -2809,7 +2809,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2887,7 +2887,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="zero"})
                       )[59m:1m]
                     )
@@ -2898,7 +2898,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -2976,7 +2976,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="standard"})
                       )[59m:1m]
                     )
@@ -2987,7 +2987,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3065,7 +3065,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="professional"})
                       )[59m:1m]
                     )
@@ -3076,7 +3076,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3154,7 +3154,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="premium"})
                       )[59m:1m]
                     )
@@ -3165,7 +3165,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3243,7 +3243,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="vsphere", vshn_service_level="zero"})
                       )[59m:1m]
                     )
@@ -3254,7 +3254,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3332,7 +3332,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="vsphere", vshn_service_level="standard"})
                       )[59m:1m]
                     )
@@ -3343,7 +3343,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3421,7 +3421,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="vsphere", vshn_service_level="professional"})
                       )[59m:1m]
                     )
@@ -3432,7 +3432,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3510,7 +3510,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="vsphere", vshn_service_level="premium"})
                       )[59m:1m]
                     )
@@ -3521,7 +3521,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3599,7 +3599,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="openstack", vshn_service_level="zero"})
                       )[59m:1m]
                     )
@@ -3610,7 +3610,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3688,7 +3688,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="openstack", vshn_service_level="standard"})
                       )[59m:1m]
                     )
@@ -3699,7 +3699,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3777,7 +3777,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="openstack", vshn_service_level="professional"})
                       )[59m:1m]
                     )
@@ -3788,7 +3788,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3866,7 +3866,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="openstack", vshn_service_level="premium"})
                       )[59m:1m]
                     )
@@ -3877,7 +3877,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -3955,7 +3955,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="xelon", vshn_service_level="standard"})
                       )[59m:1m]
                     )
@@ -3966,7 +3966,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
@@ -4044,7 +4044,7 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
                         (appuio_managed_info{cloud_provider="none", vshn_service_level="professional"})
                       )[59m:1m]
                     )
@@ -4055,7 +4055,7 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
-              image: ghcr.io/appuio/appuio-reporting:v0.1.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
           initContainers: []
