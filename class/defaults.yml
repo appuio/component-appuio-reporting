@@ -8,7 +8,7 @@ parameters:
       reporting:
         registry: ghcr.io
         repository: appuio/appuio-reporting
-        tag: v0.1.0
+        tag: v0.2.0
 
     schedules:
       backfill: '15 * * * *'
@@ -117,7 +117,7 @@ parameters:
           # Calculates number of clusters per cluster. Always returns 1.
           # Max values over one hour.
           max_over_time(
-            max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order_id) (
+            max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
               (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
             )[59m:1m]
           )
@@ -246,15 +246,15 @@ parameters:
           # Calculates vCPUs for app nodes of a cluster
           # Max values over one hour.
           max_over_time(
-            sum by(cluster_id, vshn_service_level, tenant_id, role, cloud_provider, sales_order_id) (
+            sum by(cluster_id, vshn_service_level, tenant_id, role, cloud_provider, sales_order) (
               node_cpu_info * on (tenant_id, cluster_id, instance) group_left(role)
                 label_join(
                   kube_node_role{role=~"app|storage"},
                   "instance",
                   "",
                   "node"
-                ) * on(cluster_id) group_left(tenant_id, vshn_service_level, cloud_provider, sales_order_id)
-                  max by(cluster_id, tenant_id, vshn_service_level, cloud_provider, sales_order_id)
+                ) * on(cluster_id) group_left(tenant_id, vshn_service_level, cloud_provider, sales_order)
+                  max by(cluster_id, tenant_id, vshn_service_level, cloud_provider, sales_order)
                     (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
             )[59m:1m]
           )
