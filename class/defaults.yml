@@ -267,6 +267,68 @@ parameters:
               vshn_service_level="%(vshn_service_level)s",
           }
 
+      legacy_appuio_rke_cluster:
+        enabled: true
+        products:
+          - product_id: kubernetes-iaas-cluster-zero
+            params:
+              vshn_service_level: zero
+          - product_id: kubernetes-iaas-cluster-standard
+            params:
+              vshn_service_level: standard
+          - product_id: kubernetes-iaas-cluster-professional
+            params:
+              vshn_service_level: professional
+          - product_id: kubernetes-iaas-cluster-premium
+            params:
+              vshn_service_level: premium
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_53_4a7e8f3e" #Cluster-Hour
+        query_pattern: |
+          max_over_time(
+            group by(cluster_id, sales_order) (
+              appuio_managed_info{
+                sales_order!="TERMINATED",
+                sales_order!="NONE",
+                distribution=~"rancher|rke2",
+                vshn_service_level="%(vshn_service_level)s",
+              }
+            )[59m:1m]
+          )
+
+      legacy_appuio_rke_node:
+        enabled: true
+        products:
+          - product_id: kubernetes-iaas-node-zero
+            params:
+              vshn_service_level: zero
+          - product_id: kubernetes-iaas-node-standard
+            params:
+              vshn_service_level: standard
+          - product_id: kubernetes-iaas-node-professional
+            params:
+              vshn_service_level: professional
+          - product_id: kubernetes-iaas-node-premium
+            params:
+              vshn_service_level: premium
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_191_55730e52" #Node-Hour
+        query_pattern: |
+          max_over_time(
+            count by(cluster_id) (
+              kube_node_labels
+              * on(node) group_left() (kube_node_role{role="worker"})
+            )[59m:1m]
+          )
+          * on(cluster_id) group_left(sales_order) appuio_managed_info{
+            sales_order!="TERMINATED",
+            sales_order!="NONE",
+            distribution=~"rke2|rancher",
+            vshn_service_level="%(vshn_service_level)s",
+          }
+
     network_policies:
       target_namespaces: {}
 
