@@ -329,10 +329,6 @@ parameters:
             vshn_service_level="%(vshn_service_level)s",
           }
 
-      # TODO Service level missmatch
-      # Clusters are configured using the legacy service levels standard, professional and premium.
-      # Yet in Odoo, only best effor and guranteed availabilty products are available.
-      # See also https://insights.appuio.net/explore?orgId=1&left=%7B%22datasource%22:%22C6I53HL4k%22,%22queries%22:%5B%7B%22refId%22:%22A%22,%22datasource%22:%7B%22type%22:%22prometheus%22,%22uid%22:%22C6I53HL4k%22%7D,%22editorMode%22:%22code%22,%22expr%22:%22group%20by%28cloud_provider,%20distribution,%20vshn_service_level%29%20%28appuio_managed_info%7Bsales_order%21%3D%5C%22NONE%5C%22,%20sales_order%21%3D%5C%22TERMINATED%5C%22,%20distribution%21%3D%5C%22rke2%5C%22,%20distribution%21%3D%5C%22rancher%5C%22%7D%29%22,%22legendFormat%22:%22__auto%22,%22range%22:false,%22instant%22:true,%22exemplar%22:false,%22format%22:%22table%22%7D%5D,%22range%22:%7B%22from%22:%22now%22,%22to%22:%22now%22%7D%7D
       cloud_kubernetes:
         enabled: true
         products:
@@ -390,6 +386,66 @@ parameters:
               sales_order!="TERMINATED",
               cloud_provider="%(cloud_provider)s",
               distribution="%(distribution)s",
+              vshn_service_level="%(vshn_service_level)s",
+          }
+
+      cloud_kubernetes_legacy_cluster:
+        enabled: true
+        products:
+          - product_id: kubernetes-hyperscaler-cluster-zero
+            params:
+              vshn_service_level: zero
+          - product_id: kubernetes-hyperscaler-cluster-standard
+            params:
+              vshn_service_level: standard
+          - product_id: kubernetes-hyperscaler-cluster-professional
+            params:
+              vshn_service_level: professional
+          - product_id: kubernetes-hyperscaler-cluster-premium
+            params:
+              vshn_service_level: premium
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_53_4a7e8f3e" #Cluster-Hour
+        query_pattern: |
+          max_over_time(
+            group by(cluster_id, sales_order) (
+              appuio_managed_info{
+                  distribution!="rke2",
+                  distribution!="rancher",
+                  sales_order!="TERMINATED",
+                  sales_order!="NONE",
+                  vshn_service_level="%(vshn_service_level)s",
+              }
+            )[59m:1m]
+          )
+
+      cloud_kubernetes_legacy_node:
+        enabled: true
+        products:
+          - product_id: kubernetes-hyperscaler-cluster-zero
+            params:
+              vshn_service_level: zero
+          - product_id: kubernetes-hyperscaler-cluster-standard
+            params:
+              vshn_service_level: standard
+          - product_id: kubernetes-hyperscaler-cluster-professional
+            params:
+              vshn_service_level: professional
+          - product_id: kubernetes-hyperscaler-cluster-premium
+            params:
+              vshn_service_level: premium
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_191_55730e52" #Node-Hour
+        query_pattern: |
+          max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+          # Pull in the APPUiO managed info labels
+          * on(cluster_id) group_left(sales_order) appuio_managed_info{
+              distribution!="rke2",
+              distribution!="rancher",
+              sales_order!="TERMINATED",
+              sales_order!="NONE",
               vshn_service_level="%(vshn_service_level)s",
           }
 
