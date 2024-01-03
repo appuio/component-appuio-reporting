@@ -35,6 +35,7 @@ parameters:
     rules:
       legacy_appuio_managed_clusters:
         enabled: true
+        prometheus_org_id: appuio-managed-openshift-billing
         products:
           # Old pricing model
           - product_id: 'openshift-clusters-cloudscale-zero'
@@ -127,6 +128,7 @@ parameters:
 
       appuio_managed_vcpu:
         enabled: true
+        prometheus_org_id: appuio-managed-openshift-billing
         products:
           # New pricing model
           - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
@@ -269,6 +271,7 @@ parameters:
 
       legacy_appuio_rke_cluster:
         enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
         products:
           - product_id: kubernetes-iaas-cluster-zero
             params:
@@ -299,6 +302,7 @@ parameters:
 
       legacy_appuio_rke_node:
         enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
         products:
           - product_id: kubernetes-iaas-node-zero
             params:
@@ -319,7 +323,7 @@ parameters:
           max_over_time(
             count by(cluster_id) (
               kube_node_labels
-              * on(node) group_left() (kube_node_role{role="worker"})
+              * on(node) group_left() (max by (node) (kube_node_role{role="worker"}))
             )[59m:1m]
           )
           * on(cluster_id) group_left(sales_order) appuio_managed_info{
@@ -331,6 +335,7 @@ parameters:
 
       cloud_kubernetes:
         enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
         products:
           - product_id: kubernetes-awseks-vcpu-besteffort
             params:
@@ -391,6 +396,7 @@ parameters:
 
       cloud_kubernetes_legacy_cluster:
         enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
         products:
           - product_id: kubernetes-hyperscaler-cluster-zero
             params:
@@ -422,6 +428,7 @@ parameters:
 
       cloud_kubernetes_legacy_node:
         enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
         products:
           - product_id: kubernetes-hyperscaler-cluster-zero
             params:

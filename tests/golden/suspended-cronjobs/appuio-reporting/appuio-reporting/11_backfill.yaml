@@ -72,6 +72,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -156,6 +158,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -240,6 +244,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -324,6 +330,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -408,6 +416,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -492,6 +502,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -576,6 +588,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -660,6 +674,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -744,6 +760,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -828,6 +846,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -912,6 +932,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -996,6 +1018,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1080,6 +1104,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1164,6 +1190,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1248,6 +1276,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1332,6 +1362,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1416,6 +1448,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1500,6 +1534,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1584,6 +1620,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1668,6 +1706,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1752,6 +1792,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1836,6 +1878,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -1920,6 +1964,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2004,6 +2050,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2088,6 +2136,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2172,6 +2222,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2256,6 +2308,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2340,6 +2394,8 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2424,6 +2480,1488 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-awseks-vcpu-besteffort
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-awseks-vcpu-besteffort-0
+  name: kubernetes-awseks-vcpu-besteffort-0
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-awseks-vcpu-besteffort
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-awseks-vcpu-besteffort-0
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-awseks-vcpu-besteffort
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        sales_order!="NONE",
+                        sales_order!="TERMINATED",
+                        cloud_provider="aws",
+                        distribution="eks",
+                        vshn_service_level="best_effort",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_49_440b0fa7
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-awseks-vcpu-guaranteed
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-awseks-vcpu-guaranteed-1
+  name: kubernetes-awseks-vcpu-guaranteed-1
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-awseks-vcpu-guaranteed
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-awseks-vcpu-guaranteed-1
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-awseks-vcpu-guaranteed
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        sales_order!="NONE",
+                        sales_order!="TERMINATED",
+                        cloud_provider="aws",
+                        distribution="eks",
+                        vshn_service_level="guaranteed-availability",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_49_440b0fa7
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-exoscalesks-vcpu-besteffort
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-exoscalesks-vcpu-besteffort-2
+  name: kubernetes-exoscalesks-vcpu-besteffort-2
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-exoscalesks-vcpu-besteffort
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-exoscalesks-vcpu-besteffort-2
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-exoscalesks-vcpu-besteffort
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        sales_order!="NONE",
+                        sales_order!="TERMINATED",
+                        cloud_provider="exoscale",
+                        distribution="sks",
+                        vshn_service_level="best_effort",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_49_440b0fa7
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-exoscalesks-vcpu-guaranteed
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-exoscalesks-vcpu-guaranteed-3
+  name: kubernetes-exoscalesks-vcpu-guaranteed-3
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-exoscalesks-vcpu-guaranteed
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-exoscalesks-vcpu-guaranteed-3
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-exoscalesks-vcpu-guaranteed
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        sales_order!="NONE",
+                        sales_order!="TERMINATED",
+                        cloud_provider="exoscale",
+                        distribution="sks",
+                        vshn_service_level="guaranteed-availability",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_49_440b0fa7
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-googlegke-vcpu-besteffort
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-googlegke-vcpu-besteffort-4
+  name: kubernetes-googlegke-vcpu-besteffort-4
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-googlegke-vcpu-besteffort
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-googlegke-vcpu-besteffort-4
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-googlegke-vcpu-besteffort
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        sales_order!="NONE",
+                        sales_order!="TERMINATED",
+                        cloud_provider="gcp",
+                        distribution="gke",
+                        vshn_service_level="best_effort",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_49_440b0fa7
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-googlegke-vcpu-guaranteed
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-googlegke-vcpu-guaranteed-5
+  name: kubernetes-googlegke-vcpu-guaranteed-5
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-googlegke-vcpu-guaranteed
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-googlegke-vcpu-guaranteed-5
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-googlegke-vcpu-guaranteed
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        sales_order!="NONE",
+                        sales_order!="TERMINATED",
+                        cloud_provider="gcp",
+                        distribution="gke",
+                        vshn_service_level="guaranteed-availability",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_49_440b0fa7
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-azureaks-vcpu-besteffort
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-azureaks-vcpu-besteffort-6
+  name: kubernetes-azureaks-vcpu-besteffort-6
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-azureaks-vcpu-besteffort
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-azureaks-vcpu-besteffort-6
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-azureaks-vcpu-besteffort
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        sales_order!="NONE",
+                        sales_order!="TERMINATED",
+                        cloud_provider="azure",
+                        distribution="aks",
+                        vshn_service_level="best_effort",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_49_440b0fa7
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-azureaks-vcpu-guaranteed
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-azureaks-vcpu-guaranteed-7
+  name: kubernetes-azureaks-vcpu-guaranteed-7
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-azureaks-vcpu-guaranteed
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-azureaks-vcpu-guaranteed-7
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-azureaks-vcpu-guaranteed
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        sales_order!="NONE",
+                        sales_order!="TERMINATED",
+                        cloud_provider="azure",
+                        distribution="aks",
+                        vshn_service_level="guaranteed-availability",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_49_440b0fa7
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-hyperscaler-cluster-zero
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-hyperscaler-cluster-zero-0
+  name: kubernetes-hyperscaler-cluster-zero-0
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-hyperscaler-cluster-zero
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-hyperscaler-cluster-zero-0
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-hyperscaler-cluster-zero
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                            distribution!="rke2",
+                            distribution!="rancher",
+                            sales_order!="TERMINATED",
+                            sales_order!="NONE",
+                            vshn_service_level="zero",
+                        }
+                      )[59m:1m]
+                    )
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-hyperscaler-cluster-standard
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-hyperscaler-cluster-standard-1
+  name: kubernetes-hyperscaler-cluster-standard-1
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-hyperscaler-cluster-standard
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-hyperscaler-cluster-standard-1
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-hyperscaler-cluster-standard
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                            distribution!="rke2",
+                            distribution!="rancher",
+                            sales_order!="TERMINATED",
+                            sales_order!="NONE",
+                            vshn_service_level="standard",
+                        }
+                      )[59m:1m]
+                    )
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-hyperscaler-cluster-professional
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-hyperscaler-cluster-professional-2
+  name: kubernetes-hyperscaler-cluster-professional-2
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-hyperscaler-cluster-professional
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-hyperscaler-cluster-professional-2
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-hyperscaler-cluster-professional
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                            distribution!="rke2",
+                            distribution!="rancher",
+                            sales_order!="TERMINATED",
+                            sales_order!="NONE",
+                            vshn_service_level="professional",
+                        }
+                      )[59m:1m]
+                    )
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-hyperscaler-cluster-premium
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-hyperscaler-cluster-premium-3
+  name: kubernetes-hyperscaler-cluster-premium-3
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-hyperscaler-cluster-premium
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-hyperscaler-cluster-premium-3
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-hyperscaler-cluster-premium
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                            distribution!="rke2",
+                            distribution!="rancher",
+                            sales_order!="TERMINATED",
+                            sales_order!="NONE",
+                            vshn_service_level="premium",
+                        }
+                      )[59m:1m]
+                    )
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-hyperscaler-cluster-zero
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-hyperscaler-cluster-zero-0
+  name: kubernetes-hyperscaler-cluster-zero-0
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-hyperscaler-cluster-zero
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-hyperscaler-cluster-zero-0
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-hyperscaler-cluster-zero
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        distribution!="rke2",
+                        distribution!="rancher",
+                        sales_order!="TERMINATED",
+                        sales_order!="NONE",
+                        vshn_service_level="zero",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_191_55730e52
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-hyperscaler-cluster-standard
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-hyperscaler-cluster-standard-1
+  name: kubernetes-hyperscaler-cluster-standard-1
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-hyperscaler-cluster-standard
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-hyperscaler-cluster-standard-1
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-hyperscaler-cluster-standard
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        distribution!="rke2",
+                        distribution!="rancher",
+                        sales_order!="TERMINATED",
+                        sales_order!="NONE",
+                        vshn_service_level="standard",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_191_55730e52
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-hyperscaler-cluster-professional
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-hyperscaler-cluster-professional-2
+  name: kubernetes-hyperscaler-cluster-professional-2
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-hyperscaler-cluster-professional
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-hyperscaler-cluster-professional-2
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-hyperscaler-cluster-professional
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        distribution!="rke2",
+                        distribution!="rancher",
+                        sales_order!="TERMINATED",
+                        sales_order!="NONE",
+                        vshn_service_level="professional",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_191_55730e52
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-hyperscaler-cluster-premium
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-hyperscaler-cluster-premium-3
+  name: kubernetes-hyperscaler-cluster-premium-3
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-hyperscaler-cluster-premium
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-hyperscaler-cluster-premium-3
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-hyperscaler-cluster-premium
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+                    # Pull in the APPUiO managed info labels
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                        distribution!="rke2",
+                        distribution!="rancher",
+                        sales_order!="TERMINATED",
+                        sales_order!="NONE",
+                        vshn_service_level="premium",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_191_55730e52
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2501,8 +4039,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="zero"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="cloudscale",
+                          vshn_service_level="zero"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -2512,6 +4053,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2589,8 +4132,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="standard"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="cloudscale",
+                          vshn_service_level="standard"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -2600,6 +4146,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2677,8 +4225,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="professional"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="cloudscale",
+                          vshn_service_level="professional"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -2688,6 +4239,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2765,8 +4318,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="cloudscale", vshn_service_level="premium"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="cloudscale",
+                          vshn_service_level="premium"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -2776,6 +4332,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2853,8 +4411,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="zero"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="exoscale",
+                          vshn_service_level="zero"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -2864,6 +4425,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -2941,8 +4504,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="standard"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="exoscale",
+                          vshn_service_level="standard"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -2952,6 +4518,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3029,8 +4597,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="professional"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="exoscale",
+                          vshn_service_level="professional"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3040,6 +4611,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3117,8 +4690,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="exoscale", vshn_service_level="premium"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="exoscale",
+                          vshn_service_level="premium"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3128,6 +4704,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3205,8 +4783,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="vsphere", vshn_service_level="zero"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="vsphere",
+                          vshn_service_level="zero"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3216,6 +4797,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3293,8 +4876,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="vsphere", vshn_service_level="standard"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="vsphere",
+                          vshn_service_level="standard"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3304,6 +4890,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3381,8 +4969,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="vsphere", vshn_service_level="professional"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="vsphere",
+                          vshn_service_level="professional"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3392,6 +4983,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3469,8 +5062,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="vsphere", vshn_service_level="premium"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="vsphere",
+                          vshn_service_level="premium"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3480,6 +5076,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3557,8 +5155,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="openstack", vshn_service_level="zero"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="openstack",
+                          vshn_service_level="zero"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3568,6 +5169,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3645,8 +5248,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="openstack", vshn_service_level="standard"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="openstack",
+                          vshn_service_level="standard"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3656,6 +5262,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3733,8 +5341,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="openstack", vshn_service_level="professional"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="openstack",
+                          vshn_service_level="professional"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3744,6 +5355,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3821,8 +5434,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="openstack", vshn_service_level="premium"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="openstack",
+                          vshn_service_level="premium"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3832,6 +5448,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3909,8 +5527,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="xelon", vshn_service_level="standard"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="xelon",
+                          vshn_service_level="standard"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -3920,6 +5541,8 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
@@ -3997,8 +5620,11 @@ spec:
                     # Calculates number of clusters per cluster. Always returns 1.
                     # Max values over one hour.
                     max_over_time(
-                      max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-                        (appuio_managed_info{cloud_provider="none", vshn_service_level="professional"})
+                      # Use aggregation to drop labels of no interest.
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          cloud_provider="none",
+                          vshn_service_level="professional"},
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
@@ -4008,6 +5634,760 @@ spec:
                     - Cluster: %(cluster_id)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-openshift-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-iaas-cluster-zero
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-iaas-cluster-zero-0
+  name: kubernetes-iaas-cluster-zero-0
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-iaas-cluster-zero
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-iaas-cluster-zero-0
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-iaas-cluster-zero
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          sales_order!="TERMINATED",
+                          sales_order!="NONE",
+                          distribution=~"rancher|rke2",
+                          vshn_service_level="zero",
+                        }
+                      )[59m:1m]
+                    )
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-iaas-cluster-standard
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-iaas-cluster-standard-1
+  name: kubernetes-iaas-cluster-standard-1
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-iaas-cluster-standard
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-iaas-cluster-standard-1
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-iaas-cluster-standard
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          sales_order!="TERMINATED",
+                          sales_order!="NONE",
+                          distribution=~"rancher|rke2",
+                          vshn_service_level="standard",
+                        }
+                      )[59m:1m]
+                    )
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-iaas-cluster-professional
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-iaas-cluster-professional-2
+  name: kubernetes-iaas-cluster-professional-2
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-iaas-cluster-professional
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-iaas-cluster-professional-2
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-iaas-cluster-professional
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          sales_order!="TERMINATED",
+                          sales_order!="NONE",
+                          distribution=~"rancher|rke2",
+                          vshn_service_level="professional",
+                        }
+                      )[59m:1m]
+                    )
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-iaas-cluster-premium
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-iaas-cluster-premium-3
+  name: kubernetes-iaas-cluster-premium-3
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-iaas-cluster-premium
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-iaas-cluster-premium-3
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-iaas-cluster-premium
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      group by(cluster_id, sales_order) (
+                        appuio_managed_info{
+                          sales_order!="TERMINATED",
+                          sales_order!="NONE",
+                          distribution=~"rancher|rke2",
+                          vshn_service_level="premium",
+                        }
+                      )[59m:1m]
+                    )
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_53_4a7e8f3e
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-iaas-node-zero
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-iaas-node-zero-0
+  name: kubernetes-iaas-node-zero-0
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-iaas-node-zero
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-iaas-node-zero-0
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-iaas-node-zero
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      count by(cluster_id) (
+                        kube_node_labels
+                        * on(node) group_left() (max by (node) (kube_node_role{role="worker"}))
+                      )[59m:1m]
+                    )
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                      sales_order!="TERMINATED",
+                      sales_order!="NONE",
+                      distribution=~"rke2|rancher",
+                      vshn_service_level="zero",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_191_55730e52
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-iaas-node-standard
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-iaas-node-standard-1
+  name: kubernetes-iaas-node-standard-1
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-iaas-node-standard
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-iaas-node-standard-1
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-iaas-node-standard
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      count by(cluster_id) (
+                        kube_node_labels
+                        * on(node) group_left() (max by (node) (kube_node_role{role="worker"}))
+                      )[59m:1m]
+                    )
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                      sales_order!="TERMINATED",
+                      sales_order!="NONE",
+                      distribution=~"rke2|rancher",
+                      vshn_service_level="standard",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_191_55730e52
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-iaas-node-professional
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-iaas-node-professional-2
+  name: kubernetes-iaas-node-professional-2
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-iaas-node-professional
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-iaas-node-professional-2
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-iaas-node-professional
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      count by(cluster_id) (
+                        kube_node_labels
+                        * on(node) group_left() (max by (node) (kube_node_role{role="worker"}))
+                      )[59m:1m]
+                    )
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                      sales_order!="TERMINATED",
+                      sales_order!="NONE",
+                      distribution=~"rke2|rancher",
+                      vshn_service_level="professional",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_191_55730e52
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
+              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              name: backfill
+              resources: {}
+          initContainers: []
+          restartPolicy: OnFailure
+  schedule: 15 * * * *
+  startingDeadlineSeconds: 180
+  successfulJobsHistoryLimit: 3
+  suspend: true
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  annotations:
+    product-id: kubernetes-iaas-node-premium
+  labels:
+    app.kubernetes.io/managed-by: commodore
+    app.kubernetes.io/name: appuio-reporting
+    app.kubernetes.io/part-of: syn
+    name: kubernetes-iaas-node-premium-3
+  name: kubernetes-iaas-node-premium-3
+  namespace: appuio-reporting
+spec:
+  failedJobsHistoryLimit: 768
+  jobTemplate:
+    metadata:
+      annotations:
+        product-id: kubernetes-iaas-node-premium
+      labels:
+        app.kubernetes.io/managed-by: commodore
+        app.kubernetes.io/name: appuio-reporting
+        app.kubernetes.io/part-of: syn
+        cron-job-name: kubernetes-iaas-node-premium-3
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/managed-by: commodore
+            app.kubernetes.io/name: appuio-reporting
+            app.kubernetes.io/part-of: syn
+        spec:
+          containers:
+            - args:
+                - appuio-reporting report --timerange 1h --begin=$(date -d "now -3
+                  hours" -u +"%Y-%m-%dT%H:00:00Z") --repeat-until=$(date -u -Iseconds)
+              command:
+                - sh
+                - -c
+              env:
+                - name: AR_ODOO_OAUTH_TOKEN_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: token_endpoint
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_ID
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_id
+                      name: odoo-credentials
+                - name: AR_ODOO_OAUTH_CLIENT_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      key: client_secret
+                      name: odoo-credentials
+                - name: AR_ODOO_URL
+                - name: AR_PROM_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: url
+                      name: prom-url
+                - name: AR_PRODUCT_ID
+                  value: kubernetes-iaas-node-premium
+                - name: AR_QUERY
+                  value: |
+                    max_over_time(
+                      count by(cluster_id) (
+                        kube_node_labels
+                        * on(node) group_left() (max by (node) (kube_node_role{role="worker"}))
+                      )[59m:1m]
+                    )
+                    * on(cluster_id) group_left(sales_order) appuio_managed_info{
+                      sales_order!="TERMINATED",
+                      sales_order!="NONE",
+                      distribution=~"rke2|rancher",
+                      vshn_service_level="premium",
+                    }
+                - name: AR_INSTANCE_JSONNET
+                  value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
+                - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
+                  value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
+                    %(cluster_id)s" % labels'
+                - name: AR_UNIT_ID
+                  value: uom_uom_191_55730e52
+                - name: AR_ORG_ID
+                  value: appuio-managed-kubernetes-services-billing
               image: ghcr.io/appuio/appuio-reporting:v0.2.0
               name: backfill
               resources: {}
