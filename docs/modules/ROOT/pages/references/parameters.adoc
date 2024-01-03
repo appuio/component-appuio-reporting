@@ -140,6 +140,8 @@ default:: `null`
 
 If set, this value is sent as the `X-Scope-OrgID` header in all requests to Prometheus.
 
+This parameter can be overridden for each individual rule by setting the `prometheus_org_id` parameter on the rule.
+
 == `odoo.metered_billing_endpoint`
 [horizontal]
 type:: string
@@ -191,6 +193,7 @@ rule_appuio_managed_vcpu: <1>
         node_cpu_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"}
       )[59m:1m]
     )
+  prometheus_org_id: my-prom-org <10>
 ----
 +
 <1> Multiple rules can be defined in the dictionary, with the rule name serving as key.
@@ -202,6 +205,7 @@ rule_appuio_managed_vcpu: <1>
 <7> (Optional) The labels of the query result are applied to this pattern to generate the human readable item group description.
 <8> Odoo ID of the unit of measurement used.
 <9> The product params are applied to this pattern to generate one query for each product.
+<10> (Optional) If set, the value of the `X-Scope-OrgID` header used for Prometheus queries from this rule. Overrides the `prometheus.org_id` parameter.
 
 Dictionary containing rules by which to generate Prometheus queries.
 A rule corresponds to a single query template, from which queries for multiple products may be generated.

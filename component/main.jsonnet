@@ -81,10 +81,6 @@ local commonEnv = std.prune([
       },
     },
   },
-  if params.prometheus.org_id != null then {
-    name: 'AR_ORG_ID',
-    value: params.prometheus.org_id,
-  },
 ]);
 
 local override_sales_order_id = if params.override_sales_order_id != null && !params.development_mode then
@@ -114,6 +110,11 @@ local backfillCJ = function(rule, product, index)
   else
     'local labels = std.extVar("labels"); "%s" %% labels' % rule.instance_id_pattern;
 
+  local promOrgId = if std.objectHas(rule, 'prometheus_org_id') then
+    rule.prometheus_org_id
+  else
+    params.prometheus.org_id;
+
   local jobEnv = std.prune([
     {
       name: 'AR_PRODUCT_ID',
@@ -138,6 +139,10 @@ local backfillCJ = function(rule, product, index)
     {
       name: 'AR_UNIT_ID',
       value: rule.unit_id,
+    },
+    if promOrgId != null then {
+      name: 'AR_ORG_ID',
+      value: promOrgId,
     },
   ]);
   common.CronJob('%(product)s-%(index)d' % { product: escape(product.product_id), index: index }, 'backfill', {
