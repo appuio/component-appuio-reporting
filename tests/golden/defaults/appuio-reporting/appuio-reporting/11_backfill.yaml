@@ -181,7 +181,7 @@ spec:
                     # Pull in the APPUiO managed info labels
                     * on(cluster_id) group_left(sales_order) appuio_managed_info{
                         cloud_provider="cloudscale",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -385,7 +385,7 @@ spec:
                     # Pull in the APPUiO managed info labels
                     * on(cluster_id) group_left(sales_order) appuio_managed_info{
                         cloud_provider="exoscale",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -589,7 +589,7 @@ spec:
                     # Pull in the APPUiO managed info labels
                     * on(cluster_id) group_left(sales_order) appuio_managed_info{
                         cloud_provider="vsphere",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -793,7 +793,7 @@ spec:
                     # Pull in the APPUiO managed info labels
                     * on(cluster_id) group_left(sales_order) appuio_managed_info{
                         cloud_provider="openstack",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -997,7 +997,7 @@ spec:
                     # Pull in the APPUiO managed info labels
                     * on(cluster_id) group_left(sales_order) appuio_managed_info{
                         cloud_provider="cloudscale",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -3017,7 +3017,7 @@ spec:
                         sales_order!="TERMINATED",
                         cloud_provider="aws",
                         distribution="eks",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -3201,7 +3201,7 @@ spec:
                         sales_order!="TERMINATED",
                         cloud_provider="exoscale",
                         distribution="sks",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -3385,7 +3385,7 @@ spec:
                         sales_order!="TERMINATED",
                         cloud_provider="gcp",
                         distribution="gke",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -3569,7 +3569,7 @@ spec:
                         sales_order!="TERMINATED",
                         cloud_provider="azure",
                         distribution="aks",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels

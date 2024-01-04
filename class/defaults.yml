@@ -137,7 +137,7 @@ parameters:
               cloud_provider: cloudscale
           - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: cloudscale
           - product_id: 'openshift-worker-vcpu-exoscale-besteffort'
             params:
@@ -145,7 +145,7 @@ parameters:
               cloud_provider: exoscale
           - product_id: 'openshift-worker-vcpu-exoscale-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: exoscale
           - product_id: 'openshift-worker-vcpu-vsphere-besteffort'
             params:
@@ -153,7 +153,7 @@ parameters:
               cloud_provider: vsphere
           - product_id: 'openshift-worker-vcpu-vsphere-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: vsphere
           - product_id: 'openshift-worker-vcpu-openstack-besteffort'
             params:
@@ -161,7 +161,7 @@ parameters:
               cloud_provider: openstack
           - product_id: 'openshift-worker-vcpu-openstack-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: openstack
           - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
             params:
@@ -169,7 +169,7 @@ parameters:
               cloud_provider: cloudscale
           - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: cloudscale
           # Old pricing model
           - product_id: 'openshift-worker-vcpu-cloudscale-zero'
@@ -344,7 +344,7 @@ parameters:
               distribution: eks
           - product_id: kubernetes-awseks-vcpu-guaranteed
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: aws
               distribution: eks
 
@@ -355,7 +355,7 @@ parameters:
               distribution: sks
           - product_id: kubernetes-exoscalesks-vcpu-guaranteed
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: exoscale
               distribution: sks
 
@@ -366,7 +366,7 @@ parameters:
               distribution: gke
           - product_id: kubernetes-googlegke-vcpu-guaranteed
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: gcp
               distribution: gke
 
@@ -377,7 +377,7 @@ parameters:
               distribution: aks
           - product_id: kubernetes-azureaks-vcpu-guaranteed
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: azure
               distribution: aks
         instance_id_pattern: '%(cluster_id)s'

@@ -2686,7 +2686,7 @@ spec:
                         sales_order!="TERMINATED",
                         cloud_provider="aws",
                         distribution="eks",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -2872,7 +2872,7 @@ spec:
                         sales_order!="TERMINATED",
                         cloud_provider="exoscale",
                         distribution="sks",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -3058,7 +3058,7 @@ spec:
                         sales_order!="TERMINATED",
                         cloud_provider="gcp",
                         distribution="gke",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
@@ -3244,7 +3244,7 @@ spec:
                         sales_order!="TERMINATED",
                         cloud_provider="azure",
                         distribution="aks",
-                        vshn_service_level="guaranteed-availability",
+                        vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
                   value: local labels = std.extVar("labels"); "%(cluster_id)s" % labels
