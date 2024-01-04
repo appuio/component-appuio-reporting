@@ -35,6 +35,7 @@ parameters:
     rules:
       legacy_appuio_managed_clusters:
         enabled: true
+        prometheus_org_id: appuio-managed-openshift-billing
         products:
           # Old pricing model
           - product_id: 'openshift-clusters-cloudscale-zero'
@@ -117,53 +118,58 @@ parameters:
           # Calculates number of clusters per cluster. Always returns 1.
           # Max values over one hour.
           max_over_time(
-            max by(cluster_id, vshn_service_level, tenant_id, cloud_provider, sales_order) (
-              (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
+            # Use aggregation to drop labels of no interest.
+            group by(cluster_id, sales_order) (
+              appuio_managed_info{
+                cloud_provider="%(cloud_provider)s",
+                vshn_service_level="%(vshn_service_level)s"},
             )[59m:1m]
           )
+
       appuio_managed_vcpu:
         enabled: true
+        prometheus_org_id: appuio-managed-openshift-billing
         products:
           # New pricing model
           - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
             params:
-              vshn_service_level: best-effort
+              vshn_service_level: best_effort
               cloud_provider: cloudscale
           - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: cloudscale
           - product_id: 'openshift-worker-vcpu-exoscale-besteffort'
             params:
-              vshn_service_level: best-effort
+              vshn_service_level: best_effort
               cloud_provider: exoscale
           - product_id: 'openshift-worker-vcpu-exoscale-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: exoscale
           - product_id: 'openshift-worker-vcpu-vsphere-besteffort'
             params:
-              vshn_service_level: best-effort
+              vshn_service_level: best_effort
               cloud_provider: vsphere
           - product_id: 'openshift-worker-vcpu-vsphere-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: vsphere
           - product_id: 'openshift-worker-vcpu-openstack-besteffort'
             params:
-              vshn_service_level: best-effort
+              vshn_service_level: best_effort
               cloud_provider: openstack
           - product_id: 'openshift-worker-vcpu-openstack-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: openstack
           - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
             params:
-              vshn_service_level: best-effort
+              vshn_service_level: best_effort
               cloud_provider: cloudscale
           - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
             params:
-              vshn_service_level: guaranteed-availability
+              vshn_service_level: guaranteed_availability
               cloud_provider: cloudscale
           # Old pricing model
           - product_id: 'openshift-worker-vcpu-cloudscale-zero'
@@ -246,18 +252,209 @@ parameters:
           # Calculates vCPUs for app nodes of a cluster
           # Max values over one hour.
           max_over_time(
-            sum by(cluster_id, vshn_service_level, tenant_id, role, cloud_provider, sales_order) (
-              node_cpu_info * on (tenant_id, cluster_id, instance) group_left(role)
-                label_join(
-                  kube_node_role{role=~"app|storage"},
-                  "instance",
-                  "",
-                  "node"
-                ) * on(cluster_id) group_left(tenant_id, vshn_service_level, cloud_provider, sales_order)
-                  max by(cluster_id, tenant_id, vshn_service_level, cloud_provider, sales_order)
-                    (appuio_managed_info{cloud_provider="%(cloud_provider)s", vshn_service_level="%(vshn_service_level)s"})
+            # Sum the vCPUs by cluster
+            sum by(cluster_id) (
+                # Get the node vCPUs
+                node_cpu_info
+                # Limit to worker nodes only
+                * on (cluster_id, instance) group_left() (
+                    # node_cpu_info and kube_node_role use different labels to identify the node.
+                    label_join(kube_node_role{role=~"app|storage"}, "instance", "", "node")
+                )
             )[59m:1m]
           )
+          # Pull in the APPUiO managed info labels
+          * on(cluster_id) group_left(sales_order) appuio_managed_info{
+              cloud_provider="%(cloud_provider)s",
+              vshn_service_level="%(vshn_service_level)s",
+          }
+
+      legacy_appuio_rke_cluster:
+        enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
+        products:
+          - product_id: kubernetes-iaas-cluster-zero
+            params:
+              vshn_service_level: zero
+          - product_id: kubernetes-iaas-cluster-standard
+            params:
+              vshn_service_level: standard
+          - product_id: kubernetes-iaas-cluster-professional
+            params:
+              vshn_service_level: professional
+          - product_id: kubernetes-iaas-cluster-premium
+            params:
+              vshn_service_level: premium
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_53_4a7e8f3e" #Cluster-Hour
+        query_pattern: |
+          max_over_time(
+            group by(cluster_id, sales_order) (
+              appuio_managed_info{
+                sales_order!="TERMINATED",
+                sales_order!="NONE",
+                distribution=~"rancher|rke2",
+                vshn_service_level="%(vshn_service_level)s",
+              }
+            )[59m:1m]
+          )
+
+      legacy_appuio_rke_node:
+        enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
+        products:
+          - product_id: kubernetes-iaas-node-zero
+            params:
+              vshn_service_level: zero
+          - product_id: kubernetes-iaas-node-standard
+            params:
+              vshn_service_level: standard
+          - product_id: kubernetes-iaas-node-professional
+            params:
+              vshn_service_level: professional
+          - product_id: kubernetes-iaas-node-premium
+            params:
+              vshn_service_level: premium
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_191_55730e52" #Node-Hour
+        query_pattern: |
+          max_over_time(
+            count by(cluster_id) (
+              kube_node_labels
+              * on(node) group_left() (max by (node) (kube_node_role{role="worker"}))
+            )[59m:1m]
+          )
+          * on(cluster_id) group_left(sales_order) appuio_managed_info{
+            sales_order!="TERMINATED",
+            sales_order!="NONE",
+            distribution=~"rke2|rancher",
+            vshn_service_level="%(vshn_service_level)s",
+          }
+
+      cloud_kubernetes:
+        enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
+        products:
+          - product_id: kubernetes-awseks-vcpu-besteffort
+            params:
+              vshn_service_level: best_effort
+              cloud_provider: aws
+              distribution: eks
+          - product_id: kubernetes-awseks-vcpu-guaranteed
+            params:
+              vshn_service_level: guaranteed_availability
+              cloud_provider: aws
+              distribution: eks
+
+          - product_id: kubernetes-exoscalesks-vcpu-besteffort
+            params:
+              vshn_service_level: best_effort
+              cloud_provider: exoscale
+              distribution: sks
+          - product_id: kubernetes-exoscalesks-vcpu-guaranteed
+            params:
+              vshn_service_level: guaranteed_availability
+              cloud_provider: exoscale
+              distribution: sks
+
+          - product_id: kubernetes-googlegke-vcpu-besteffort
+            params:
+              vshn_service_level: best_effort
+              cloud_provider: gcp
+              distribution: gke
+          - product_id: kubernetes-googlegke-vcpu-guaranteed
+            params:
+              vshn_service_level: guaranteed_availability
+              cloud_provider: gcp
+              distribution: gke
+
+          - product_id: kubernetes-azureaks-vcpu-besteffort
+            params:
+              vshn_service_level: best_effort
+              cloud_provider: azure
+              distribution: aks
+          - product_id: kubernetes-azureaks-vcpu-guaranteed
+            params:
+              vshn_service_level: guaranteed_availability
+              cloud_provider: azure
+              distribution: aks
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_49_440b0fa7" #vCPU-Hour
+        query_pattern: |
+          max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+          # Pull in the APPUiO managed info labels
+          * on(cluster_id) group_left(sales_order) appuio_managed_info{
+              sales_order!="NONE",
+              sales_order!="TERMINATED",
+              cloud_provider="%(cloud_provider)s",
+              distribution="%(distribution)s",
+              vshn_service_level="%(vshn_service_level)s",
+          }
+
+      cloud_kubernetes_legacy_cluster:
+        enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
+        products:
+          - product_id: kubernetes-hyperscaler-cluster-zero
+            params:
+              vshn_service_level: zero
+          - product_id: kubernetes-hyperscaler-cluster-standard
+            params:
+              vshn_service_level: standard
+          - product_id: kubernetes-hyperscaler-cluster-professional
+            params:
+              vshn_service_level: professional
+          - product_id: kubernetes-hyperscaler-cluster-premium
+            params:
+              vshn_service_level: premium
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_53_4a7e8f3e" #Cluster-Hour
+        query_pattern: |
+          max_over_time(
+            group by(cluster_id, sales_order) (
+              appuio_managed_info{
+                  distribution!="rke2",
+                  distribution!="rancher",
+                  sales_order!="TERMINATED",
+                  sales_order!="NONE",
+                  vshn_service_level="%(vshn_service_level)s",
+              }
+            )[59m:1m]
+          )
+
+      cloud_kubernetes_legacy_node:
+        enabled: true
+        prometheus_org_id: appuio-managed-kubernetes-services-billing
+        products:
+          - product_id: kubernetes-hyperscaler-cluster-zero
+            params:
+              vshn_service_level: zero
+          - product_id: kubernetes-hyperscaler-cluster-standard
+            params:
+              vshn_service_level: standard
+          - product_id: kubernetes-hyperscaler-cluster-professional
+            params:
+              vshn_service_level: professional
+          - product_id: kubernetes-hyperscaler-cluster-premium
+            params:
+              vshn_service_level: premium
+        instance_id_pattern: '%(cluster_id)s'
+        item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
+        unit_id: "uom_uom_191_55730e52" #Node-Hour
+        query_pattern: |
+          max_over_time(sum by(cluster_id) (node_cpu_info)[59m:1m])
+          # Pull in the APPUiO managed info labels
+          * on(cluster_id) group_left(sales_order) appuio_managed_info{
+              distribution!="rke2",
+              distribution!="rancher",
+              sales_order!="TERMINATED",
+              sales_order!="NONE",
+              vshn_service_level="%(vshn_service_level)s",
+          }
 
     network_policies:
       target_namespaces: {}
