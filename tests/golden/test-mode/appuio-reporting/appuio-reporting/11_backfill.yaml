@@ -75,7 +75,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -162,7 +162,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -249,7 +249,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -336,7 +336,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -423,7 +423,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -510,7 +510,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -597,7 +597,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -684,7 +684,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -771,7 +771,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -858,7 +858,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -945,7 +945,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1032,7 +1032,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1119,7 +1119,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1206,7 +1206,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1293,7 +1293,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1380,7 +1380,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1467,7 +1467,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1554,7 +1554,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1641,7 +1641,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1728,7 +1728,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1815,7 +1815,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1902,7 +1902,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -1989,7 +1989,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2076,7 +2076,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2163,7 +2163,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2250,7 +2250,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2337,7 +2337,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2424,7 +2424,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2511,7 +2511,7 @@ spec:
                   value: '300'
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2604,7 +2604,7 @@ spec:
                   value: uom_uom_49_440b0fa7
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2697,7 +2697,7 @@ spec:
                   value: uom_uom_49_440b0fa7
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2790,7 +2790,7 @@ spec:
                   value: uom_uom_49_440b0fa7
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2883,7 +2883,7 @@ spec:
                   value: uom_uom_49_440b0fa7
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -2976,7 +2976,7 @@ spec:
                   value: uom_uom_49_440b0fa7
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3069,7 +3069,7 @@ spec:
                   value: uom_uom_49_440b0fa7
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3162,7 +3162,7 @@ spec:
                   value: uom_uom_49_440b0fa7
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3255,7 +3255,7 @@ spec:
                   value: uom_uom_49_440b0fa7
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3350,7 +3350,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3445,7 +3445,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3540,7 +3540,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3635,7 +3635,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3728,7 +3728,7 @@ spec:
                   value: uom_uom_191_55730e52
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3821,7 +3821,7 @@ spec:
                   value: uom_uom_191_55730e52
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -3914,7 +3914,7 @@ spec:
                   value: uom_uom_191_55730e52
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4007,7 +4007,7 @@ spec:
                   value: uom_uom_191_55730e52
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4101,7 +4101,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4195,7 +4195,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4289,7 +4289,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4383,7 +4383,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4477,7 +4477,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4571,7 +4571,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4665,7 +4665,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4759,7 +4759,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4853,7 +4853,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -4947,7 +4947,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5041,7 +5041,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5135,7 +5135,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5229,7 +5229,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5323,7 +5323,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5417,7 +5417,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5511,7 +5511,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5605,7 +5605,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5699,7 +5699,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-openshift-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5793,7 +5793,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5887,7 +5887,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -5981,7 +5981,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -6075,7 +6075,7 @@ spec:
                   value: uom_uom_53_4a7e8f3e
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -6171,7 +6171,7 @@ spec:
                   value: uom_uom_191_55730e52
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -6267,7 +6267,7 @@ spec:
                   value: uom_uom_191_55730e52
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -6363,7 +6363,7 @@ spec:
                   value: uom_uom_191_55730e52
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
@@ -6459,7 +6459,7 @@ spec:
                   value: uom_uom_191_55730e52
                 - name: AR_ORG_ID
                   value: appuio-managed-kubernetes-services-billing
-              image: ghcr.io/appuio/appuio-reporting:v0.2.0
+              image: ghcr.io/appuio/appuio-reporting:v0.2.1
               name: backfill
               resources: {}
           initContainers: []
