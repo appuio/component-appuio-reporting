@@ -122,7 +122,8 @@ parameters:
             group by(cluster_id, sales_order) (
               appuio_managed_info{
                 cloud_provider="%(cloud_provider)s",
-                vshn_service_level="%(vshn_service_level)s"},
+                vshn_service_level="%(vshn_service_level)s",
+              }
             )[59m:1m]
           )
 
