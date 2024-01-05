@@ -37,80 +37,70 @@ parameters:
         enabled: true
         prometheus_org_id: appuio-managed-openshift-billing
         products:
-          # Old pricing model
-          - product_id: 'openshift-clusters-cloudscale-zero'
+         - product_id: 'openshift-cloudscale-cluster-premium'
             params:
-              vshn_service_level: zero
               cloud_provider: cloudscale
-          - product_id: 'openshift-clusters-cloudscale-standard'
+              vshn_service_level: premium
+          - product_id: 'openshift-cloudscale-cluster-professional'
             params:
-              vshn_service_level: standard
               cloud_provider: cloudscale
-          - product_id: 'openshift-clusters-cloudscale-professional'
-            params:
               vshn_service_level: professional
+          - product_id: 'openshift-cloudscale-cluster-standard'
+            params:
               cloud_provider: cloudscale
-          - product_id: 'openshift-clusters-cloudscale-premium'
+              vshn_service_level: standard
+          - product_id: 'openshift-cloudscale-cluster-zero'
             params:
-              vshn_service_level: premium
               cloud_provider: cloudscale
-          - product_id: 'openshift-clusters-exoscale-zero'
-            params:
               vshn_service_level: zero
-              cloud_provider: exoscale
-          - product_id: 'openshift-clusters-exoscale-standard'
+          - product_id: 'openshift-exoscale-cluster-premium'
             params:
-              vshn_service_level: standard
               cloud_provider: exoscale
-          - product_id: 'openshift-clusters-exoscale-professional'
-            params:
-              vshn_service_level: professional
-              cloud_provider: exoscale
-          - product_id: 'openshift-clusters-exoscale-premium'
-            params:
               vshn_service_level: premium
-              cloud_provider: exoscale
-          - product_id: 'openshift-clusters-vsphere-zero'
+          - product_id: 'openshift-exoscale-cluster-professional'
             params:
+              cloud_provider: exoscale
+              vshn_service_level: professional
+          - product_id: 'openshift-exoscale-cluster-standard'
+            params:
+              cloud_provider: exoscale
+              vshn_service_level: standard
+          - product_id: 'openshift-exoscale-cluster-zero'
+            params:
+              cloud_provider: exoscale
               vshn_service_level: zero
-              cloud_provider: vsphere
-          - product_id: 'openshift-clusters-vsphere-standard'
+          - product_id: 'openshift-onprem-cluster-premium'
             params:
-              vshn_service_level: standard
-              cloud_provider: vsphere
-          - product_id: 'openshift-clusters-vsphere-professional'
-            params:
-              vshn_service_level: professional
-              cloud_provider: vsphere
-          - product_id: 'openshift-clusters-vsphere-premium'
-            params:
+              cloud_provider: vsphere|none
               vshn_service_level: premium
-              cloud_provider: vsphere
-          - product_id: 'openshift-clusters-openstack-zero'
+          - product_id: 'openshift-onprem-cluster-professional'
             params:
+              cloud_provider: vsphere|none
+              vshn_service_level: professional
+          - product_id: 'openshift-onprem-cluster-standard'
+            params:
+              cloud_provider: vsphere|none
+              vshn_service_level: standard
+          - product_id: 'openshift-onprem-cluster-zero'
+            params:
+              cloud_provider: vsphere|none
               vshn_service_level: zero
-              cloud_provider: openstack
-          - product_id: 'openshift-clusters-openstack-standard'
+          - product_id: 'openshift-xelon-cluster-premium'
             params:
-              vshn_service_level: standard
-              cloud_provider: openstack
-          - product_id: 'openshift-clusters-openstack-professional'
-            params:
-              vshn_service_level: professional
-              cloud_provider: openstack
-          - product_id: 'openshift-clusters-openstack-premium'
-            params:
-              vshn_service_level: premium
-              cloud_provider: openstack
-          # Special cases
-          - product_id: 'openshift-clusters-vsphere-standard'
-            params:
-              vshn_service_level: standard
               cloud_provider: xelon
-          - product_id: 'openshift-clusters-vsphere-professional'
+              vshn_service_level: premium
+          - product_id: 'openshift-xelon-cluster-professional'
             params:
+              cloud_provider: xelon
               vshn_service_level: professional
-              cloud_provider: none
+          - product_id: 'openshift-xelon-cluster-standard'
+            params:
+              cloud_provider: xelon
+              vshn_service_level: standard
+          - product_id: 'openshift-xelon-cluster-zero'
+            params:
+              cloud_provider: xelon
+              vshn_service_level: zero
         instance_id_pattern: '%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
         unit_id: 'uom_uom_53_4a7e8f3e' #Cluster-Hour
@@ -121,7 +111,7 @@ parameters:
             # Use aggregation to drop labels of no interest.
             group by(cluster_id, sales_order) (
               appuio_managed_info{
-                cloud_provider="%(cloud_provider)s",
+                cloud_provider=~"%(cloud_provider)s",
                 vshn_service_level="%(vshn_service_level)s"},
             )[59m:1m]
           )
