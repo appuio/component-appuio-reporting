@@ -562,18 +562,18 @@ parameters:
         enabled: true
         prometheus_org_id: appuio-managed-kubernetes-services-billing
         products:
-          - product_id: kubernetes-hyperscaler-cluster-zero
-            params:
-              vshn_service_level: zero
-          - product_id: kubernetes-hyperscaler-cluster-standard
-            params:
-              vshn_service_level: standard
-          - product_id: kubernetes-hyperscaler-cluster-professional
-            params:
-              vshn_service_level: professional
-          - product_id: kubernetes-hyperscaler-cluster-premium
+          - product_id: 'kubernetes-hyperscaler-node-premium'
             params:
               vshn_service_level: premium
+          - product_id: 'kubernetes-hyperscaler-node-professional'
+            params:
+              vshn_service_level: professional
+          - product_id: 'kubernetes-hyperscaler-node-standard'
+            params:
+              vshn_service_level: standard
+          - product_id: 'kubernetes-hyperscaler-node-zero'
+            params:
+              vshn_service_level: zero
         instance_id_pattern: '%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
         unit_id: "uom_uom_191_55730e52" #Node-Hour
