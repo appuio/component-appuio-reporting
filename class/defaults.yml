@@ -408,18 +408,18 @@ parameters:
         enabled: true
         prometheus_org_id: appuio-managed-kubernetes-services-billing
         products:
-          - product_id: kubernetes-iaas-cluster-zero
-            params:
-              vshn_service_level: zero
-          - product_id: kubernetes-iaas-cluster-standard
-            params:
-              vshn_service_level: standard
-          - product_id: kubernetes-iaas-cluster-professional
-            params:
-              vshn_service_level: professional
-          - product_id: kubernetes-iaas-cluster-premium
+          - product_id: 'kubernetes-iaas-cluster-premium'
             params:
               vshn_service_level: premium
+          - product_id: 'kubernetes-iaas-cluster-professional'
+            params:
+              vshn_service_level: professional
+          - product_id: 'kubernetes-iaas-cluster-standard'
+            params:
+              vshn_service_level: standard
+          - product_id: 'kubernetes-iaas-cluster-zero'
+            params:
+              vshn_service_level: zero
         instance_id_pattern: '%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
         unit_id: "uom_uom_53_4a7e8f3e" #Cluster-Hour
