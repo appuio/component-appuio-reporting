@@ -120,121 +120,266 @@ parameters:
         enabled: true
         prometheus_org_id: appuio-managed-openshift-billing
         products:
-          # New pricing model
-          - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
+          - product_id: 'openshift-cloudscale-storagevcpu-besteffort'
             params:
-              vshn_service_level: best_effort
               cloud_provider: cloudscale
-          - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
+              role: storage
+              vshn_service_level: besteffort
+          - product_id: 'openshift-cloudscale-storagevcpu-guaranteed'
             params:
-              vshn_service_level: guaranteed_availability
               cloud_provider: cloudscale
-          - product_id: 'openshift-worker-vcpu-exoscale-besteffort'
+              role: storage
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-cloudscale-storagevcpu-premium'
             params:
-              vshn_service_level: best_effort
-              cloud_provider: exoscale
-          - product_id: 'openshift-worker-vcpu-exoscale-guaranteedavailability'
-            params:
-              vshn_service_level: guaranteed_availability
-              cloud_provider: exoscale
-          - product_id: 'openshift-worker-vcpu-vsphere-besteffort'
-            params:
-              vshn_service_level: best_effort
-              cloud_provider: vsphere
-          - product_id: 'openshift-worker-vcpu-vsphere-guaranteedavailability'
-            params:
-              vshn_service_level: guaranteed_availability
-              cloud_provider: vsphere
-          - product_id: 'openshift-worker-vcpu-openstack-besteffort'
-            params:
-              vshn_service_level: best_effort
-              cloud_provider: openstack
-          - product_id: 'openshift-worker-vcpu-openstack-guaranteedavailability'
-            params:
-              vshn_service_level: guaranteed_availability
-              cloud_provider: openstack
-          - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
-            params:
-              vshn_service_level: best_effort
               cloud_provider: cloudscale
-          - product_id: 'openshift-worker-vcpu-cloudscale-guaranteedavailability'
-            params:
-              vshn_service_level: guaranteed_availability
-              cloud_provider: cloudscale
-          # Old pricing model
-          - product_id: 'openshift-worker-vcpu-cloudscale-zero'
-            params:
-              vshn_service_level: zero
-              cloud_provider: cloudscale
-          - product_id: 'openshift-worker-vcpu-cloudscale-standard'
-            params:
-              vshn_service_level: standard
-              cloud_provider: cloudscale
-          - product_id: 'openshift-worker-vcpu-cloudscale-professional'
-            params:
-              vshn_service_level: professional
-              cloud_provider: cloudscale
-          - product_id: 'openshift-worker-vcpu-cloudscale-premium'
-            params:
+              role: storage
               vshn_service_level: premium
+          - product_id: 'openshift-cloudscale-storagevcpu-professional'
+            params:
               cloud_provider: cloudscale
-          - product_id: 'openshift-worker-vcpu-exoscale-zero'
-            params:
-              vshn_service_level: zero
-              cloud_provider: exoscale
-          - product_id: 'openshift-worker-vcpu-exoscale-standard'
-            params:
-              vshn_service_level: standard
-              cloud_provider: exoscale
-          - product_id: 'openshift-worker-vcpu-exoscale-professional'
-            params:
+              role: storage
               vshn_service_level: professional
-              cloud_provider: exoscale
-          - product_id: 'openshift-worker-vcpu-exoscale-premium'
+          - product_id: 'openshift-cloudscale-storagevcpu-standard'
             params:
-              vshn_service_level: premium
-              cloud_provider: exoscale
-          - product_id: 'openshift-worker-vcpu-vsphere-zero'
-            params:
-              vshn_service_level: zero
-              cloud_provider: vsphere
-          - product_id: 'openshift-worker-vcpu-vsphere-standard'
-            params:
+              cloud_provider: cloudscale
+              role: storage
               vshn_service_level: standard
-              cloud_provider: vsphere
-          - product_id: 'openshift-worker-vcpu-vsphere-professional'
+          - product_id: 'openshift-cloudscale-workervcpu-besteffort'
             params:
+              cloud_provider: cloudscale
+              role: app
+              vshn_service_level: besteffort
+          - product_id: 'openshift-cloudscale-workervcpu-guaranteed'
+            params:
+              cloud_provider: cloudscale
+              role: app
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-cloudscale-workervcpu-premium'
+            params:
+              cloud_provider: cloudscale
+              role: app
+              vshn_service_level: premium
+          - product_id: 'openshift-cloudscale-workervcpu-professional'
+            params:
+              cloud_provider: cloudscale
+              role: app
               vshn_service_level: professional
-              cloud_provider: vsphere
-          - product_id: 'openshift-worker-vcpu-vsphere-premium'
+          - product_id: 'openshift-cloudscale-workervcpu-standard'
             params:
-              vshn_service_level: premium
-              cloud_provider: vsphere
-          - product_id: 'openshift-worker-vcpu-openstack-zero'
+              cloud_provider: cloudscale
+              role: app
+              vshn_service_level: standard
+          - product_id: 'openshift-cloudscale-workervcpu-zero'
             params:
+              cloud_provider: cloudscale
+              role: app
               vshn_service_level: zero
-              cloud_provider: openstack
-          - product_id: 'openshift-worker-vcpu-openstack-standard'
+          - product_id: 'openshift-exoscale-storagevcpu-besteffort'
             params:
-              vshn_service_level: standard
-              cloud_provider: openstack
-          - product_id: 'openshift-worker-vcpu-openstack-professional'
+              cloud_provider: exoscale
+              role: storage
+              vshn_service_level: besteffort
+          - product_id: 'openshift-exoscale-storagevcpu-guaranteed'
             params:
-              vshn_service_level: professional
-              cloud_provider: openstack
-          - product_id: 'openshift-worker-vcpu-openstack-premium'
+              cloud_provider: exoscale
+              role: storage
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-exoscale-storagevcpu-premium'
             params:
+              cloud_provider: exoscale
+              role: storage
               vshn_service_level: premium
-              cloud_provider: openstack
-          # Special cases
-          - product_id: 'openshift-worker-vcpu-vsphere-standard'
+          - product_id: 'openshift-exoscale-storagevcpu-professional'
             params:
+              cloud_provider: exoscale
+              role: storage
+              vshn_service_level: professional
+          - product_id: 'openshift-exoscale-storagevcpu-standard'
+            params:
+              cloud_provider: exoscale
+              role: storage
               vshn_service_level: standard
+          - product_id: 'openshift-exoscale-workervcpu-besteffort'
+            params:
+              cloud_provider: exoscale
+              role: app
+              vshn_service_level: besteffort
+          - product_id: 'openshift-exoscale-workervcpu-guaranteed'
+            params:
+              cloud_provider: exoscale
+              role: app
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-exoscale-workervcpu-premium'
+            params:
+              cloud_provider: exoscale
+              role: app
+              vshn_service_level: premium
+          - product_id: 'openshift-exoscale-workervcpu-professional'
+            params:
+              cloud_provider: exoscale
+              role: app
+              vshn_service_level: professional
+          - product_id: 'openshift-exoscale-workervcpu-standard'
+            params:
+              cloud_provider: exoscale
+              role: app
+              vshn_service_level: standard
+          - product_id: 'openshift-exoscale-workervcpu-zero'
+            params:
+              cloud_provider: exoscale
+              role: app
+              vshn_service_level: zero
+          - product_id: 'openshift-openstackcsp-workervcpu-besteffort'
+            params:
+              cloud_provider: openstackcsp
+              role: app
+              vshn_service_level: besteffort
+          - product_id: 'openshift-openstackcsp-workervcpu-guaranteed'
+            params:
+              cloud_provider: openstackcsp
+              role: app
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-openstackcsp-workervcpu-premium'
+            params:
+              cloud_provider: openstackcsp
+              role: app
+              vshn_service_level: premium
+          - product_id: 'openshift-openstackcsp-workervcpu-professional'
+            params:
+              cloud_provider: openstackcsp
+              role: app
+              vshn_service_level: professional
+          - product_id: 'openshift-openstackcsp-workervcpu-standard'
+            params:
+              cloud_provider: openstackcsp
+              role: app
+              vshn_service_level: standard
+          - product_id: 'openshift-openstackcsp-workervcpu-zero'
+            params:
+              cloud_provider: openstackcsp
+              role: app
+              vshn_service_level: zero
+          - product_id: 'openshift-openstackonprem-workervcpu-besteffort'
+            params:
+              cloud_provider: openstack|openstackonprem
+              role: app
+              vshn_service_level: besteffort
+          - product_id: 'openshift-openstackonprem-workervcpu-guaranteed'
+            params:
+              cloud_provider: openstack|openstackonprem
+              role: app
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-openstackonprem-workervcpu-premium'
+            params:
+              cloud_provider: openstack|openstackonprem
+              role: app
+              vshn_service_level: premium
+          - product_id: 'openshift-openstackonprem-workervcpu-professional'
+            params:
+              cloud_provider: openstack|openstackonprem
+              role: app
+              vshn_service_level: professional
+          - product_id: 'openshift-openstackonprem-workervcpu-standard'
+            params:
+              cloud_provider: openstack|openstackonprem
+              role: app
+              vshn_service_level: standard
+          - product_id: 'openshift-openstackonprem-workervcpu-zero'
+            params:
+              cloud_provider: openstack|openstackonprem
+              role: app
+              vshn_service_level: zero
+          - product_id: 'openshift-vspherecsp-workervcpu-besteffort'
+            params:
+              cloud_provider: vspherecsp
+              role: app
+              vshn_service_level: besteffort
+          - product_id: 'openshift-vspherecsp-workervcpu-guaranteed'
+            params:
+              cloud_provider: vspherecsp
+              role: app
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-vspherecsp-workervcpu-premium'
+            params:
+              cloud_provider: vspherecsp
+              role: app
+              vshn_service_level: premium
+          - product_id: 'openshift-vspherecsp-workervcpu-professional'
+            params:
+              cloud_provider: vspherecsp
+              role: app
+              vshn_service_level: professional
+          - product_id: 'openshift-vspherecsp-workervcpu-standard'
+            params:
+              cloud_provider: vspherecsp
+              role: app
+              vshn_service_level: standard
+          - product_id: 'openshift-vspherecsp-workervcpu-zero'
+            params:
+              cloud_provider: vspherecsp
+              role: app
+              vshn_service_level: zero
+          - product_id: 'openshift-vsphereonprem-workervcpu-besteffort'
+            params:
+              cloud_provider: vsphere|vsphereonprem
+              role: app
+              vshn_service_level: besteffort
+          - product_id: 'openshift-vsphereonprem-workervcpu-guaranteed'
+            params:
+              cloud_provider: vsphere|vsphereonprem
+              role: app
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-vsphereonprem-workervcpu-premium'
+            params:
+              cloud_provider: vsphere|vsphereonprem
+              role: app
+              vshn_service_level: premium
+          - product_id: 'openshift-vsphereonprem-workervcpu-professional'
+            params:
+              cloud_provider: vsphere|vsphereonprem
+              role: app
+              vshn_service_level: professional
+          - product_id: 'openshift-vsphereonprem-workervcpu-standard'
+            params:
+              cloud_provider: vsphere|vsphereonprem
+              role: app
+              vshn_service_level: standard
+          - product_id: 'openshift-vsphereonprem-workervcpu-zero'
+            params:
+              cloud_provider: vsphere|vsphereonprem
+              role: app
+              vshn_service_level: zero
+          - product_id: 'openshift-xelon-workervcpu-besteffort'
+            params:
               cloud_provider: xelon
-          - product_id: 'openshift-worker-vcpu-vsphere-professional'
+              role: app
+              vshn_service_level: besteffort
+          - product_id: 'openshift-xelon-workervcpu-guaranteed'
             params:
+              cloud_provider: xelon
+              role: app
+              vshn_service_level: guaranteed
+          - product_id: 'openshift-xelon-workervcpu-premium'
+            params:
+              cloud_provider: xelon
+              role: app
+              vshn_service_level: premium
+          - product_id: 'openshift-xelon-workervcpu-professional'
+            params:
+              cloud_provider: xelon
+              role: app
               vshn_service_level: professional
-              cloud_provider: none
+          - product_id: 'openshift-xelon-workervcpu-standard'
+            params:
+              cloud_provider: xelon
+              role: app
+              vshn_service_level: standard
+          - product_id: 'openshift-xelon-workervcpu-zero'
+            params:
+              cloud_provider: xelon
+              role: app
+              vshn_service_level: zero
         instance_id_pattern: '%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
         unit_id: 'uom_uom_49_440b0fa7' #vCPU-Hour
@@ -249,13 +394,13 @@ parameters:
                 # Limit to worker nodes only
                 * on (cluster_id, instance) group_left() (
                     # node_cpu_info and kube_node_role use different labels to identify the node.
-                    label_join(kube_node_role{role=~"app|storage"}, "instance", "", "node")
+                    label_join(kube_node_role{role="%(role)s"}, "instance", "", "node")
                 )
             )[59m:1m]
           )
           # Pull in the APPUiO managed info labels
           * on(cluster_id) group_left(sales_order) appuio_managed_info{
-              cloud_provider="%(cloud_provider)s",
+              cloud_provider=~"%(cloud_provider)s",
               vshn_service_level="%(vshn_service_level)s",
           }
 
