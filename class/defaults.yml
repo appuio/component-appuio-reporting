@@ -475,8 +475,8 @@ parameters:
         products:
           - product_id: 'kubernetes-awseks-vcpu-besteffort'
             params:
-        distribution: eks
-        cloud_provider: aws
+              distribution: eks
+              cloud_provider: aws
               vshn_service_level: best_effort
           - product_id: 'kubernetes-awseks-vcpu-guaranteed'
             params:
