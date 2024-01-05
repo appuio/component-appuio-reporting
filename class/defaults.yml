@@ -124,12 +124,12 @@ parameters:
             params:
               cloud_provider: cloudscale
               role: storage
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-cloudscale-storagevcpu-guaranteed'
             params:
               cloud_provider: cloudscale
               role: storage
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-cloudscale-storagevcpu-premium'
             params:
               cloud_provider: cloudscale
@@ -149,12 +149,12 @@ parameters:
             params:
               cloud_provider: cloudscale
               role: app
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-cloudscale-workervcpu-guaranteed'
             params:
               cloud_provider: cloudscale
               role: app
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-cloudscale-workervcpu-premium'
             params:
               cloud_provider: cloudscale
@@ -179,12 +179,12 @@ parameters:
             params:
               cloud_provider: exoscale
               role: storage
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-exoscale-storagevcpu-guaranteed'
             params:
               cloud_provider: exoscale
               role: storage
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-exoscale-storagevcpu-premium'
             params:
               cloud_provider: exoscale
@@ -204,12 +204,12 @@ parameters:
             params:
               cloud_provider: exoscale
               role: app
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-exoscale-workervcpu-guaranteed'
             params:
               cloud_provider: exoscale
               role: app
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-exoscale-workervcpu-premium'
             params:
               cloud_provider: exoscale
@@ -234,12 +234,12 @@ parameters:
             params:
               cloud_provider: openstackcsp
               role: app
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-openstackcsp-workervcpu-guaranteed'
             params:
               cloud_provider: openstackcsp
               role: app
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-openstackcsp-workervcpu-premium'
             params:
               cloud_provider: openstackcsp
@@ -264,12 +264,12 @@ parameters:
             params:
               cloud_provider: openstack|openstackonprem
               role: app
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-openstackonprem-workervcpu-guaranteed'
             params:
               cloud_provider: openstack|openstackonprem
               role: app
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-openstackonprem-workervcpu-premium'
             params:
               cloud_provider: openstack|openstackonprem
@@ -294,12 +294,12 @@ parameters:
             params:
               cloud_provider: vspherecsp
               role: app
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-vspherecsp-workervcpu-guaranteed'
             params:
               cloud_provider: vspherecsp
               role: app
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-vspherecsp-workervcpu-premium'
             params:
               cloud_provider: vspherecsp
@@ -324,12 +324,12 @@ parameters:
             params:
               cloud_provider: vsphere|vsphereonprem
               role: app
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-vsphereonprem-workervcpu-guaranteed'
             params:
               cloud_provider: vsphere|vsphereonprem
               role: app
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-vsphereonprem-workervcpu-premium'
             params:
               cloud_provider: vsphere|vsphereonprem
@@ -354,12 +354,12 @@ parameters:
             params:
               cloud_provider: xelon
               role: app
-              vshn_service_level: besteffort
+              vshn_service_level: best_effort
           - product_id: 'openshift-xelon-workervcpu-guaranteed'
             params:
               cloud_provider: xelon
               role: app
-              vshn_service_level: guaranteed
+              vshn_service_level: guaranteed_availability
           - product_id: 'openshift-xelon-workervcpu-premium'
             params:
               cloud_provider: xelon
