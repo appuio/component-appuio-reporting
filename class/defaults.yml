@@ -472,49 +472,46 @@ parameters:
         enabled: true
         prometheus_org_id: appuio-managed-kubernetes-services-billing
         products:
-          - product_id: kubernetes-awseks-vcpu-besteffort
+          - product_id: 'kubernetes-awseks-vcpu-besteffort'
             params:
+	      distribution: eks
+	      cloud_provider: aws
               vshn_service_level: best_effort
-              cloud_provider: aws
-              distribution: eks
-          - product_id: kubernetes-awseks-vcpu-guaranteed
+          - product_id: 'kubernetes-awseks-vcpu-guaranteed'
             params:
+	      distribution: eks
+	      cloud_provider: aws
               vshn_service_level: guaranteed_availability
-              cloud_provider: aws
-              distribution: eks
-
-          - product_id: kubernetes-exoscalesks-vcpu-besteffort
+          - product_id: 'kubernetes-azureaks-vcpu-besteffort'
             params:
+	      distribution: aks
+	      cloud_provider: azure
               vshn_service_level: best_effort
-              cloud_provider: exoscale
-              distribution: sks
-          - product_id: kubernetes-exoscalesks-vcpu-guaranteed
+          - product_id: 'kubernetes-azureaks-vcpu-guaranteed'
             params:
+	      distribution: aks
+	      cloud_provider: azure
               vshn_service_level: guaranteed_availability
-              cloud_provider: exoscale
-              distribution: sks
-
-          - product_id: kubernetes-googlegke-vcpu-besteffort
+          - product_id: 'kubernetes-exoscalesks-vcpu-besteffort'
             params:
+	      distribution: sks
+	      cloud_provider: exoscale
               vshn_service_level: best_effort
-              cloud_provider: gcp
-              distribution: gke
-          - product_id: kubernetes-googlegke-vcpu-guaranteed
+          - product_id: 'kubernetes-exoscalesks-vcpu-guaranteed'
             params:
+	      distribution: sks
+	      cloud_provider: exoscale
               vshn_service_level: guaranteed_availability
-              cloud_provider: gcp
-              distribution: gke
-
-          - product_id: kubernetes-azureaks-vcpu-besteffort
+          - product_id: 'kubernetes-googlegke-vcpu-besteffort'
             params:
+	      distribution: gke
+	      cloud_provider: google
               vshn_service_level: best_effort
-              cloud_provider: azure
-              distribution: aks
-          - product_id: kubernetes-azureaks-vcpu-guaranteed
+          - product_id: 'kubernetes-googlegke-vcpu-guaranteed'
             params:
+	      distribution: gke
+	      cloud_provider: google
               vshn_service_level: guaranteed_availability
-              cloud_provider: azure
-              distribution: aks
         instance_id_pattern: '%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
         unit_id: "uom_uom_49_440b0fa7" #vCPU-Hour
