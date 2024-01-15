@@ -147,7 +147,7 @@ spec:
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
                     %(cluster_id)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
-                  value: uom_uom_180_8459f204
+                  value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
                   value: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
               image: ghcr.io/appuio/appuio-reporting:v0.2.1
@@ -318,7 +318,7 @@ spec:
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
                     %(cluster_id)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
-                  value: uom_uom_180_8459f204
+                  value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
                   value: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
               image: ghcr.io/appuio/appuio-reporting:v0.2.1
@@ -489,7 +489,7 @@ spec:
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
                     %(cluster_id)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
-                  value: uom_uom_180_8459f204
+                  value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
                   value: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
               image: ghcr.io/appuio/appuio-reporting:v0.2.1
@@ -765,7 +765,7 @@ spec:
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
                     %(cluster_id)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
-                  value: uom_uom_180_8459f204
+                  value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
                   value: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
               image: ghcr.io/appuio/appuio-reporting:v0.2.1
@@ -919,7 +919,7 @@ spec:
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
                     %(cluster_id)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
-                  value: uom_uom_180_8459f204
+                  value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
                   value: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
               image: ghcr.io/appuio/appuio-reporting:v0.2.1
@@ -1073,7 +1073,7 @@ spec:
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
                     %(cluster_id)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
-                  value: uom_uom_180_8459f204
+                  value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
                   value: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
               image: ghcr.io/appuio/appuio-reporting:v0.2.1
@@ -1227,7 +1227,7 @@ spec:
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
                     %(cluster_id)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
-                  value: uom_uom_180_8459f204
+                  value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
                   value: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
               image: ghcr.io/appuio/appuio-reporting:v0.2.1
@@ -1381,7 +1381,7 @@ spec:
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
                     %(cluster_id)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
-                  value: uom_uom_180_8459f204
+                  value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
                   value: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
               image: ghcr.io/appuio/appuio-reporting:v0.2.1

@@ -610,7 +610,7 @@ parameters:
               cpu_ratio: "5333057536" # 5086 MiB / core
         instance_id_pattern: '%(cluster_id)s-%(namespace)s'
         item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
-        unit_id: uom_uom_180_8459f204 # MiB - Minute
+        unit_id: uom_uom_196_8b86c0c5 # MiB - Minute
         query_pattern: |
           # Sum values over one hour.
           sum_over_time(
@@ -717,7 +717,7 @@ parameters:
               zone: c-appuio-exoscale-ch-gva-2-0
         instance_id_pattern: '%(cluster_id)s-%(namespace)s'
         item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
-        unit_id: uom_uom_180_8459f204 # MiB - Minute
+        unit_id: uom_uom_196_8b86c0c5 # MiB - Minute
         query_pattern: |
           # Sum values over one hour.
           sum_over_time(
