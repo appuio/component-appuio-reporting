@@ -790,7 +790,7 @@ parameters:
               zone: c-appuio-cloudscale-lpg-2
         instance_id_pattern: '%(cluster_id)s-%(namespace)s'
         item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
-        unit_id: uom_uom_66_24bffda7 # service-minutes
+        unit_id: uom_uom_44_6c2bd44e # instance-minutes
         query_pattern: |
           # Sum values over one hour.
           sum_over_time(
