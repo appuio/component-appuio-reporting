@@ -145,7 +145,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
@@ -307,7 +307,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
@@ -469,7 +469,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
@@ -582,7 +582,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_44_6c2bd44e
                 - name: AR_ORG_ID
@@ -729,7 +729,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
@@ -876,7 +876,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
@@ -1023,7 +1023,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
@@ -1170,7 +1170,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
@@ -1317,7 +1317,7 @@ spec:
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
-                    %(cluster_id)s / Namespace: %(namespace)s" % labels'
+                    %(name)s / Namespace: %(namespace)s" % labels'
                 - name: AR_UNIT_ID
                   value: uom_uom_196_8b86c0c5
                 - name: AR_ORG_ID
