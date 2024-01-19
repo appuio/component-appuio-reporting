@@ -32,6 +32,10 @@ parameters:
         client_id: null
         client_secret: null
 
+    cluster_id_to_name_map:
+      c-appuio-cloudscale-lpg-2: 'cloudscale.ch - LPG 2'
+      c-appuio-exoscale-ch-gva-2-0: 'Exoscale - CH-GVA-2 0'
+
     rules:
       legacy_appuio_managed_clusters:
         enabled: true
@@ -598,70 +602,228 @@ parameters:
               node_class: flex
               zone: c-appuio-cloudscale-lpg-2
               cpu_ratio: "4294967296" # 4096 MiB / core
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-cloudscale-lpg-2}
           - product_id: appuiocloud-compute-cloudscaleplus
             params:
               node_class: plus
               zone: c-appuio-cloudscale-lpg-2
               cpu_ratio: "4294967296" # 4096 MiB / core
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-cloudscale-lpg-2}
           - product_id: appuiocloud-compute-exoscalestandard
             params:
               node_class: ""
               zone: c-appuio-exoscale-ch-gva-2-0
               cpu_ratio: "5333057536" # 5086 MiB / core
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-exoscale-ch-gva-2-0}
         instance_id_pattern: 'appuio_cloud-compute-%(cluster_id)s-%(namespace)s'
-        item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
+        item_group_description_pattern: 'APPUiO Cloud - Zone: %(name)s / Namespace: %(namespace)s'
         unit_id: uom_uom_196_8b86c0c5 # MiB - Minute
         query_pattern: |
-          # Sum values over one hour.
-          sum_over_time(
-            # Average over a one-minute time frame.
-            # NOTE: This is a sliding window. Results vary based on the queries execution time.
-            avg_over_time(
-              clamp_min(
-                (
-                  # Get the maximum of requested and used memory.
-                  # TODO Is there a better way to get the maximum of two vectors?
+          label_replace(
+            # Sum values over one hour.
+            sum_over_time(
+              # Average over a one-minute time frame.
+              # NOTE: This is a sliding window. Results vary based on the queries execution time.
+              avg_over_time(
+                clamp_min(
                   (
-                    # Select used memory if higher.
+                    # Get the maximum of requested and used memory.
+                    # TODO Is there a better way to get the maximum of two vectors?
                     (
-                      sum by(cluster_id, namespace, label_appuio_io_node_class) (container_memory_working_set_bytes{image!="", cluster_id="%(zone)s"}
-                        * on(cluster_id, node) group_left(label_appuio_io_node_class) kube_node_labels{label_appuio_io_node_class="%(node_class)s"})
-                      # IMPORTANT: one clause must use equal. If used grater and lesser than, equal values will be dropped.
-                      >=
-                      sum by(cluster_id, namespace, label_appuio_io_node_class) (kube_pod_container_resource_requests{resource="memory", cluster_id="%(zone)s"}
-                        * on(uid, cluster_id, pod, namespace) group_left kube_pod_status_phase{phase="Running"}
-                        * on(cluster_id, node) group_left(label_appuio_io_node_class) (kube_node_labels{label_appuio_io_node_class="%(node_class)s"}))
+                      # Select used memory if higher.
+                      (
+                        sum by(cluster_id, namespace, label_appuio_io_node_class) (container_memory_working_set_bytes{image!="", cluster_id="%(zone)s"}
+                          * on(cluster_id, node) group_left(label_appuio_io_node_class) kube_node_labels{label_appuio_io_node_class="%(node_class)s"})
+                        # IMPORTANT: one clause must use equal. If used grater and lesser than, equal values will be dropped.
+                        >=
+                        sum by(cluster_id, namespace, label_appuio_io_node_class) (kube_pod_container_resource_requests{resource="memory", cluster_id="%(zone)s"}
+                          * on(uid, cluster_id, pod, namespace) group_left kube_pod_status_phase{phase="Running"}
+                          * on(cluster_id, node) group_left(label_appuio_io_node_class) (kube_node_labels{label_appuio_io_node_class="%(node_class)s"}))
+                      )
+                      or
+                      # Select reserved memory if higher.
+                      (
+                        # IMPORTANT: The desired time series must always be first.
+                        sum by(cluster_id, namespace, label_appuio_io_node_class) (kube_pod_container_resource_requests{resource="memory", cluster_id="%(zone)s"}
+                          * on(uid, cluster_id, pod, namespace) group_left kube_pod_status_phase{phase="Running"}
+                          * on(cluster_id, node) group_left(label_appuio_io_node_class) (kube_node_labels{label_appuio_io_node_class="%(node_class)s"}))
+                        >
+                        sum by(cluster_id, namespace, label_appuio_io_node_class) (container_memory_working_set_bytes{image!="", cluster_id="%(zone)s"}
+                          * on(cluster_id, node) group_left(label_appuio_io_node_class) kube_node_labels{label_appuio_io_node_class="%(node_class)s"})
+                      )
                     )
-                    or
-                    # Select reserved memory if higher.
-                    (
-                      # IMPORTANT: The desired time series must always be first.
-                      sum by(cluster_id, namespace, label_appuio_io_node_class) (kube_pod_container_resource_requests{resource="memory", cluster_id="%(zone)s"}
+                    # Add CPU requests in violation to the ratio provided by the platform.
+                    + clamp_min(
+                      # Convert CPU request to their memory equivalent.
+                      sum by(cluster_id, namespace, label_appuio_io_node_class) (
+                        kube_pod_container_resource_requests{resource="cpu", cluster_id="%(zone)s"} * on(uid, cluster_id, pod, namespace) group_left kube_pod_status_phase{phase="Running"}
+                          * on(cluster_id, node) group_left(label_appuio_io_node_class) kube_node_labels{label_appuio_io_node_class="%(node_class)s"}
+                        # CPU ratio depending on cluster
+                        * %(cpu_ratio)s
+                      )
+                      # Subtract memory request
+                      - sum by(cluster_id, namespace, label_appuio_io_node_class) (kube_pod_container_resource_requests{resource="memory", cluster_id="%(zone)s"}
                         * on(uid, cluster_id, pod, namespace) group_left kube_pod_status_phase{phase="Running"}
-                        * on(cluster_id, node) group_left(label_appuio_io_node_class) (kube_node_labels{label_appuio_io_node_class="%(node_class)s"}))
-                      >
-                      sum by(cluster_id, namespace, label_appuio_io_node_class) (container_memory_working_set_bytes{image!="", cluster_id="%(zone)s"}
                         * on(cluster_id, node) group_left(label_appuio_io_node_class) kube_node_labels{label_appuio_io_node_class="%(node_class)s"})
-                    )
+                    # Only values above zero are in violation.
+                    , 0)
                   )
-                  # Add CPU requests in violation to the ratio provided by the platform.
-                  + clamp_min(
-                    # Convert CPU request to their memory equivalent.
-                    sum by(cluster_id, namespace, label_appuio_io_node_class) (
-                      kube_pod_container_resource_requests{resource="cpu", cluster_id="%(zone)s"} * on(uid, cluster_id, pod, namespace) group_left kube_pod_status_phase{phase="Running"}
-                        * on(cluster_id, node) group_left(label_appuio_io_node_class) kube_node_labels{label_appuio_io_node_class="%(node_class)s"}
-                      # CPU ratio depending on cluster
-                      * %(cpu_ratio)s
+                  *
+                  # Join namespace label `label_appuio_io_organization` as `organization`.
+                  on(cluster_id, namespace)
+                  group_left(organization)
+                  (
+                    bottomk(1,
+                      min by (cluster_id, namespace, organization) (
+                        label_replace(
+                          kube_namespace_labels{label_appuio_io_organization=~".+"},
+                          "organization",
+                          "$1",
+                          "label_appuio_io_organization", "(.*)"
+                        )
+                      )
+                    ) by(cluster_id, namespace)
+                  )
+                  *
+                  # Join APPUiO organization info to get the `sales_order`
+                  on(organization)
+                  group_left(sales_order)
+                  (
+                    appuio_control_organization_info{namespace="appuio-control-api-production"}
+                  ),
+                  # At least return 128MiB
+                  128 * 1024 * 1024
+                )[45s:15s]
+              )[59m:1m]
+            )
+            # Convert to MiB
+            / 1024 / 1024
+          , "name", "%(name)s", "", "")
+
+      appuio_cloud_storage:
+        enabled: true
+        prometheus_org_id: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
+        products:
+          - product_id: appuiocloud-blockstorage-cloudscalebulk
+            params:
+              storage_class: bulk.*
+              zone: c-appuio-cloudscale-lpg-2
+              storage_type: block
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-cloudscale-lpg-2}
+          - product_id: appuiocloud-blockstorage-cloudscalessd
+            params:
+              storage_class: ssd.*
+              zone: c-appuio-cloudscale-lpg-2
+              storage_type: block
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-cloudscale-lpg-2}
+          - product_id: appuiocloud-filestorage-cloudscalessd
+            params:
+              storage_class: cephfs-fspool-cluster
+              zone: c-appuio-cloudscale-lpg-2
+              storage_type: file
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-cloudscale-lpg-2}
+          - product_id: appuiocloud-blockstorage-exoscalessd
+            params:
+              storage_class: ssd.*
+              zone: c-appuio-exoscale-ch-gva-2-0
+              storage_type: block
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-exoscale-ch-gva-2-0}
+          - product_id: appuiocloud-filestorage-exoscalessd
+            params:
+              storage_class: cephfs-fspool-cluster
+              zone: c-appuio-exoscale-ch-gva-2-0
+              storage_type: file
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-exoscale-ch-gva-2-0}
+        instance_id_pattern: 'appuio_cloud-%(storage_type)sstorage-%(cluster_id)s-%(namespace)s'
+        item_group_description_pattern: 'APPUiO Cloud - Zone: %(name)s / Namespace: %(namespace)s'
+        unit_id: uom_uom_196_8b86c0c5 # MiB - Minute
+        query_pattern: |
+          label_replace(
+            label_replace(
+              # Sum values over one hour.
+              sum_over_time(
+                clamp_min(
+                  sum by(cluster_id, organization, namespace, storageclass, sales_order)(
+                    # Get the PersistentVolume size
+                    kube_persistentvolume_capacity_bytes
+                    *
+                    # Join the PersistentVolumeClaim to get the namespace
+                    on (cluster_id,persistentvolume)
+                    group_left(namespace, name)
+                    label_replace(
+                      kube_persistentvolume_claim_ref,
+                      "namespace",
+                      "$1",
+                      "claim_namespace",
+                      "(.+)(-.*)?"
                     )
-                    # Subtract memory request
-                    - sum by(cluster_id, namespace, label_appuio_io_node_class) (kube_pod_container_resource_requests{resource="memory", cluster_id="%(zone)s"}
-                      * on(uid, cluster_id, pod, namespace) group_left kube_pod_status_phase{phase="Running"}
-                      * on(cluster_id, node) group_left(label_appuio_io_node_class) kube_node_labels{label_appuio_io_node_class="%(node_class)s"})
-                  # Only values above zero are in violation.
-                  , 0)
-                )
+                    *
+                    # Join the PersistentVolume info to get StorageClass
+                    on (cluster_id,persistentvolume)
+                    group_left(storageclass)
+                    # Do not differantiate between regular and encrypted storage class versions.
+                    min by (cluster_id, persistentvolume, storageclass) (
+                      label_replace(
+                        kube_persistentvolume_info{cluster_id="%(zone)s",storageclass=~"%(storage_class)s"},
+                        "storageclass",
+                        "$1",
+                        "storageclass",
+                        "([^-]+)-encrypted"
+                      )
+                    )
+                    *
+                    # Join the namespace label to get the tenant
+                    on(cluster_id,namespace)
+                    group_left(organization)
+                    (
+                      bottomk(1,
+                        min by (cluster_id, namespace, organization) (
+                          label_replace(
+                            kube_namespace_labels{label_appuio_io_organization=~".+"},
+                            "organization",
+                            "$1",
+                            "label_appuio_io_organization", "(.*)"
+                          )
+                        )
+                      ) by(cluster_id, namespace)
+                    )
+
+                    *
+                    # Join APPUiO organization info to get the `sales_order`
+                    on(organization)
+                    group_left(sales_order)
+                    (
+                      appuio_control_organization_info{namespace="appuio-control-api-production"}
+                    )
+                  ),
+                  1024 * 1024 * 1024
+                )[59m:1m]
+              )
+              # Convert to MiB
+              / 1024 / 1024
+            , "name", "%(name)s", "", "")
+          , "storage_type", "%(storage_type)s", "", "")
+
+      appuio_cloud_loadbalancer:
+        enabled: true
+        prometheus_org_id: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
+        products:
+          - product_id: appuiocloud-loadbalancer-cloudscale
+            params:
+              zone: c-appuio-cloudscale-lpg-2
+              name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-cloudscale-lpg-2}
+        instance_id_pattern: 'appuio_cloud-lb-%(cluster_id)s-%(namespace)s'
+        item_group_description_pattern: 'APPUiO Cloud - Zone: %(name)s / Namespace: %(namespace)s'
+        unit_id: uom_uom_44_6c2bd44e # instance-minutes
+        query_pattern: |
+          label_replace(
+            # Sum values over one hour.
+            sum_over_time(
+              (
+                # Get number of services of type load balancer
+                sum by(cluster_id, namespace) (kube_service_spec_type{type="LoadBalancer", cluster_id="%(zone)s"})
                 *
-                # Join namespace label `label_appuio_io_organization` as `organization`.
+                # Join the namespace label to get the tenant
                 on(cluster_id, namespace)
                 group_left(organization)
                 (
@@ -677,157 +839,14 @@ parameters:
                   ) by(cluster_id, namespace)
                 )
                 *
-                # Join APPUiO organization info to get the `sales_order`
-                on(organization)
-                group_left(sales_order)
-                (
-                  appuio_control_organization_info{namespace="appuio-control-api-production"}
-                ),
-                # At least return 128MiB
-                128 * 1024 * 1024
-              )[45s:15s]
-            )[59m:1m]
-          )
-          # Convert to MiB
-          / 1024 / 1024
-
-      appuio_cloud_storage:
-        enabled: true
-        prometheus_org_id: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
-        products:
-          - product_id: appuiocloud-blockstorage-cloudscalebulk
-            params:
-              storage_class: bulk.*
-              zone: c-appuio-cloudscale-lpg-2
-              storage_type: block
-          - product_id: appuiocloud-blockstorage-cloudscalessd
-            params:
-              storage_class: ssd.*
-              zone: c-appuio-cloudscale-lpg-2
-              storage_type: block
-          - product_id: appuiocloud-filestorage-cloudscalessd
-            params:
-              storage_class: cephfs-fspool-cluster
-              zone: c-appuio-cloudscale-lpg-2
-              storage_type: file
-          - product_id: appuiocloud-blockstorage-exoscalessd
-            params:
-              storage_class: ssd.*
-              zone: c-appuio-exoscale-ch-gva-2-0
-              storage_type: block
-          - product_id: appuiocloud-filestorage-exoscalessd
-            params:
-              storage_class: cephfs-fspool-cluster
-              zone: c-appuio-exoscale-ch-gva-2-0
-              storage_type: file
-        instance_id_pattern: 'appuio_cloud-%(storage_type)sstorage-%(cluster_id)s-%(namespace)s'
-        item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
-        unit_id: uom_uom_196_8b86c0c5 # MiB - Minute
-        query_pattern: |
-          label_replace(
-          # Sum values over one hour.
-          sum_over_time(
-            clamp_min(
-              sum by(cluster_id, organization, namespace, storageclass, sales_order)(
-                # Get the PersistentVolume size
-                kube_persistentvolume_capacity_bytes
-                *
-                # Join the PersistentVolumeClaim to get the namespace
-                on (cluster_id,persistentvolume)
-                group_left(namespace, name)
-                label_replace(
-                  kube_persistentvolume_claim_ref,
-                  "namespace",
-                  "$1",
-                  "claim_namespace",
-                  "(.+)(-.*)?"
-                )
-                *
-                # Join the PersistentVolume info to get StorageClass
-                on (cluster_id,persistentvolume)
-                group_left(storageclass)
-                # Do not differantiate between regular and encrypted storage class versions.
-                min by (cluster_id, persistentvolume, storageclass) (
-                  label_replace(
-                    kube_persistentvolume_info{cluster_id="%(zone)s",storageclass=~"%(storage_class)s"},
-                    "storageclass",
-                    "$1",
-                    "storageclass",
-                    "([^-]+)-encrypted"
-                  )
-                )
-                *
-                # Join the namespace label to get the tenant
-                on(cluster_id,namespace)
-                group_left(organization)
-                (
-                  bottomk(1,
-                    min by (cluster_id, namespace, organization) (
-                      label_replace(
-                        kube_namespace_labels{label_appuio_io_organization=~".+"},
-                        "organization",
-                        "$1",
-                        "label_appuio_io_organization", "(.*)"
-                      )
-                    )
-                  ) by(cluster_id, namespace)
-                )
-
-                *
-                # Join APPUiO organization info to get the `sales_order`
                 on(organization)
                 group_left(sales_order)
                 (
                   appuio_control_organization_info{namespace="appuio-control-api-production"}
                 )
-              ),
-              1024 * 1024 * 1024
-            )[59m:1m]
-          )
-          # Convert to MiB
-          / 1024 / 1024
-          , "storage_type", "%(storage_type)s", "", "")
-
-      appuio_cloud_loadbalancer:
-        enabled: true
-        prometheus_org_id: appuio-cloud-metering-c-appuio-cloudscale-lpg-2|appuio-cloud-metering-c-appuio-exoscale-ch-gva-2-0
-        products:
-          - product_id: appuiocloud-loadbalancer-cloudscale
-            params:
-              zone: c-appuio-cloudscale-lpg-2
-        instance_id_pattern: 'appuio_cloud-lb-%(cluster_id)s-%(namespace)s'
-        item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
-        unit_id: uom_uom_44_6c2bd44e # instance-minutes
-        query_pattern: |
-          # Sum values over one hour.
-          sum_over_time(
-            (
-              # Get number of services of type load balancer
-              sum by(cluster_id, namespace) (kube_service_spec_type{type="LoadBalancer", cluster_id="%(zone)s"})
-              *
-              # Join the namespace label to get the tenant
-              on(cluster_id, namespace)
-              group_left(organization)
-              (
-                bottomk(1,
-                  min by (cluster_id, namespace, organization) (
-                    label_replace(
-                      kube_namespace_labels{label_appuio_io_organization=~".+"},
-                      "organization",
-                      "$1",
-                      "label_appuio_io_organization", "(.*)"
-                    )
-                  )
-                ) by(cluster_id, namespace)
-              )
-              *
-              on(organization)
-              group_left(sales_order)
-              (
-                appuio_control_organization_info{namespace="appuio-control-api-production"}
-              )
-            )[59m:1m]
-          )
+              )[59m:1m]
+            )
+          , "name", "%(name)s", "", "")
     network_policies:
       target_namespaces: {}
 
