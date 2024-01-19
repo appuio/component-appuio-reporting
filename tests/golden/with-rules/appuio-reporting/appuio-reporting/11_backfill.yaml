@@ -661,6 +661,7 @@ spec:
                   value: appuiocloud-blockstorage-cloudscalebulk
                 - name: AR_QUERY
                   value: |
+                    label_replace(
                     # Sum values over one hour.
                     sum_over_time(
                       clamp_min(
@@ -722,8 +723,9 @@ spec:
                     )
                     # Convert to MiB
                     / 1024 / 1024
+                    , "storage_type", "block", "", "")
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "appuio_cloud-storage-%(cluster_id)s-%(namespace)s-%(storage_class)s"
+                  value: local labels = std.extVar("labels"); "appuio_cloud-%(storage_type)sstorage-%(cluster_id)s-%(namespace)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
@@ -806,6 +808,7 @@ spec:
                   value: appuiocloud-blockstorage-cloudscalessd
                 - name: AR_QUERY
                   value: |
+                    label_replace(
                     # Sum values over one hour.
                     sum_over_time(
                       clamp_min(
@@ -867,8 +870,9 @@ spec:
                     )
                     # Convert to MiB
                     / 1024 / 1024
+                    , "storage_type", "block", "", "")
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "appuio_cloud-storage-%(cluster_id)s-%(namespace)s-%(storage_class)s"
+                  value: local labels = std.extVar("labels"); "appuio_cloud-%(storage_type)sstorage-%(cluster_id)s-%(namespace)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
@@ -951,6 +955,7 @@ spec:
                   value: appuiocloud-filestorage-cloudscalessd
                 - name: AR_QUERY
                   value: |
+                    label_replace(
                     # Sum values over one hour.
                     sum_over_time(
                       clamp_min(
@@ -1012,8 +1017,9 @@ spec:
                     )
                     # Convert to MiB
                     / 1024 / 1024
+                    , "storage_type", "file", "", "")
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "appuio_cloud-storage-%(cluster_id)s-%(namespace)s-%(storage_class)s"
+                  value: local labels = std.extVar("labels"); "appuio_cloud-%(storage_type)sstorage-%(cluster_id)s-%(namespace)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
@@ -1096,6 +1102,7 @@ spec:
                   value: appuiocloud-blockstorage-exoscalessd
                 - name: AR_QUERY
                   value: |
+                    label_replace(
                     # Sum values over one hour.
                     sum_over_time(
                       clamp_min(
@@ -1157,8 +1164,9 @@ spec:
                     )
                     # Convert to MiB
                     / 1024 / 1024
+                    , "storage_type", "block", "", "")
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "appuio_cloud-storage-%(cluster_id)s-%(namespace)s-%(storage_class)s"
+                  value: local labels = std.extVar("labels"); "appuio_cloud-%(storage_type)sstorage-%(cluster_id)s-%(namespace)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
@@ -1241,6 +1249,7 @@ spec:
                   value: appuiocloud-filestorage-exoscalessd
                 - name: AR_QUERY
                   value: |
+                    label_replace(
                     # Sum values over one hour.
                     sum_over_time(
                       clamp_min(
@@ -1302,8 +1311,9 @@ spec:
                     )
                     # Convert to MiB
                     / 1024 / 1024
+                    , "storage_type", "file", "", "")
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "appuio_cloud-storage-%(cluster_id)s-%(namespace)s-%(storage_class)s"
+                  value: local labels = std.extVar("labels"); "appuio_cloud-%(storage_type)sstorage-%(cluster_id)s-%(namespace)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Cloud - Zone:
@@ -1768,7 +1778,7 @@ spec:
                         vshn_service_level="best_effort",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -1861,7 +1871,7 @@ spec:
                         vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -1954,7 +1964,7 @@ spec:
                         vshn_service_level="best_effort",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2047,7 +2057,7 @@ spec:
                         vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2140,7 +2150,7 @@ spec:
                         vshn_service_level="best_effort",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2233,7 +2243,7 @@ spec:
                         vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2326,7 +2336,7 @@ spec:
                         vshn_service_level="best_effort",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2419,7 +2429,7 @@ spec:
                         vshn_service_level="guaranteed_availability",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-vcpu-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2514,7 +2524,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2609,7 +2619,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2704,7 +2714,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2799,7 +2809,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2892,7 +2902,7 @@ spec:
                         vshn_service_level="premium",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-node-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-node-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -2985,7 +2995,7 @@ spec:
                         vshn_service_level="professional",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-node-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-node-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -3078,7 +3088,7 @@ spec:
                         vshn_service_level="standard",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-node-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-node-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -3171,7 +3181,7 @@ spec:
                         vshn_service_level="zero",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "cloud_k8s-node-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "cloud_k8s-node-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -3266,7 +3276,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -3361,7 +3371,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -3456,7 +3466,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -3551,7 +3561,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -3646,7 +3656,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -3741,7 +3751,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -3836,7 +3846,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -3931,7 +3941,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4026,7 +4036,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4121,7 +4131,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4216,7 +4226,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4311,7 +4321,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4406,7 +4416,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4501,7 +4511,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4596,7 +4606,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4691,7 +4701,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "ocp-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed OpenShift
@@ -4785,7 +4795,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "rke-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "rke-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -4879,7 +4889,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "rke-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "rke-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -4973,7 +4983,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "rke-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "rke-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -5067,7 +5077,7 @@ spec:
                       )[59m:1m]
                     )
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "rke-cluster-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "rke-cluster-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -5163,7 +5173,7 @@ spec:
                       vshn_service_level="premium",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "rke-node-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "rke-node-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -5259,7 +5269,7 @@ spec:
                       vshn_service_level="professional",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "rke-node-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "rke-node-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -5355,7 +5365,7 @@ spec:
                       vshn_service_level="standard",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "rke-node-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "rke-node-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
@@ -5451,7 +5461,7 @@ spec:
                       vshn_service_level="zero",
                     }
                 - name: AR_INSTANCE_JSONNET
-                  value: local labels = std.extVar("labels"); "rke-node-%(cluster_id)s-%(vshn_service_level)s"
+                  value: local labels = std.extVar("labels"); "rke-node-%(cluster_id)s"
                     % labels
                 - name: AR_ITEM_GROUP_DESCRIPTION_JSONNET
                   value: 'local labels = std.extVar("labels"); "APPUiO Managed - Cluster:
