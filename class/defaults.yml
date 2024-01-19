@@ -101,7 +101,7 @@ parameters:
             params:
               cloud_provider: xelon
               vshn_service_level: zero
-        instance_id_pattern: '%(cluster_id)s'
+        instance_id_pattern: 'ocp-cluster-%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
         unit_id: 'uom_uom_53_4a7e8f3e' #Cluster-Hour
         query_pattern: |
@@ -381,7 +381,7 @@ parameters:
               cloud_provider: xelon
               role: app
               vshn_service_level: zero
-        instance_id_pattern: '%(cluster_id)s'
+        instance_id_pattern: 'ocp-vcpu-%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
         unit_id: 'uom_uom_49_440b0fa7' #vCPU-Hour
         query_pattern: |
@@ -421,7 +421,7 @@ parameters:
           - product_id: 'kubernetes-iaas-cluster-zero'
             params:
               vshn_service_level: zero
-        instance_id_pattern: '%(cluster_id)s'
+        instance_id_pattern: 'rke-cluster-%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
         unit_id: "uom_uom_53_4a7e8f3e" #Cluster-Hour
         query_pattern: |
@@ -452,7 +452,7 @@ parameters:
           - product_id: 'kubernetes-iaas-node-zero'
             params:
               vshn_service_level: zero
-        instance_id_pattern: '%(cluster_id)s'
+        instance_id_pattern: 'rke-node-%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
         unit_id: "uom_uom_191_55730e52" #Node-Hour
         query_pattern: |
@@ -513,7 +513,7 @@ parameters:
               distribution: gke
               cloud_provider: google
               vshn_service_level: guaranteed_availability
-        instance_id_pattern: '%(cluster_id)s'
+        instance_id_pattern: 'cloud_k8s-vcpu-%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
         unit_id: "uom_uom_49_440b0fa7" #vCPU-Hour
         query_pattern: |
@@ -543,7 +543,7 @@ parameters:
           - product_id: 'kubernetes-hyperscaler-cluster-zero'
             params:
               vshn_service_level: zero
-        instance_id_pattern: '%(cluster_id)s'
+        instance_id_pattern: 'cloud_k8s-cluster-%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
         unit_id: "uom_uom_53_4a7e8f3e" #Cluster-Hour
         query_pattern: |
@@ -575,7 +575,7 @@ parameters:
           - product_id: 'kubernetes-hyperscaler-node-zero'
             params:
               vshn_service_level: zero
-        instance_id_pattern: '%(cluster_id)s'
+        instance_id_pattern: 'cloud_k8s-node-%(cluster_id)s'
         item_group_description_pattern: 'APPUiO Managed - Cluster: %(cluster_id)s' # TODO
         unit_id: "uom_uom_191_55730e52" #Node-Hour
         query_pattern: |
@@ -608,7 +608,7 @@ parameters:
               node_class: ""
               zone: c-appuio-exoscale-ch-gva-2-0
               cpu_ratio: "5333057536" # 5086 MiB / core
-        instance_id_pattern: '%(cluster_id)s-%(namespace)s'
+        instance_id_pattern: 'appuio_cloud-compute-%(cluster_id)s-%(namespace)s'
         item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
         unit_id: uom_uom_196_8b86c0c5 # MiB - Minute
         query_pattern: |
@@ -699,26 +699,32 @@ parameters:
             params:
               storage_class: bulk.*
               zone: c-appuio-cloudscale-lpg-2
+              storage_type: block
           - product_id: appuiocloud-blockstorage-cloudscalessd
             params:
               storage_class: ssd.*
               zone: c-appuio-cloudscale-lpg-2
+              storage_type: block
           - product_id: appuiocloud-filestorage-cloudscalessd
             params:
               storage_class: cephfs-fspool-cluster
               zone: c-appuio-cloudscale-lpg-2
+              storage_type: file
           - product_id: appuiocloud-blockstorage-exoscalessd
             params:
               storage_class: ssd.*
               zone: c-appuio-exoscale-ch-gva-2-0
+              storage_type: block
           - product_id: appuiocloud-filestorage-exoscalessd
             params:
               storage_class: cephfs-fspool-cluster
               zone: c-appuio-exoscale-ch-gva-2-0
-        instance_id_pattern: '%(cluster_id)s-%(namespace)s'
+              storage_type: file
+        instance_id_pattern: 'appuio_cloud-%(storage_type)sstorage-%(cluster_id)s-%(namespace)s'
         item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
         unit_id: uom_uom_196_8b86c0c5 # MiB - Minute
         query_pattern: |
+          label_replace(
           # Sum values over one hour.
           sum_over_time(
             clamp_min(
@@ -780,6 +786,7 @@ parameters:
           )
           # Convert to MiB
           / 1024 / 1024
+          , "storage_type", "%(storage_type)s", "", "")
 
       appuio_cloud_loadbalancer:
         enabled: true
@@ -788,7 +795,7 @@ parameters:
           - product_id: appuiocloud-loadbalancer-cloudscale
             params:
               zone: c-appuio-cloudscale-lpg-2
-        instance_id_pattern: '%(cluster_id)s-%(namespace)s'
+        instance_id_pattern: 'appuio_cloud-lb-%(cluster_id)s-%(namespace)s'
         item_group_description_pattern: 'APPUiO Cloud - Zone: %(cluster_id)s / Namespace: %(namespace)s'
         unit_id: uom_uom_44_6c2bd44e # instance-minutes
         query_pattern: |
