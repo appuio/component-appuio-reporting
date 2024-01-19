@@ -172,6 +172,24 @@ example::
 +
 [source,yaml]
 ----
+cluster_id_to_name_map:
+  c-cluster1: "My Cluster"
+  c-other-cluster: "My Other Cluster"
+----
+
+A dictionary mapping cluster IDs to a more human friendly name.
+Use this within rules by referencing it like `${appuio_reporting:cluster_d_to_name_map:c-cluster1}`.
+
+
+== `rules`
+
+[horizontal]
+type:: dictionary
+default:: https://github.com/appuio/component-appuio-reporting/blob/master/class/defaults.yml[See `class/defaults.yml`].
+example::
++
+[source,yaml]
+----
 rule_appuio_managed_vcpu: <1>
   enabled: true
   products: <2>
