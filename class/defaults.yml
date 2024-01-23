@@ -385,7 +385,7 @@ parameters:
               cloud_provider: xelon
               role: app
               vshn_service_level: zero
-        instance_id_pattern: 'ocp-vcpu-%(cluster_id)s'
+        instance_id_pattern: 'ocp-vcpu-%(cluster_id)s-%(role)s'
         item_group_description_pattern: 'APPUiO Managed OpenShift - Cluster: %(cluster_id)s'
         unit_id: 'uom_uom_49_440b0fa7' #vCPU-Hour
         query_pattern: |
@@ -393,11 +393,11 @@ parameters:
           # Max values over one hour.
           max_over_time(
             # Sum the vCPUs by cluster
-            sum by(cluster_id) (
+            sum by(cluster_id, role) (
                 # Get the node vCPUs
                 node_cpu_info
                 # Limit to worker nodes only
-                * on (cluster_id, instance) group_left() (
+                * on (cluster_id, instance) group_left(role) (
                     # node_cpu_info and kube_node_role use different labels to identify the node.
                     label_join(kube_node_role{role="%(role)s"}, "instance", "", "node")
                 )
