@@ -1,6 +1,7 @@
 // main template for appuio-reporting
 local alerts = import 'alerts.libsonnet';
 local common = import 'common.libsonnet';
+local com = import 'lib/commodore.libjsonnet';
 local kap = import 'lib/kapitan.libjsonnet';
 local kube = import 'lib/kube.libjsonnet';
 local netPol = import 'networkpolicies.libsonnet';
@@ -190,10 +191,8 @@ local backfillCJ = function(rule, product, index)
 {
   '00_namespace': kube.Namespace(params.namespace) {
     metadata+: {
-      labels+: common.Labels {
-        'openshift.io/cluster-monitoring': 'true',
-      },
-    },
+      labels+: common.Labels,
+    } + com.makeMergeable(params.namespaceMetadata),
   },
   '01_netpol': netPol.Policies,
   '10_prom_secret': promURLSecret,
