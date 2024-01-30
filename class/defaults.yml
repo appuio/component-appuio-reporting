@@ -3,6 +3,9 @@ parameters:
     =_metadata:
       multi_instance: true
     namespace: ${_instance}
+    namespaceMetadata:
+      labels:
+        openshift.io/cluster-monitoring: 'true'
 
     images:
       reporting:
