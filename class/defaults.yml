@@ -13,9 +13,6 @@ parameters:
         repository: appuio/appuio-reporting
         tag: v0.2.1
 
-    schedules:
-      backfill: '15 * * * *'
-
     schedules_suspend:
       backfill: false
 

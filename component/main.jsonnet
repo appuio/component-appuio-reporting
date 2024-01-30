@@ -183,9 +183,9 @@ local backfillCJ = function(rule, product, index)
       },
       // Keeping infinite jobs is not possible. Keep at least one month worth of jobs.
       failedJobsHistoryLimit: 24 * 32,
+      schedule: '%s * * * *' % (index % 41 + 10),  // spread out the jobs over the hour, from 10 to 50 minutes
     },
   };
-
 
 // Define outputs below
 {

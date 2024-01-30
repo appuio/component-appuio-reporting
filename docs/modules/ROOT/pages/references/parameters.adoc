@@ -11,6 +11,22 @@ default:: `${_instance}`
 The namespace in which to deploy this component.
 
 
+== `namespaceMetadata`
+
+[horizontal]
+type:: dictionary
+default::
++
+[source,yaml]
+----
+namespaceMetadata:
+  labels:
+    openshift.io/cluster-monitoring: 'true'
+----
+
+The namespace metadata to apply to the namespace created by this component.
+
+
 == `images`
 
 [horizontal]
@@ -27,20 +43,6 @@ type:: dictionary
 
 The image used for managing data in the reporting database.
 
-
-
-== `schedules`
-
-[horizontal]
-type:: dictionary
-default::
-+
-[source,yaml]
-----
-backfill: '15 * * * *'
-----
-
-Dictionary managing the schedules of the periodic jobs (implemented as Kubernetes CronJobs).
 
 == `development_mode`
 
@@ -239,6 +241,7 @@ The jsonnet parameter takes precedence over the pattern parameter if both are sp
 
 Note that there is no jsonnet variant for the `query_pattern` parameter.
 
+CronJobs are spread across the hour to allow for a more even load on the cluster and Prometheus.
 
 
 == `network_policies.target_namespaces`
