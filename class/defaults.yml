@@ -11,7 +11,7 @@ parameters:
       reporting:
         registry: ghcr.io
         repository: appuio/appuio-reporting
-        tag: v0.2.1
+        tag: v0.2.2
 
     schedules_suspend:
       backfill: false
