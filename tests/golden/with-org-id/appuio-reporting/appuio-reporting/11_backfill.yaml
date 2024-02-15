@@ -1142,7 +1142,7 @@ spec:
                               # Do not differantiate between regular and encrypted storage class versions.
                               min by (cluster_id, persistentvolume, storageclass) (
                                 label_replace(
-                                  kube_persistentvolume_info{cluster_id="c-appuio-exoscale-ch-gva-2-0",storageclass=~"ssd.*|rbd-storagepool-cluster"},
+                                  kube_persistentvolume_info{cluster_id="c-appuio-exoscale-ch-gva-2-0",storageclass=~"rbd-storagepool-cluster"},
                                   "storageclass",
                                   "$1",
                                   "storageclass",
