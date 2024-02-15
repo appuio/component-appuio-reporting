@@ -724,7 +724,7 @@ parameters:
               name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-cloudscale-lpg-2}
           - product_id: appuiocloud-blockstorage-exoscalessd
             params:
-              storage_class: ssd.*
+              storage_class: rbd-storagepool-cluster
               zone: c-appuio-exoscale-ch-gva-2-0
               storage_type: block
               name: ${appuio_reporting:cluster_id_to_name_map:c-appuio-exoscale-ch-gva-2-0}
