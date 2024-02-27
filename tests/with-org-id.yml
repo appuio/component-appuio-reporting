@@ -22,6 +22,7 @@ parameters:
 
     rules:
       appuio_managed_vcpu:
+        enabled: true
         prometheus_org_id: foo-org
         products:
           - product_id: 'openshift-worker-vcpu-cloudscale-besteffort'
