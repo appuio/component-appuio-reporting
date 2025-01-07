@@ -2,6 +2,7 @@ parameters:
   appuio_reporting:
     =_metadata:
       multi_instance: true
+      multi_tenant: true
     namespace: ${_instance}
     namespaceMetadata:
       labels:

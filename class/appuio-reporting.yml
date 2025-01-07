@@ -4,7 +4,7 @@ parameters:
       - input_paths:
           - appuio-reporting/component/app.jsonnet
         input_type: jsonnet
-        output_path: apps/
+        output_path: .
       - input_paths:
           - appuio-reporting/component/main.jsonnet
         input_type: jsonnet
