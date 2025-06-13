@@ -94,7 +94,10 @@ else
   params.override_sales_order_id;
 
 local backfillCJ = function(rule, product, index)
-  local query = rule.query_pattern % product.params;
+  local query = if std.objectHas(product, 'params') then
+    rule.query_pattern % product.params
+  else
+    rule.query_pattern;
 
   local itemDescJsonnet = if std.objectHas(rule, 'item_description_jsonnet') then
     rule.item_description_jsonnet
