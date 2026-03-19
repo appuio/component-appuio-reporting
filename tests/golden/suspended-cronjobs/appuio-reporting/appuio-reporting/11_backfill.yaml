@@ -72,7 +72,7 @@ spec:
                     % labels
                 - name: AR_UNIT_ID
                   value: '300'
-              image: ghcr.io/appuio/appuio-reporting:v0.2.2
+              image: ghcr.io/appuio/appuio-reporting:v0.2.3
               name: backfill
               resources: {}
           initContainers: []
