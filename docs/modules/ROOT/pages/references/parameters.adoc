@@ -219,7 +219,7 @@ rule_appuio_managed_vcpu: <1>
 <1> Multiple rules can be defined in the dictionary, with the rule name serving as key.
 <2> All products whose corresponding queries can be generated from this rule should be listed here.
 <3> Odoo ID of the product for which usage is being queried.
-<4> Dictionary of arbitrary parameters describing the product. These will be applied to the `query_pattern`.
+<4> (Optional) Dictionary of arbitrary parameters describing the product. These will be applied to the `query_pattern`.
 <5> The labels of the query result are applied to this pattern to generate the instance ID.
 <6> (Optional) The labels of the query result are applied to this pattern to generate the human readable item description.
 <7> (Optional) The labels of the query result are applied to this pattern to generate the human readable item group description.
